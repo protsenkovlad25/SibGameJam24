@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            if (GravityDirection.GravityDir == GravityDir.Up || GravityDirection.GravityDir == GravityDir.Down)
+            if (Gravity.GravityDir == GravityDir.Up || Gravity.GravityDir == GravityDir.Down)
             {
                 m_MoveDir = new Vector2(-1, 0);
             }
@@ -23,7 +23,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.D))
         {
-            if (GravityDirection.GravityDir == GravityDir.Up || GravityDirection.GravityDir == GravityDir.Down)
+            if (Gravity.GravityDir == GravityDir.Up || Gravity.GravityDir == GravityDir.Down)
             {
                 m_MoveDir = new Vector2(1, 0);
             }
@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            if (GravityDirection.GravityDir == GravityDir.Left || GravityDirection.GravityDir == GravityDir.Right)
+            if (Gravity.GravityDir == GravityDir.Left || Gravity.GravityDir == GravityDir.Right)
             {
                 m_MoveDir = new Vector2(0, 1);
             }
@@ -39,7 +39,7 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKey(KeyCode.S))
         {
-            if (GravityDirection.GravityDir == GravityDir.Left || GravityDirection.GravityDir == GravityDir.Right)
+            if (Gravity.GravityDir == GravityDir.Left || Gravity.GravityDir == GravityDir.Right)
             {
                 m_MoveDir = new Vector2(0, -1);
             }
@@ -47,12 +47,12 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            GravityDirection.TurnLeft();
+            Gravity.TurnLeft();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GravityDirection.TurnRight();
+            Gravity.TurnRight();
         }
 
         OnMove?.Invoke(m_MoveDir);
