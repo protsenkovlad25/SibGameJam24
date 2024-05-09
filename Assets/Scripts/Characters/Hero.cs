@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class Hero : MonoBehaviour
@@ -33,6 +34,20 @@ public class Hero : MonoBehaviour
     private void GravityChanged(Vector2 dir)
     {
         m_FallSpeed = m_MaxFallSpeed / 2;
+        LookAt(Gravity.NewDir, 1f / Gravity.TurnSpeed);
+    }
+    void LookAt(Vector2 dir, float time)
+    {
+        Debug.Log("Rotate");
+        Vector3 startRot = transform.eulerAngles;
+        transform.LookAt(transform.position + (Vector3)dir);
+
+        Vector3 targetRot = transform.eulerAngles;
+
+        Debug.Log("Rotate from " + startRot + " to "+ targetRot);
+
+        transform.eulerAngles = startRot;
+        transform.DORotate(new Vector3(0,0, targetRot.y), time);
     }
 
     private void GravityChangeEnd()
