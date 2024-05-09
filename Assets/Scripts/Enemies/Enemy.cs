@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour, ITakenDamage
 {
 	[SerializeField]
-	private SpriteRenderer	_view;
+	private SpriteRenderer  _view;
 	[SerializeField]
-	private ParticleSystem	_particles;
+	private ParticleSystem  _particles;
 
 	[SerializeField]
-	private int				_hP			= 1;
+	private int             _hP         = 1;
 
 	private Camera          _mainCamera;
 	protected bool          _isActive;
@@ -44,5 +44,27 @@ public abstract class Enemy : MonoBehaviour
 	{
 		_view.sprite = sprite;
 		_view.color = color;
+	}
+
+	public void TakeDamage()
+	{
+		RemoveHP(1);
+	}
+
+	private void RemoveHP(int value)
+	{
+		_hP -= value;
+		if (_hP <= 0)
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.GetComponent<ITakenDamage>() is ITakenDamage gamagable)
+		{
+			gamagable.TakeDamage();
+		}
 	}
 }
