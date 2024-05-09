@@ -12,6 +12,29 @@ public abstract class Enemy : MonoBehaviour
 	[SerializeField]
 	private int				_hP			= 1;
 
+	private Camera          _mainCamera;
+	protected bool          _isActive;
+
+	private void Awake()
+	{
+		_mainCamera = Camera.main;
+	}
+
+	public void Update()
+	{
+		if (_mainCamera != null)
+		{
+			if (_view != null && _view.isVisible)
+			{
+				Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
+
+				Bounds bounds = _view.bounds;
+
+				_isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+			}
+		}
+	}
+
 	public virtual SpriteRenderer GetView()
 	{
 		return _view;

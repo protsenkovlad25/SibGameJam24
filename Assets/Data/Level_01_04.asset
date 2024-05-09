@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StaticEnemyPrefab: {fileID: 330483950547863099, guid: 88fead6d6b8908947b82ba2f0462f771, type: 3}
   PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: 98a271143f539b84ead3af9145e24b03, type: 3}
+  SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: 25f6aeac10cf1484b826822869e20fc7, type: 3}

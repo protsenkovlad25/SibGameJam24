@@ -9,31 +9,12 @@ public class PursuingEnemy : Enemy
 	[SerializeField]
 	private SpriteRenderer	_spriteRenderer;
 	[SerializeField]
-	public float			_speed				= 5f;
+	private float            _speed               = 5f;
 
-	private Camera			_mainCamera;
 	private Transform		_target;
-	private bool			_isActive;
 
-	private void Awake()
-	{
-		_mainCamera = Camera.main;
-	}
-
-	public void Update()
-	{
-		if (_mainCamera != null)
-		{
-			if (_spriteRenderer != null && _spriteRenderer.isVisible)
-			{
-				Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
-
-				Bounds bounds = _spriteRenderer.bounds;
-
-				_isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
-			}
-		}
-	}
+	public Transform Target { get => _target; set => _target =  value ; }
+	public float Speed { get => _speed; set => _speed =  value ; }
 
 	public void FixedUpdate()
 	{
@@ -45,10 +26,5 @@ public class PursuingEnemy : Enemy
 
 			_rigidbody2D.velocity = direction * _speed;
 		}
-	}
-
-	public void SetTarget(Transform target)
-	{
-		_target = target;
 	}
 }
