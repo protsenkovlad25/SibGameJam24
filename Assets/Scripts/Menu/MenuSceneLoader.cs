@@ -20,6 +20,6 @@ public class MenuSceneLoader : SceneLoader
 
 	private void OnPlayButtonClick()
 	{
-		LoadLevel(1 + Random.Range(0, 5));
+		LoadLevel(1 + Random.Range(0, _sceneVariants));
 	}
 }

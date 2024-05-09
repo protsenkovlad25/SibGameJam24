@@ -20,7 +20,7 @@ public abstract class Enemy : MonoBehaviour
 		_mainCamera = Camera.main;
 	}
 
-	public void Update()
+	public virtual void Update()
 	{
 		if (_mainCamera != null)
 		{
