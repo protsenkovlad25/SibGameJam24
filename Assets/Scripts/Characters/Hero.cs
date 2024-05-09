@@ -1,14 +1,14 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class Hero : MonoBehaviour
+public class Hero : MonoBehaviour, ITakenDamage
 {
     [SerializeField] private float m_MaxFallSpeed;
     [SerializeField] private float m_SpeedIncreaseTime;
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_GravityChangeCD;
 
-    [SerializeField] private int m_Health;
+    private int m_Health = 3;
 
     private float m_FallSpeed;
     private float m_Time;
@@ -73,26 +73,27 @@ public class Hero : MonoBehaviour
             m_Time += Time.deltaTime;
             m_FallSpeed += m_MaxFallSpeed / m_SpeedIncreaseTime * Time.deltaTime;
         }
-    }
-
-    public void TakeDamage()
-    {
-
-    }   
+    } 
 
     private void FrontTriggered()
     {
         TakeDamage();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
+            takenDamage.TakeDamage();
     }
 
     private void Update()
     {
         IncreaseSpeed();
         Fall();
+    }
+
+    public void TakeDamage()
+    {
+        m_Health -= 1;
     }
 }
