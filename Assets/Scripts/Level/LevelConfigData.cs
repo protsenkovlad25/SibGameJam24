@@ -8,4 +8,5 @@ public class LevelConfigData : ScriptableObject
 	public StaticEnemy		StaticEnemyPrefab;
 	public PursuingEnemy	PursuingEnemyPrefab;
 	public SinusoidEnemy	SinusoidEnemyPrefab;
+	public ShootingEnemy	ShootingEnemyPrefab;
 }

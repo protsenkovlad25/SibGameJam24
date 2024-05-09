@@ -7,12 +7,14 @@ public class EnemyContainer : MonoBehaviour
 	private StaticEnemy[]		_staticEnemies;
 	private PursuingEnemy[]		_pursuingEnemies;
 	private SinusoidEnemy[]		_sinusoidEnemies;
+	private ShootingEnemy[]		_shootingEnemies;
 
 	public void GetBaseEnemies()
 	{
 		_staticEnemies = GetComponentsInChildren<StaticEnemy>();
 		_pursuingEnemies = GetComponentsInChildren<PursuingEnemy>();
 		_sinusoidEnemies = GetComponentsInChildren<SinusoidEnemy>();
+		_shootingEnemies = GetComponentsInChildren<ShootingEnemy>();
 	}
 
 	public void SetEnemies(LevelConfigData levelConfigData, Transform playerTransform)
@@ -36,6 +38,13 @@ public class EnemyContainer : MonoBehaviour
 			SinusoidEnemy prefab = levelConfigData.SinusoidEnemyPrefab;
 			enemy.SetView(prefab.GetView().sprite, prefab.GetView().color);
 			enemy.Parameters = prefab.Parameters;
+		}
+
+		foreach (ShootingEnemy enemy in _shootingEnemies)
+		{
+			ShootingEnemy prefab = levelConfigData.ShootingEnemyPrefab;
+			enemy.SetView(prefab.GetView().sprite, prefab.GetView().color);
+			enemy.Target = playerTransform;
 		}
 	}
 }

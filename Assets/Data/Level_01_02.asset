@@ -15,3 +15,4 @@ MonoBehaviour:
   StaticEnemyPrefab: {fileID: 330483950547863099, guid: dd6bff2570b43c141b4495760df9d683, type: 3}
   PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: c8a38298aef914e48b9d32146189990b, type: 3}
   SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: fa810bdf91a30cc41bc4f98c8cd4e836, type: 3}
+  ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: 832b3b0ab14af074e858b54e68379335, type: 3}
