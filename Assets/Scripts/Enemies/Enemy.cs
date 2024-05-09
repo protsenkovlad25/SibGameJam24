@@ -5,12 +5,12 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
 	[SerializeField]
-	private SpriteRenderer _view;
+	private SpriteRenderer	_view;
 	[SerializeField]
-	private ParticleSystem _particles;
+	private ParticleSystem	_particles;
 
 	[SerializeField]
-	private int _hP;
+	private int				_hP			= 1;
 
 	public virtual SpriteRenderer GetView()
 	{

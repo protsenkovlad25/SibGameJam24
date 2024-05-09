@@ -7,8 +7,8 @@ public class LevelConfigLoader : MonoBehaviour
 	[SerializeField]
 	private LevelConfigData _levelConfigData;
 
-	public void UpdateEnemies(EnemyContainer enemyContainer)
+	public void UpdateEnemies(EnemyContainer enemyContainer, Transform playerTransform)
 	{
-		enemyContainer.SetEnemies(_levelConfigData);
+		enemyContainer.SetEnemies(_levelConfigData, playerTransform);
 	}
 }

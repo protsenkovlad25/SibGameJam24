@@ -9,9 +9,12 @@ public class GameEntryPoint : MonoBehaviour
     [SerializeField]
     private EnemyContainer      _enemyContainer;
 
+    [SerializeField]
+    private Transform           _playerTransform;
+
     private void Awake()
     {
 		_enemyContainer.GetBaseEnemies();
-		_levelConfigLoader.UpdateEnemies(_enemyContainer);
+		_levelConfigLoader.UpdateEnemies(_enemyContainer, _playerTransform);
 	}
 }

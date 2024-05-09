@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Level_01_03
   m_EditorClassIdentifier: 
   StaticEnemyPrefab: {fileID: 330483950547863099, guid: 9fd671e6ed830884ab98fa7a494abf2a, type: 3}
+  PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: 96d4686135705cb439f43f391f3e80bf, type: 3}
