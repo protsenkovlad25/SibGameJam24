@@ -7,8 +7,8 @@ public class LevelConfigLoader : MonoBehaviour
 	[SerializeField]
 	private LevelConfigData _levelConfigData;
 
-	public void LoadLevel()
+	public void UpdateEnemies(EnemyContainer enemyContainer)
 	{
-
+		enemyContainer.SetEnemies(_levelConfigData);
 	}
 }
