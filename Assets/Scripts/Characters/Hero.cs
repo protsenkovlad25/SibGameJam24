@@ -5,6 +5,7 @@ public class Hero : MonoBehaviour
     [SerializeField] private float m_MaxFallSpeed;
     [SerializeField] private float m_SpeedIncreaseTime;
     [SerializeField] private float m_MoveSpeed;
+    [SerializeField] private float m_GravityChangeCD;
 
     private float m_FallSpeed;
     private float m_Time;
