@@ -17,13 +17,21 @@ public class SinusoidEnemy : Enemy
 	{
 		if (_isActive)
 		{
-			Vector2 moveDirection = Vector2.right * _parameters.Speed;
+			Vector2 moveDirection = Vector2.zero;
+			Vector2 sinOffset = Vector2.zero;
 
-			float offsetY = Mathf.Sin(Time.time * _parameters.Frequency) * _parameters.Amplitude;
-			Vector2 sinOffset = new Vector2(0f, offsetY);
+			if (_parameters.Direction == Direction.Up || _parameters.Direction == Direction.Down)
+			{
+				moveDirection = Vector2.up * _parameters.Speed;
+				sinOffset = Vector2.right * Mathf.Sin(Time.time * _parameters.Frequency) * _parameters.Amplitude;
+			}
+			else if (_parameters.Direction == Direction.Right || _parameters.Direction == Direction.Left)
+			{
+				moveDirection = Vector2.right * _parameters.Speed;
+				sinOffset = Vector2.up * Mathf.Sin(Time.time * _parameters.Frequency) * _parameters.Amplitude;
+			}
 
 			Vector2 totalVelocity = moveDirection + sinOffset;
-
 			_rigidbody2D.velocity = totalVelocity;
 		}
 		else
@@ -35,8 +43,17 @@ public class SinusoidEnemy : Enemy
 	[Serializable]
 	public class ParametersDataModel
 	{
-		public float Speed		= 1f;
-		public float Amplitude	= 1f;
-		public float Frequency	= 1f;
+		public float		Speed		= 1f;
+		public float		Amplitude	= 1f;
+		public float		Frequency	= 1f;
+		public Direction	Direction;
+	}
+
+	public enum Direction
+	{
+		Up,
+		Down,
+		Right,
+		Left
 	}
 }

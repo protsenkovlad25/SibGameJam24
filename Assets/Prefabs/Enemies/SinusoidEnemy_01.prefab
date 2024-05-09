@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SinusoidEnemy_01
       objectReference: {fileID: 0}
+    - target: {fileID: 4451512919848071096, guid: 4e180bf1cd950c44c99b04b4e1c658db, type: 3}
+      propertyPath: _parameters.SinusoidDirection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4982252457078179353, guid: 4e180bf1cd950c44c99b04b4e1c658db, type: 3}
       propertyPath: m_Color.b
       value: 0

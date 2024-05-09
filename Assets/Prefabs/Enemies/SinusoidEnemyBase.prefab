@@ -96,6 +96,7 @@ MonoBehaviour:
     Speed: 1
     Amplitude: 1
     Frequency: 1
+    Direction: 2
 --- !u!212 &4982252457078179353 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2244698317204169632, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}

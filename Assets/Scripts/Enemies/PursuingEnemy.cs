@@ -9,7 +9,7 @@ public class PursuingEnemy : Enemy
 	[SerializeField]
 	private SpriteRenderer	_spriteRenderer;
 	[SerializeField]
-	private float            _speed               = 5f;
+	private float            _speed               = 1f;
 
 	private Transform		_target;
 
