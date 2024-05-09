@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533183b92f3f8a4419ddd8f6e73296d9, type: 3}
   m_Name: Level_01_01
   m_EditorClassIdentifier: 
-  StaticEnemyPrefab: {fileID: 6524939521546467109, guid: e76a62cacd4c5c64b9c9e633ad2d50f7, type: 3}
+  StaticEnemyPrefab: {fileID: 330483950547863099, guid: e76a62cacd4c5c64b9c9e633ad2d50f7, type: 3}

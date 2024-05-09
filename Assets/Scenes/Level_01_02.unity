@@ -133,6 +133,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 2687520698960472710, guid: de0ac123712000744ab59bab5ec76cef, type: 3}
   m_PrefabInstance: {fileID: 2687520698623304803}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1083222031 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4877736647861509382, guid: 5c485dc7b04174c438f15575abb0a5f6, type: 3}
+  m_PrefabInstance: {fileID: 5879344054505723579}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 780aac6ab447ba345b360ef1d8236ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1112958950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,6 +208,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5012710775715820332, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
+      propertyPath: _enemyContainer
+      value: 
+      objectReference: {fileID: 1083222031}
+    - target: {fileID: 5012710775715820332, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
+      propertyPath: _levelConfigLoader
+      value: 
+      objectReference: {fileID: 1244322564}
     - target: {fileID: 5012710775715820338, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
       propertyPath: m_Name
       value: EntryPoint
@@ -247,6 +266,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
+--- !u!114 &1244322564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5786228049829160133, guid: f715d810abda8d14d957f26891922e42, type: 3}
+  m_PrefabInstance: {fileID: 1352822422}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a3b6721ecd347469b3072a4e9be36f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1352822422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -385,7 +415,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6782104681146179138, guid: 485fed94d012ab64f9b06d38fc10d0d3, type: 3}
       propertyPath: m_Name
-      value: Canvas
+      value: LevelCanvas
       objectReference: {fileID: 0}
     - target: {fileID: 6782104681146179141, guid: 485fed94d012ab64f9b06d38fc10d0d3, type: 3}
       propertyPath: m_Camera
@@ -486,7 +516,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2687520698960472704, guid: de0ac123712000744ab59bab5ec76cef, type: 3}
       propertyPath: m_Name
-      value: Main Camera
+      value: LevelCamera
       objectReference: {fileID: 0}
     - target: {fileID: 2687520698960472709, guid: de0ac123712000744ab59bab5ec76cef, type: 3}
       propertyPath: m_RootOrder

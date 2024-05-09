@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu]
 public class LevelConfigData : ScriptableObject
 {
-	public GameObject StaticEnemyPrefab;
+	public Enemy StaticEnemyPrefab;
 }

@@ -10,4 +10,12 @@ public class EnemyContainer : MonoBehaviour
 	{
 		_staticEnemies = GetComponentsInChildren<StaticEnemy>();
 	}
+
+	public void SetEnemies(LevelConfigData levelConfigData)
+	{
+		foreach (var enemy in _staticEnemies)
+		{
+			enemy.SetView(levelConfigData.StaticEnemyPrefab.GetView().sprite, levelConfigData.StaticEnemyPrefab.GetView().color);
+		}
+	}
 }

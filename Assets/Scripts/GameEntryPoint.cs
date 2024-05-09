@@ -11,7 +11,7 @@ public class GameEntryPoint : MonoBehaviour
 
     private void Awake()
     {
-        _levelConfigLoader.LoadLevel();
-        _enemyContainer.GetBaseEnemies();
+		_enemyContainer.GetBaseEnemies();
+		_levelConfigLoader.UpdateEnemies(_enemyContainer);
 	}
 }
