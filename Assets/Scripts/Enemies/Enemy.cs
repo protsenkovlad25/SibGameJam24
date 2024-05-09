@@ -6,6 +6,8 @@ public abstract class Enemy : MonoBehaviour
 {
 	[SerializeField]
 	private SpriteRenderer _view;
+	[SerializeField]
+	private ParticleSystem _particles;
 
 	[SerializeField]
 	private int _hP;
