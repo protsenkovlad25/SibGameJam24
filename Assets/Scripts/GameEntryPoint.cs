@@ -13,5 +13,5 @@ public class GameEntryPoint : MonoBehaviour
     {
 		_enemyContainer.GetBaseEnemies();
 		_levelConfigLoader.UpdateEnemies(_enemyContainer);
-	}
+    }
 }

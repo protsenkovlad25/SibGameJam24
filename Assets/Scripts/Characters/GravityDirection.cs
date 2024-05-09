@@ -11,7 +11,7 @@ public enum GravityDir
 
 public static class GravityDirection
 {
-    public static UnityEvent<Vector2> OnGravityChanged;
+    public static UnityEvent<Vector2> OnGravityChanged = new UnityEvent<Vector2>();
 
     public static Vector2 Direction;
     public static GravityDir GravityDir;
@@ -48,16 +48,22 @@ public static class GravityDirection
     {
         switch(GravityDir)
         {
-            case GravityDir.Up: Left(); break;
-            case GravityDir.Down:  break;
-            case GravityDir.Left: break;
-            case GravityDir.Right: break;
+            case GravityDir.Up:    Left(); break;
+            case GravityDir.Down:  Right(); break;
+            case GravityDir.Left:  Down(); break;
+            case GravityDir.Right: Up(); break;
         }
     }
 
     public static void TurnRight()
     {
-
+        switch (GravityDir)
+        {
+            case GravityDir.Up:    Right(); break;
+            case GravityDir.Down:  Left(); break;
+            case GravityDir.Left:  Up(); break;
+            case GravityDir.Right: Down(); break;
+        }
     }
 
     private static void ChangeGravity()

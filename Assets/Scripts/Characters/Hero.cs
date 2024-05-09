@@ -12,6 +12,7 @@ public class Hero : MonoBehaviour
     private void Start()
     {
         PlayerInput.OnMove.AddListener(Move);
+        GravityDirection.OnGravityChanged.AddListener(GravityChanged);
 
         m_FallSpeed = 0;
         m_Time = 0;
@@ -29,14 +30,24 @@ public class Hero : MonoBehaviour
         transform.position += new Vector3(dir.x, dir.y, 0) * m_MoveSpeed * Time.deltaTime;
     }
 
-    private void Update()
+    private void GravityChanged(Vector2 dir)
+    {
+        m_Time = 0;
+        m_FallSpeed = 0;
+    }
+
+    private void IncreaseSpeed()
     {
         if (m_Time < m_SpeedIncreaseTime)
         {
             m_Time += Time.deltaTime;
             m_FallSpeed += m_MaxFallSpeed / m_SpeedIncreaseTime * Time.deltaTime;
         }
+    }
 
+    private void Update()
+    {
+        IncreaseSpeed();
         Fall();
     }
 }
