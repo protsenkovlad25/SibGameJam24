@@ -17,12 +17,12 @@ public abstract class Projectile : MonoBehaviour
 	private Camera			_mainCamera;
 	private bool			_isActive		= true;
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		_mainCamera = Camera.main;
 	}
 
-	private void Update()
+    protected virtual void Update()
 	{
 		if (_mainCamera != null)
 		{
