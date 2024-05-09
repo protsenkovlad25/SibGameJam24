@@ -57,6 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+--- !u!50 &2197514219384629990 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3862654651548905484, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+  m_PrefabInstance: {fileID: 3163150344127470314}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7814913683509906822 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5157152558521636716, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
@@ -74,3 +79,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9416005b5ce86ac45a0e9befda99f21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rigidbody2D: {fileID: 2197514219384629990}
+  _view: {fileID: 7814913685343449100}
+  _speed: 1
+  _damage: 1
+--- !u!212 &7814913685343449100 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5157152559842159334, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+  m_PrefabInstance: {fileID: 3163150344127470314}
+  m_PrefabAsset: {fileID: 0}
