@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 533183b92f3f8a4419ddd8f6e73296d9, type: 3}
+  m_Name: Level_04_05
+  m_EditorClassIdentifier: 
+  StaticEnemyPrefab: {fileID: 330483950547863099, guid: 59efa0f01e16d2547a34f6e36136ae9f, type: 3}
+  PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: a1d36d074cb3f0c4db9aa0182d6cb271, type: 3}
+  SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: bf2b4471d37328f448febb41f765bc5d, type: 3}
+  ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: 2de88febeacc75448b9328061c8dcf46, type: 3}
