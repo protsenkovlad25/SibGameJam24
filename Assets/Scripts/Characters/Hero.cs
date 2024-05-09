@@ -8,6 +8,8 @@ public class Hero : MonoBehaviour
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_GravityChangeCD;
 
+    [SerializeField] private int m_Health;
+
     private float m_FallSpeed;
     private float m_Time;
 
@@ -16,6 +18,8 @@ public class Hero : MonoBehaviour
         PlayerInput.OnMove.AddListener(Move);
         Gravity.OnGravityChanged.AddListener(GravityChanged);
         Gravity.OnGravityChangeEnd.AddListener(GravityChangeEnd);
+
+        GetComponentInChildren<FrontTrigger>().OnFrontTriggered = FrontTriggered;
 
         m_FallSpeed = 0;
         m_Time = 0;
@@ -69,6 +73,21 @@ public class Hero : MonoBehaviour
             m_Time += Time.deltaTime;
             m_FallSpeed += m_MaxFallSpeed / m_SpeedIncreaseTime * Time.deltaTime;
         }
+    }
+
+    public void TakeDamage()
+    {
+
+    }   
+
+    private void FrontTriggered()
+    {
+        TakeDamage();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 
     private void Update()
