@@ -18,7 +18,7 @@ public static class Gravity
     public static Vector2 VectorDir;
     public static GravityDirection GravityDir;
 
-    private static Vector2 m_NewDir;
+    public static Vector2 NewDir;
 
     private static float m_TurnSpeed = 2f;
 
@@ -28,7 +28,6 @@ public static class Gravity
     private static bool m_IsGravityChange = false;
 
     public static float TurnSpeed => m_TurnSpeed;
-    public static Vector2 NewDir => m_NewDir;
 
     public static void Start()
     {
@@ -36,37 +35,9 @@ public static class Gravity
         GravityDir = GravityDirection.Down;
     }
 
-    public static void Up()
-    {
-        GravityDir = GravityDirection.Up;
-        m_NewDir = new Vector2(0, 1);
-        ChangeGravity();
-    }
-
-    public static void Down()
-    {
-        GravityDir = GravityDirection.Down;
-        m_NewDir = new Vector2(0, -1);
-        ChangeGravity();
-    }
-
-    public static void Left()
-    {
-        GravityDir = GravityDirection.Left;
-        m_NewDir = new Vector2(-1, 0);
-        ChangeGravity();
-    }
-
-    public static void Right()
-    {
-        GravityDir = GravityDirection.Right;
-        m_NewDir = new Vector2(1, 0);
-        ChangeGravity();
-    }
-
     public static void TurnLeft()
     {
-        m_NewDir = Quaternion.Euler(0, 0, 90) * VectorDir;
+        NewDir = Quaternion.Euler(0, 0, 90) * VectorDir;
 
         if ((int)GravityDir < 3) GravityDir++;
         else GravityDir = (GravityDirection)0;
@@ -75,7 +46,7 @@ public static class Gravity
 
     public static void TurnRight()
     {
-        m_NewDir = Quaternion.Euler(0, 0, -90) * VectorDir;
+        NewDir = Quaternion.Euler(0, 0, -90) * VectorDir;
 
         if ((int)GravityDir > 0) GravityDir--;
         else GravityDir = (GravityDirection)3;
@@ -89,7 +60,7 @@ public static class Gravity
         m_X = VectorDir.x;
         m_Y = VectorDir.y;
 
-        OnGravityChanged?.Invoke(VectorDir);
+        OnGravityChanged?.Invoke(NewDir);
     }
 
     private static void GravityChangeEnd()
@@ -101,27 +72,27 @@ public static class Gravity
 
     private static void TurnGravity()
     {
-        if (m_NewDir.x > m_X)
+        if (NewDir.x > m_X)
         {
             m_X += m_TurnSpeed * Time.deltaTime;
         }
-        else if (m_NewDir.x < m_X)
+        else if (NewDir.x < m_X)
         {
             m_X -= m_TurnSpeed * Time.deltaTime;
         }
 
-        if (m_NewDir.y > m_Y)
+        if (NewDir.y > m_Y)
         {
             m_Y += m_TurnSpeed * Time.deltaTime;
         }
-        else if (m_NewDir.y < m_Y)
+        else if (NewDir.y < m_Y)
         {
             m_Y -= m_TurnSpeed * Time.deltaTime;
         }
 
-        if ((m_NewDir - new Vector2(m_X, m_Y)).magnitude < 0.1f)
+        if ((NewDir - new Vector2(m_X, m_Y)).magnitude < 0.1f)
         {
-            VectorDir = m_NewDir;
+            VectorDir = NewDir;
             GravityChangeEnd();
         }
         else VectorDir = new Vector2(m_X, m_Y);

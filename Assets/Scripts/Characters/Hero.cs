@@ -34,20 +34,27 @@ public class Hero : MonoBehaviour
     private void GravityChanged(Vector2 dir)
     {
         m_FallSpeed = m_MaxFallSpeed / 2;
-        LookAt(Gravity.NewDir, 1f / Gravity.TurnSpeed);
+        LookAt(dir, 1f / Gravity.TurnSpeed);
     }
     void LookAt(Vector2 dir, float time)
     {
-        Debug.Log("Rotate");
-        Vector3 startRot = transform.eulerAngles;
-        transform.LookAt(transform.position + (Vector3)dir);
-
-        Vector3 targetRot = transform.eulerAngles;
-
-        Debug.Log("Rotate from " + startRot + " to "+ targetRot);
-
-        transform.eulerAngles = startRot;
-        transform.DORotate(new Vector3(0,0, targetRot.y), time);
+        int targetRot = 0;
+        switch(Gravity.GravityDir)
+        {
+            case GravityDirection.Left:
+                targetRot = 270;
+                break;
+            case GravityDirection.Up:
+                targetRot = 180;
+                break;
+            case GravityDirection.Down:
+                targetRot = 0;
+                break;
+            case GravityDirection.Right:
+                targetRot = 90;
+                break;
+        }
+        transform.DORotate(new Vector3(0,0, targetRot), time);
     }
 
     private void GravityChangeEnd()
