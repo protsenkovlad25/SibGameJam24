@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum GravityDir
+public enum GravityDirection
 {
-    Up,
     Down,
-    Left,
-    Right
+    Right,
+    Up,
+    Left
+    
 }
 
 public static class Gravity
@@ -15,9 +16,9 @@ public static class Gravity
     public static UnityEvent OnGravityChangeEnd = new UnityEvent();
 
     public static Vector2 VectorDir;
-    public static GravityDir GravityDir;
+    public static GravityDirection GravityDir;
 
-    private static Vector2 NewDir;
+    public static Vector2 NewDir;
 
     private static float m_TurnSpeed = 2f;
 
@@ -26,60 +27,30 @@ public static class Gravity
 
     private static bool m_IsGravityChange = false;
 
+    public static float TurnSpeed => m_TurnSpeed;
+
     public static void Start()
     {
         VectorDir = new Vector2(0, -1);
-        GravityDir = GravityDir.Down;
-    }
-
-    public static void Up()
-    {
-        GravityDir = GravityDir.Up;
-        NewDir = new Vector2(0, 1);
-        ChangeGravity();
-    }
-
-    public static void Down()
-    {
-        GravityDir = GravityDir.Down;
-        NewDir = new Vector2(0, -1);
-        ChangeGravity();
-    }
-
-    public static void Left()
-    {
-        GravityDir = GravityDir.Left;
-        NewDir = new Vector2(-1, 0);
-        ChangeGravity();
-    }
-
-    public static void Right()
-    {
-        GravityDir = GravityDir.Right;
-        NewDir = new Vector2(1, 0);
-        ChangeGravity();
+        GravityDir = GravityDirection.Down;
     }
 
     public static void TurnLeft()
     {
-        switch(GravityDir)
-        {
-            case GravityDir.Up:    Left(); break;
-            case GravityDir.Down:  Right(); break;
-            case GravityDir.Left:  Down(); break;
-            case GravityDir.Right: Up(); break;
-        }
+        NewDir = Quaternion.Euler(0, 0, 90) * VectorDir;
+
+        if ((int)GravityDir < 3) GravityDir++;
+        else GravityDir = (GravityDirection)0;
+        ChangeGravity();
     }
 
     public static void TurnRight()
     {
-        switch (GravityDir)
-        {
-            case GravityDir.Up:    Right(); break;
-            case GravityDir.Down:  Left(); break;
-            case GravityDir.Left:  Up(); break;
-            case GravityDir.Right: Down(); break;
-        }
+        NewDir = Quaternion.Euler(0, 0, -90) * VectorDir;
+
+        if ((int)GravityDir > 0) GravityDir--;
+        else GravityDir = (GravityDirection)3;
+        ChangeGravity();
     }
 
     private static void ChangeGravity()
@@ -89,7 +60,7 @@ public static class Gravity
         m_X = VectorDir.x;
         m_Y = VectorDir.y;
 
-        OnGravityChanged?.Invoke(VectorDir);
+        OnGravityChanged?.Invoke(NewDir);
     }
 
     private static void GravityChangeEnd()

@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     private Vector2 m_MainPos;
     private Vector2 m_ViewPos;
 
-    private float m_ChangeViewSpeed = 10f;
+    private float m_ChangeViewSpeed = 20f;
 
     private bool m_IsViewChange = false;
 
@@ -30,10 +30,10 @@ public class CameraController : MonoBehaviour
 
         switch (Gravity.GravityDir)
         {
-            case GravityDir.Up: m_ViewPos = m_UpPos.localPosition; break;
-            case GravityDir.Down: m_ViewPos = m_DownPos.localPosition; break;
-            case GravityDir.Left: m_ViewPos = m_LeftPos.localPosition; break;
-            case GravityDir.Right: m_ViewPos = m_RightPos.localPosition; break;
+            case GravityDirection.Up: m_ViewPos = m_UpPos.localPosition; break;
+            case GravityDirection.Down: m_ViewPos = m_DownPos.localPosition; break;
+            case GravityDirection.Left: m_ViewPos = m_LeftPos.localPosition; break;
+            case GravityDirection.Right: m_ViewPos = m_RightPos.localPosition; break;
         }
 
         m_IsViewChange = true;
@@ -48,23 +48,25 @@ public class CameraController : MonoBehaviour
 
     private void ChangeView()
     {
-        if (m_ViewPos.x > m_MainPos.x)
-        {
-            m_MainPos.x += m_ChangeViewSpeed * Time.deltaTime;
-        }
-        else if (m_ViewPos.x < m_MainPos.x)
-        {
-            m_MainPos.x -= m_ChangeViewSpeed * Time.deltaTime;
-        }
+        //if (m_ViewPos.x > m_MainPos.x)
+        //{
+        //    m_MainPos.x += m_ChangeViewSpeed * Time.deltaTime;
+        //}
+        //else if (m_ViewPos.x < m_MainPos.x)
+        //{
+        //    m_MainPos.x -= m_ChangeViewSpeed * Time.deltaTime;
+        //}
 
-        if (m_ViewPos.y > m_MainPos.y)
-        {
-            m_MainPos.y += m_ChangeViewSpeed * Time.deltaTime;
-        }
-        else if (m_ViewPos.y < m_MainPos.y)
-        {
-            m_MainPos.y -= m_ChangeViewSpeed * Time.deltaTime;
-        }
+        //if (m_ViewPos.y > m_MainPos.y)
+        //{
+        //    m_MainPos.y += m_ChangeViewSpeed * Time.deltaTime;
+        //}
+        //else if (m_ViewPos.y < m_MainPos.y)
+        //{
+        //    m_MainPos.y -= m_ChangeViewSpeed * Time.deltaTime;
+        //}
+
+        m_MainPos = Vector2.Lerp(m_MainPos, m_ViewPos, .05f);
 
         if ((m_ViewPos - m_MainPos).magnitude < 0.1f)
         {
