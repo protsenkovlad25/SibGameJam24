@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -9,6 +10,7 @@ public class HeroWeapon : MonoBehaviour
     [SerializeField] private Projectile m_Projectile;
     [SerializeField] private GameObject m_Char;
     [SerializeField] private Transform m_Muzzle;
+    [SerializeField] private Transform m_ArtParent;
 
     [SerializeField] float m_Range;
     [SerializeField] float m_Delay;
@@ -49,11 +51,35 @@ public class HeroWeapon : MonoBehaviour
             GetComponentInChildren<SpriteRenderer>().flipY = m_Char.GetComponentInChildren<SpriteRenderer>().flipX = false;
         }
     }
+    void AnimateShoot()
+    {
+        Sequence s = DOTween.Sequence();
+
+
+        float time = m_Delay / 10;
+
+        if (time > .05f) time = .05f;
+
+        if (GetComponentInChildren<SpriteRenderer>().flipY)
+        {
+            s.Append(m_ArtParent.DOLocalRotate(new Vector3(0, 0, -15), time));
+        }
+        else
+        {
+            s.Append(m_ArtParent.DOLocalRotate(new Vector3(0, 0, 15), time));
+        }
+
+        s.Join(m_ArtParent.transform.DOLocalMoveX(-.12f, time));
+
+        s.Append(m_ArtParent.DOLocalRotate(new Vector3(0, 0, 0), time*3));
+        s.Join(m_ArtParent.transform.DOLocalMoveX(0, time * 3));
+    }
     private void Shoot()
     {
         m_CurrentDelay = m_Delay;
 
         m_Muzzle.GetComponent<ComplexParticleSystem>().PlayParticle();
+        AnimateShoot();
 
         for (int i = 0; i < m_BulletsCount; i++)
         {
@@ -62,6 +88,7 @@ public class HeroWeapon : MonoBehaviour
             proj.transform.position = m_Muzzle.transform.position;
 
             proj.GetComponent<HeroProjectile>().SetRange(m_Range);
+
             proj.transform.parent = GetComponentInParent<Hero>().transform;
 
             proj.transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z + Random.Range(-m_Spread, m_Spread));
