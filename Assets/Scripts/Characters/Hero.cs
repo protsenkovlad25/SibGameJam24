@@ -2,9 +2,12 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Hero : MonoBehaviour, ITakenDamage
 {
+    public static UnityEvent<int> OnChangeHP = new UnityEvent<int>();
+
     [SerializeField] private float m_MaxFallSpeed;
     [SerializeField] private float m_SpeedIncreaseTime;
     [SerializeField] private float m_MoveSpeed;
@@ -105,9 +108,23 @@ public class Hero : MonoBehaviour, ITakenDamage
         if (m_IsTakeDamage)
         {
             m_Health -= 1;
+            OnChangeHP?.Invoke(m_Health);
+
+            if (m_Health == 0)
+            {
+                m_IsTakeDamage = false;
+                Die();
+                return;
+            }
+
             m_IsTakeDamage = false;
             StartCoroutine(InvincibilityFrames());
         }
+    }
+
+    private void Die()
+    {
+
     }
 
     private IEnumerator InvincibilityFrames()
@@ -125,8 +142,6 @@ public class Hero : MonoBehaviour, ITakenDamage
 
         List<SpriteRenderer> sprites = new List<SpriteRenderer>();
         sprites.AddRange(GetComponentsInChildren<SpriteRenderer>());
-
-        Debug.Log(sprites.Count);
 
         s.Append(sprites[0].DOFade(.3f, m_InvFramesTime / 6));
         s.Join(sprites[1].DOFade(.3f, m_InvFramesTime / 6));
