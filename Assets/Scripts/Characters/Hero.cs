@@ -1,7 +1,6 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
-using System.Timers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +8,8 @@ public class Hero : MonoBehaviour, ITakenDamage
 {
     public static UnityEvent<int> OnChangeHP = new UnityEvent<int>();
     public static UnityEvent OnActiveShovel = new UnityEvent();
+    public static UnityEvent OnShovelCharged = new UnityEvent();
+    public static UnityEvent OnShovelCooldown = new UnityEvent();
     public static UnityEvent OnDie = new UnityEvent();
 
     public static bool IsShovel;
@@ -166,7 +167,7 @@ public class Hero : MonoBehaviour, ITakenDamage
     {
         if (m_IsTakeDamage)
         {
-            m_Health -= 1;
+            m_Health--;
             OnChangeHP?.Invoke(m_Health);
 
             if (m_Health == 0)
@@ -187,6 +188,12 @@ public class Hero : MonoBehaviour, ITakenDamage
         PlayerInput.Lock();
 
         OnDie?.Invoke();
+    }
+
+    public void Heal()
+    {
+        m_Health++;
+        OnChangeHP?.Invoke(m_Health);
     }
 
     private IEnumerator InvincibilityFrames()
@@ -233,6 +240,8 @@ public class Hero : MonoBehaviour, ITakenDamage
         m_ShovelCDTimer = new Timer(m_ShovelCooldown);
         m_ShovelCDTimer.OnTimesUp.AddListener(ShovelCooldownEnd);
 
+        OnShovelCooldown?.Invoke();
+
         m_Time = 0;
     }
 
@@ -240,6 +249,8 @@ public class Hero : MonoBehaviour, ITakenDamage
     {
         m_ShovelCDTimer = null;
         PlayerInput.IsCanActiveShovel = true;
+
+        OnShovelCharged?.Invoke();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

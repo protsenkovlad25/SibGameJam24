@@ -12,21 +12,26 @@ public class HeroHP : MonoBehaviour
 
     private void Start()
     {
-        UpdateHearts();
+        DestroyHearts();
+        InitHearts();
 
         Hero.OnChangeHP.AddListener(ChangeHeroHP);
     }
 
-    private void UpdateHearts()
+    private void DestroyHearts()
     {
         List<Image> hearts = new List<Image>();
         hearts.AddRange(GetComponentsInChildren<Image>());
 
-        for (int i = 0; i < hearts.Count; i++)
+        for (int i = hearts.Count - 1; i >= 0; i--)
         {
-            Destroy(hearts[0]);
+            Destroy(hearts[i].gameObject);
+            hearts.Remove(hearts[i]);
         }
+    }
 
+    private void InitHearts()
+    {
         for (int i = 0; i < PlayerData.HeroData.Health; i++)
         {
             CreateHeart();
@@ -45,6 +50,16 @@ public class HeroHP : MonoBehaviour
 
     private void ChangeHeroHP(int health)
     {
+        if (PlayerData.HeroData.MaxHealth < m_Hearts.Count)
+        {
+            Image heart;
+            for (int i = 0; i < PlayerData.HeroData.MaxHealth - m_Hearts.Count; i++)
+            {
+                heart = CreateHeart();
+                m_Hearts.Add(heart);
+            }
+        }
+
         for (int i = m_Hearts.Count; i > 0; i--)
         {
             if (i > health)
