@@ -26,6 +26,7 @@ public class Hero : MonoBehaviour, ITakenDamage
     [SerializeField] private float m_ShovelCooldown;
     [SerializeField] private int m_MaxHealth;
     [SerializeField] private int m_Health;
+    [SerializeField] private ComplexParticleSystem m_Particles;
 
     private float m_FallSpeed;
     private float m_Time;
@@ -114,6 +115,9 @@ public class Hero : MonoBehaviour, ITakenDamage
 
         m_GCDTimer = new Timer(m_GravityChangeCD);
         m_GCDTimer.OnTimesUp.AddListener(GravityCooldownEnd);
+
+        m_Particles.PlayParticle();
+
     }
 
     private void LookAt(Vector2 dir, float time)
@@ -287,6 +291,11 @@ public class Hero : MonoBehaviour, ITakenDamage
             SaveData();
             f.ActivateTrigger();
         }
+        if (collision.gameObject.TryGetComponent<TutorialTrigger>(out var tutor))
+        {
+            Debug.Log("Tutor!");
+            tutor.ActivateTutorial();
+        }
     }
     void SaveData()
     {
@@ -313,5 +322,9 @@ public class Hero : MonoBehaviour, ITakenDamage
         m_GCDTimer?.Update();
         m_ShovelTimer?.Update();
         m_ShovelCDTimer?.Update();
+
+
+
+        m_Particles.transform.eulerAngles = new Vector3(0, 0, 90) * (int)Gravity.GravityDir;
     }
 }

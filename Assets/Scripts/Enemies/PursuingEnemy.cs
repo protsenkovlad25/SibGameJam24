@@ -20,9 +20,12 @@ public class PursuingEnemy : Enemy
 	{
 		if (_isActive)
 		{
+
 			Vector3 targetPosition = _target != null ? _target.position : Vector3.zero;
 
-			Vector3 direction = (targetPosition - transform.position).normalized;
+            GetComponentInChildren<Animator>().GetComponent<SpriteRenderer>().flipX = transform.position.x < targetPosition.x;
+
+            Vector3 direction = (targetPosition - transform.position).normalized;
 
 			_rigidbody2D.velocity = direction * _speed;
 		}
