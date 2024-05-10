@@ -17,6 +17,7 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 	private Camera          _mainCamera;
 	protected bool          _isActive;
 
+	public ComplexParticleSystem Particles => _complexParticleSystem;
 
 	private void Awake()
 	{
@@ -29,14 +30,31 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
         {
             if (_mainCamera != null)
             {
-                if (_view != null && _view.isVisible)
-                {
-                    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
+				if ((transform.position - Hero.HeroTransform.position).magnitude < 15)
+				{
+					if (_view != null && _view.isVisible)
+					{
+						Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
 
-                    Bounds bounds = _view.bounds;
+						Bounds bounds = _view.bounds;
 
-                    _isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
-                }
+						_isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+						if(_isActive )
+						{
+							var Hits =  Physics2D.RaycastAll(transform.position, (Hero.HeroTransform.position - transform.position).normalized, (Hero.HeroTransform.position - transform.position).magnitude);
+							bool isWall = false;
+							foreach(var hit in Hits)
+							{
+								if(hit.collider.gameObject.layer == 7)
+								{
+									isWall = true;
+									break;
+								}
+							}
+							if(isWall) _isActive = false;
+						}
+					}
+				}
             }
         }
 	}
@@ -52,7 +70,13 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 		Instantiate(newView,_view.transform).transform.localPosition = Vector3.zero;
 		
 	}
-
+	public virtual void SetParticles(ComplexParticleSystem newParticles)
+	{
+		var p = Instantiate(newParticles.gameObject, transform);
+		p.transform.localPosition = Vector3.zero;
+		Destroy(_complexParticleSystem.gameObject);
+		_complexParticleSystem = p.GetComponent<ComplexParticleSystem>();
+	}
 	public void TakeDamage()
 	{
 		RemoveHP(1);
@@ -86,10 +110,20 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 	private IEnumerator DestroyAfterParticleEffect()
 	{
-		while (_particleSystem.isPlaying)
-		{
-			yield return null;
-		}
+		if(_complexParticleSystem != null)
+        {
+            while (_complexParticleSystem.IsPlaying)
+            {
+                yield return null;
+            }
+        }
+		else
+        {
+            while (_particleSystem.isPlaying)
+            {
+                yield return null;
+            }
+        }
 
 		Destroy(gameObject);
 	}

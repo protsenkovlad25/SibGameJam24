@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class Hero : MonoBehaviour, ITakenDamage
 {
+    public static Transform HeroTransform;
+
     public static UnityEvent<int> OnChangeHP = new UnityEvent<int>();
     public static UnityEvent OnActiveShovel = new UnityEvent();
     public static UnityEvent OnShovelCharged = new UnityEvent();
@@ -35,8 +37,10 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private GameObject m_FrontTrigger;
 
-    private void Start()
+    private void Awake()
     {
+        HeroTransform = transform;
+
         PlayerInput.OnMove.AddListener(Move);
         Gravity.OnGravityChanged.AddListener(GravityChanged);
         Gravity.OnGravityChangeEnd.AddListener(GravityChangeEnd);
@@ -260,6 +264,10 @@ public class Hero : MonoBehaviour, ITakenDamage
             obstacle.TakeDamage();
             m_FallSpeed = 0;
             m_Time = 0;
+        }
+        if(collision.gameObject.TryGetComponent<FinishTrigger>(out var f))
+        {
+            f.ActivateTrigger();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

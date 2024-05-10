@@ -86,9 +86,10 @@ public class HeroWeapon : MonoBehaviour
 
             proj.transform.position = m_Muzzle.transform.position;
 
+            proj.transform.parent = GetComponentInParent<Hero>().transform;
+
             proj.GetComponent<HeroProjectile>().SetRange(m_Range);
 
-            proj.transform.parent = GetComponentInParent<Hero>().transform;
 
             proj.transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z + Random.Range(-m_Spread, m_Spread));
         }

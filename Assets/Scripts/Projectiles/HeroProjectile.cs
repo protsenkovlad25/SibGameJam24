@@ -11,7 +11,7 @@ public class HeroProjectile : Projectile
     public void SetRange(float range)
     {
         m_Range = range;
-        m_StartPosition= transform.position;
+        m_StartPosition= transform.localPosition;
     }
     public void SetSpeed(float speed)
     {
@@ -23,6 +23,6 @@ public class HeroProjectile : Projectile
     protected override void Update()
     {
         base.Update();
-        if(m_Range<(m_StartPosition - transform.position).magnitude) Destroy(gameObject);
+        if(m_Range<(m_StartPosition - transform.localPosition).magnitude) Destroy(gameObject);
     }
 }

@@ -63,6 +63,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104335849230879974, guid: 03745618260e0cb49aa47b18c8ada99e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.7905297
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104335849230879974, guid: 03745618260e0cb49aa47b18c8ada99e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104335849230879974, guid: 03745618260e0cb49aa47b18c8ada99e, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5104335849230879974, guid: 03745618260e0cb49aa47b18c8ada99e, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.017483711
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409390753482081892, guid: 03745618260e0cb49aa47b18c8ada99e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.40603495
+      objectReference: {fileID: 0}
+    - target: {fileID: 7409390753482081892, guid: 03745618260e0cb49aa47b18c8ada99e, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8092301820071298922, guid: 03745618260e0cb49aa47b18c8ada99e, type: 3}
       propertyPath: m_Name
       value: PursuingEnemy_01
