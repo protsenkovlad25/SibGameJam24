@@ -377,7 +377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxFallSpeed: 20
   m_SpeedIncreaseTime: 5
-  m_MoveSpeed: 10
+  m_MoveSpeed: 5
   m_GravityChangeCD: 1
   m_InvFramesTime: 3
   m_Health: 3
@@ -389,7 +389,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6015936797492783602}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -535,7 +535,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1001 &2020185653409688404
 PrefabInstance:
   m_ObjectHideFlags: 0

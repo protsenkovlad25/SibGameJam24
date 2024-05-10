@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VampireLike;
 
 public class HeroProjectile : Projectile
 {
+    [SerializeField] ComplexParticleSystem m_CollisionParticles;
     float m_Range;
     Vector3 m_StartPosition;
 
@@ -15,7 +17,10 @@ public class HeroProjectile : Projectile
     public void SetSpeed(float speed)
     {
     }
-
+    protected override void Disactivate()
+    {
+        base.Disactivate();
+    }
     protected override void Update()
     {
         base.Update();
