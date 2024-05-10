@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,6 +20,7 @@ public class Hero : MonoBehaviour, ITakenDamage
     [SerializeField] private float m_InvFramesTime;
     [SerializeField] private float m_ShovelTime;
     [SerializeField] private float m_ShovelCooldown;
+    [SerializeField] private int m_MaxHealth;
     [SerializeField] private int m_Health;
 
     private float m_FallSpeed;
@@ -44,11 +46,43 @@ public class Hero : MonoBehaviour, ITakenDamage
 
         m_IsTakeDamage = true;
         IsShovel = false;
+
+        LoadHeroData();
     }
 
     private void LoadHeroData()
     {
-
+        Debug.Log("Player Level " + PlayerData.Level);
+        if (PlayerData.Level == 0)
+        {
+            Debug.Log("Load data in PLAYER");
+            HeroData data = new HeroData()
+            {
+                Health = m_Health,
+                MaxHealth = m_MaxHealth,
+                MoveSpeed = m_MoveSpeed,
+                ShovelTime = m_ShovelTime,
+                MaxFallSpeed = m_MaxFallSpeed,
+                InvFramesTime = m_InvFramesTime,
+                ShovelCooldown = m_ShovelCooldown,
+                GravityChangeCD = m_GravityChangeCD,
+                SpeedIncreaseTime = m_SpeedIncreaseTime,
+            };
+            PlayerData.HeroData = data;
+        }
+        else
+        {
+            Debug.Log("Load data FRom Player");
+            m_Health = PlayerData.HeroData.Health;
+            m_MaxHealth = PlayerData.HeroData.MaxHealth;
+            m_MoveSpeed = PlayerData.HeroData.MoveSpeed;
+            m_ShovelTime = PlayerData.HeroData.ShovelTime;
+            m_MaxFallSpeed = PlayerData.HeroData.MaxFallSpeed;
+            m_InvFramesTime = PlayerData.HeroData.InvFramesTime;
+            m_ShovelCooldown = PlayerData.HeroData.ShovelCooldown;
+            m_GravityChangeCD = PlayerData.HeroData.GravityChangeCD;
+            m_SpeedIncreaseTime = PlayerData.HeroData.SpeedIncreaseTime;
+        }
     }
 
     private void Fall()
