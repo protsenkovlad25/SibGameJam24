@@ -19,6 +19,6 @@ public class MenuSceneLoader : SceneLoader
 
 	private void OnClickEvent()
 	{
-		LoadLevel(1 + Random.Range(0, _sceneVariants));
+		LoadLevel(1);// + Random.Range(0, _sceneVariants));
 	}
 }
