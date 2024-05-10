@@ -37,6 +37,26 @@ public abstract class Projectile : MonoBehaviour
 		}
 	}
 
+	protected virtual void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
+		{
+			takenDamage.TakeDamage();
+
+            gameObject.SetActive(false);
+        }
+	}
+
+	protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
+        {
+            takenDamage.TakeDamage();
+
+			gameObject.SetActive(false);
+        }
+    }
+
 	private void FixedUpdate()
 	{
 		if(_isActive)

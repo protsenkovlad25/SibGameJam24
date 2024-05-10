@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet
       objectReference: {fileID: 0}
+    - target: {fileID: 5157152558521636716, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5157152558521636717, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -63,9 +67,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5157152559842159332, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7602793824818667358, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e380ce1a266e840846c9d9710db529, type: 3}

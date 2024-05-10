@@ -80,6 +80,11 @@ public class Hero : MonoBehaviour, ITakenDamage
         TakeDamage();
     }
 
+    public void TakeDamage()
+    {
+        m_Health -= 1;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
@@ -90,10 +95,5 @@ public class Hero : MonoBehaviour, ITakenDamage
     {
         IncreaseSpeed();
         Fall();
-    }
-
-    public void TakeDamage()
-    {
-        m_Health -= 1;
     }
 }

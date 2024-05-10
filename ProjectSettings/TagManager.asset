@@ -16,8 +16,8 @@ TagManager:
   - Enemy
   - Wall
   - FrontTrigger
-  - 
-  - 
+  - HeroDamage
+  - EnemyDamage
   - 
   - 
   - 
