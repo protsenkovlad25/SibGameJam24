@@ -16,6 +16,12 @@ public class LevelSceneLoader : SceneLoader
 	{
 		_nextLevelUIPanel = nextLevelUIPanel;
 		_victoryUIPanel = victoryUIPanel;
+
+		Scene currentScene = SceneManager.GetActiveScene();
+		int currentSceneIndex = currentScene.buildIndex;
+		_currentLevel = currentSceneIndex / _sceneVariants;
+
+		PlayerData.Level = _currentLevel;
 	}
 
 	public void LoadNextLevel()
@@ -26,10 +32,6 @@ public class LevelSceneLoader : SceneLoader
 
 	public void FinishLevel()
 	{
-		Scene currentScene = SceneManager.GetActiveScene();
-		int currentSceneIndex = currentScene.buildIndex;
-		_currentLevel = currentSceneIndex / _sceneVariants;
-
 		if (_currentLevel == _lastLevelIndex)
 		{
 			_victoryUIPanel.Show();
