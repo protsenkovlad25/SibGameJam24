@@ -116,6 +116,8 @@ public class Hero : MonoBehaviour, ITakenDamage
     {
         TakeDamage();
 
+        PlayerInput.LockMove();
+
         m_FallSpeed = 0;
     }
 
