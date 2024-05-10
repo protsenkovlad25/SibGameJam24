@@ -1,7 +1,4 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class HeroWeapon : MonoBehaviour
@@ -20,13 +17,13 @@ public class HeroWeapon : MonoBehaviour
 
     private Camera m_Camera;
 
-    private void Awake()
+    public void Init()
     {
         m_Camera = Camera.main;
 
         CalcRotation();
 
-        //LoadData();
+        LoadData();
     }
 
     private void LoadData()

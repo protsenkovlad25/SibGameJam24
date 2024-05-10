@@ -9,5 +9,7 @@ public class MaxHealthUC : UpgradeCard
     public override void Activate()
     {
         PlayerData.HeroData.MaxHealth += (int)m_Value;
+
+        base.Activate();
     }
 }

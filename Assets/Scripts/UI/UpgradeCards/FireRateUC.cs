@@ -8,6 +8,8 @@ public class FireRateUC : UpgradeCard
 
     public override void Activate()
     {
-        
+        PlayerData.WeaponData.Delay -= PlayerData.WeaponData.Delay * m_Value;
+
+        base.Activate();
     }
 }

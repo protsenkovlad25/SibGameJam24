@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Cards:
   - m_Name: Fire Rate
-    m_CardPrefab: {fileID: 0}
+    m_CardPrefab: {fileID: 5806939116042404975, guid: ab79faa0faca60743a7f4bf036293a27, type: 3}
   - m_Name: ' Max Health'
-    m_CardPrefab: {fileID: 0}
+    m_CardPrefab: {fileID: 3461526454197859568, guid: e2ac8c166cb32f242b7b95b2acd3c700, type: 3}
   - m_Name: Heal
-    m_CardPrefab: {fileID: 0}
+    m_CardPrefab: {fileID: 7980510882749854599, guid: 4967aa5ca37b91444809b2a1c9da05a1, type: 3}

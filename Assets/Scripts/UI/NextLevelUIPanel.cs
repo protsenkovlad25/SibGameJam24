@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NextLevelUIPanel : UIPanel
 {
@@ -34,7 +35,12 @@ public class NextLevelUIPanel : UIPanel
 	{
 		base.Hide();
 
-        m_CardsContainer.DOScale(Vector3.one, 1).SetEase(Ease.InBack);
+        m_CardsContainer.DOScale(Vector3.zero, 1).SetEase(Ease.InBack);
+
+		foreach (var card in m_Cards)
+		{
+			card.GetComponent<Button>().interactable = false;
+		}
     }
 
 	private void InitCards()
@@ -51,6 +57,7 @@ public class NextLevelUIPanel : UIPanel
 			prefab = cards[Random.Range(0, cards.Count)].CardPrefab;
 
 			card = Instantiate(prefab, m_CardsContainer).GetComponent<UpgradeCard>();
+			card.OnActivated = Hide;
 			m_Cards.Add(card);
 
 			cards.Remove(cards.Find(c => c.CardPrefab == prefab));

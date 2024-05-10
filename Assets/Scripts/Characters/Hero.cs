@@ -59,26 +59,14 @@ public class Hero : MonoBehaviour, ITakenDamage
         IsShovelCooldown = false;
 
         LoadHeroData();
+        GetComponentInChildren<HeroWeapon>().Init();
     }
 
     private void LoadHeroData()
     {
         if (PlayerData.Level == 0)
         {
-            Debug.Log("Load data in PLAYER");
-            HeroData data = new HeroData()
-            {
-                Health = m_Health,
-                MaxHealth = m_MaxHealth,
-                MoveSpeed = m_MoveSpeed,
-                ShovelTime = m_ShovelTime,
-                MaxFallSpeed = m_MaxFallSpeed,
-                InvFramesTime = m_InvFramesTime,
-                ShovelCooldown = m_ShovelCooldown,
-                GravityChangeCD = m_GravityChangeCD,
-                SpeedIncreaseTime = m_SpeedIncreaseTime,
-            };
-            PlayerData.HeroData = data;
+            SaveData();
         }
         else
         {
@@ -93,6 +81,24 @@ public class Hero : MonoBehaviour, ITakenDamage
             m_GravityChangeCD = PlayerData.HeroData.GravityChangeCD;
             m_SpeedIncreaseTime = PlayerData.HeroData.SpeedIncreaseTime;
         }
+    }
+
+    private void SaveData()
+    {
+        Debug.Log("Load data in PLAYER");
+        HeroData data = new HeroData()
+        {
+            Health = m_Health,
+            MaxHealth = m_MaxHealth,
+            MoveSpeed = m_MoveSpeed,
+            ShovelTime = m_ShovelTime,
+            MaxFallSpeed = m_MaxFallSpeed,
+            InvFramesTime = m_InvFramesTime,
+            ShovelCooldown = m_ShovelCooldown,
+            GravityChangeCD = m_GravityChangeCD,
+            SpeedIncreaseTime = m_SpeedIncreaseTime,
+        };
+        PlayerData.HeroData = data;
     }
 
     private void Fall()
@@ -287,23 +293,6 @@ public class Hero : MonoBehaviour, ITakenDamage
             SaveData();
             f.ActivateTrigger();
         }
-    }
-    void SaveData()
-    {
-        Debug.Log("Load data in PLAYER");
-        HeroData data = new HeroData()
-        {
-            Health = m_Health,
-            MaxHealth = m_MaxHealth,
-            MoveSpeed = m_MoveSpeed,
-            ShovelTime = m_ShovelTime,
-            MaxFallSpeed = m_MaxFallSpeed,
-            InvFramesTime = m_InvFramesTime,
-            ShovelCooldown = m_ShovelCooldown,
-            GravityChangeCD = m_GravityChangeCD,
-            SpeedIncreaseTime = m_SpeedIncreaseTime,
-        };
-        PlayerData.HeroData = data;
     }
     private void Update()
     {

@@ -9,5 +9,7 @@ public class HealUC : UpgradeCard
     public override void Activate()
     {
         PlayerData.HeroData.Health += (int)m_Value;
+
+        base.Activate();
     }
 }
