@@ -1,4 +1,6 @@
 using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Hero : MonoBehaviour, ITakenDamage
@@ -7,11 +9,14 @@ public class Hero : MonoBehaviour, ITakenDamage
     [SerializeField] private float m_SpeedIncreaseTime;
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_GravityChangeCD;
-
-    private int m_Health = 3;
+    [SerializeField] private float m_InvFramesTime;
+    [SerializeField] private int m_Health;
 
     private float m_FallSpeed;
     private float m_Time;
+    private bool m_IsTakeDamage = true;
+
+    private Timer m_GCDTimer;
 
     private void Start()
     {
@@ -23,6 +28,11 @@ public class Hero : MonoBehaviour, ITakenDamage
 
         m_FallSpeed = 0;
         m_Time = 0;
+    }
+
+    private void LoadHeroData()
+    {
+
     }
 
     private void Fall()
@@ -39,8 +49,12 @@ public class Hero : MonoBehaviour, ITakenDamage
     {
         m_FallSpeed = m_MaxFallSpeed / 2;
         LookAt(dir, 1f / Gravity.TurnSpeed);
+
+        m_GCDTimer = new Timer(m_GravityChangeCD);
+        m_GCDTimer.OnTimesUp.AddListener(CoolDownEnd);
     }
-    void LookAt(Vector2 dir, float time)
+
+    private void LookAt(Vector2 dir, float time)
     {
         int targetRot = 0;
         switch(Gravity.GravityDir)
@@ -66,6 +80,12 @@ public class Hero : MonoBehaviour, ITakenDamage
         m_Time = m_SpeedIncreaseTime / 2;
     }
 
+    private void CoolDownEnd()
+    {
+        m_GCDTimer = null;
+        PlayerInput.IsCanChangeGravity = true;
+    }
+
     private void IncreaseSpeed()
     {
         if (m_Time < m_SpeedIncreaseTime)
@@ -82,7 +102,38 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     public void TakeDamage()
     {
-        m_Health -= 1;
+        if (m_IsTakeDamage)
+        {
+            m_Health -= 1;
+            m_IsTakeDamage = false;
+            StartCoroutine(InvincibilityFrames());
+        }
+    }
+
+    private IEnumerator InvincibilityFrames()
+    {
+        BlinkingAnim();
+
+        yield return new WaitForSeconds(m_InvFramesTime);
+
+        m_IsTakeDamage = true;
+    }
+
+    private void BlinkingAnim()
+    {
+        Sequence s = DOTween.Sequence();
+
+        List<SpriteRenderer> sprites = new List<SpriteRenderer>();
+        sprites.AddRange(GetComponentsInChildren<SpriteRenderer>());
+
+        Debug.Log(sprites.Count);
+
+        s.Append(sprites[0].DOFade(.3f, m_InvFramesTime / 6));
+        s.Join(sprites[1].DOFade(.3f, m_InvFramesTime / 6));
+        s.Append(sprites[0].DOFade(1f, m_InvFramesTime / 6));
+        s.Join(sprites[1].DOFade(1f, m_InvFramesTime / 6));
+
+        s.SetLoops(3);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -95,5 +146,7 @@ public class Hero : MonoBehaviour, ITakenDamage
     {
         IncreaseSpeed();
         Fall();
+
+        m_GCDTimer?.Update();
     }
 }
