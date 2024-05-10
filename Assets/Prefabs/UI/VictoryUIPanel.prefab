@@ -105,7 +105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4313433008587325882, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
       propertyPath: m_fontSize
-      value: 39.4
+      value: 31.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6708304501992256387, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
+      propertyPath: m_text
+      value: "\u041F\u043E\u0431\u0435\u0434\u0430!"
       objectReference: {fileID: 0}
     - target: {fileID: 7441825989899659582, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
       propertyPath: m_text
@@ -138,6 +142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a809ee04e49e1244980a4468e260529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8622473929924393310 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7010680105293892261, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
+  m_PrefabInstance: {fileID: 1649406201920058363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9141884860849101744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7511337788502698059, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
@@ -157,5 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _body: {fileID: 1649520876506237146}
   _view: {fileID: 4855413804460398997}
+  _showDuration: 1
+  _text: {fileID: 8622473929924393310}
+  _textShowDuration: 0.5
   _okButton: {fileID: 6739974827913598425}
-  _duration: 1
+  _buttonShowDuration: 0.25
