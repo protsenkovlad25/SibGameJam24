@@ -10,24 +10,22 @@ public class LevelSceneLoader : SceneLoader
 	[SerializeField]
 	private VictoryUIPanel      _victoryUIPanel;
 
-	private int                 _currentLevel;
+	private static int                 _currentLevel = 0;
 
 	public void Initialize(NextLevelUIPanel nextLevelUIPanel, VictoryUIPanel victoryUIPanel)
 	{
 		_nextLevelUIPanel = nextLevelUIPanel;
 		_victoryUIPanel = victoryUIPanel;
 
-		Scene currentScene = SceneManager.GetActiveScene();
-		int currentSceneIndex = currentScene.buildIndex;
-		_currentLevel = currentSceneIndex / (_sceneVariants + 1);
+		Debug.Log("Level - " + _currentLevel);
 
 		PlayerData.Level = _currentLevel;
 	}
 
 	public void LoadNextLevel()
 	{
-
-		LoadLevel(1);// ( _currentLevel + 1 ) * _sceneVariants + Random.Range(0, _sceneVariants));
+		_currentLevel++;
+		LoadLevel(( _currentLevel+1));// * _sceneVariants + Random.Range(0, _sceneVariants));
 	}
 
 	public void FinishLevel()

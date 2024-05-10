@@ -202,7 +202,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &2077083095
+--- !u!21 &1244998828
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -300,9 +300,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1304959427019775830, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: _duration
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481844833665621459, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481844833665621459, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1481844833665621459, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 169
+      objectReference: {fileID: 0}
     - target: {fileID: 5248710320011701045, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
       propertyPath: m_Name
       value: MenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671304663438691674, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: _labelDuration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671304663438691674, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: _buttonDuration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6691183689547211888, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag

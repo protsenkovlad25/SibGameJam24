@@ -68,7 +68,6 @@ public class CameraController : MonoBehaviour
 
         m_MainPos = Vector2.Lerp(m_MainPos, m_ViewPos, .05f);
 
-        Debug.Log("Change Camera Position");
 
         if ((m_ViewPos - m_MainPos).magnitude < 0.1f)
         {

@@ -38,7 +38,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private GameObject m_FrontTrigger;
 
-    private void Awake()
+    public void Init()
     {
         HeroTransform = transform;
 
@@ -63,7 +63,6 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void LoadHeroData()
     {
-        Debug.Log("Player Level " + PlayerData.Level);
         if (PlayerData.Level == 0)
         {
             Debug.Log("Load data in PLAYER");
@@ -277,18 +276,35 @@ public class Hero : MonoBehaviour, ITakenDamage
             m_FallSpeed = 0;
             m_Time = 0;
         }
-        if(collision.gameObject.TryGetComponent<FinishTrigger>(out var f))
-        {
-            f.ActivateTrigger();
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
             takenDamage.TakeDamage();
+        if (collision.gameObject.TryGetComponent<FinishTrigger>(out var f))
+        {
+            SaveData();
+            f.ActivateTrigger();
+        }
     }
-
+    void SaveData()
+    {
+        Debug.Log("Load data in PLAYER");
+        HeroData data = new HeroData()
+        {
+            Health = m_Health,
+            MaxHealth = m_MaxHealth,
+            MoveSpeed = m_MoveSpeed,
+            ShovelTime = m_ShovelTime,
+            MaxFallSpeed = m_MaxFallSpeed,
+            InvFramesTime = m_InvFramesTime,
+            ShovelCooldown = m_ShovelCooldown,
+            GravityChangeCD = m_GravityChangeCD,
+            SpeedIncreaseTime = m_SpeedIncreaseTime,
+        };
+        PlayerData.HeroData = data;
+    }
     private void Update()
     {
         if (!IsShovel) IncreaseSpeed();

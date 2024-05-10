@@ -24,14 +24,13 @@ public class MenuCanvas : MonoBehaviour
 
 		_gameLabel.localPosition = new Vector3(0, - _gameLabel.localPosition.y - _gameLabel.sizeDelta.y, 0);
 
-		_playButton.localPosition = new Vector3(0, - _playButton.localPosition.y - _playButton.sizeDelta.y, 0);
+		_playButton.localPosition = new Vector3(0, -800, 0);
 	}
 
 	private void Start()
 	{
-		_gameLabel.DOLocalMove(_initialGameLabelPosition, _labelDuration).SetEase(Ease.OutBack).OnComplete(() =>
-		{
-			_playButton.DOLocalMove(_initialPlayButtonPosition, _buttonDuration).SetEase(Ease.OutBack);
-		});
+		Sequence s = DOTween.Sequence();
+		s.Append(_gameLabel.DOLocalMove(_initialGameLabelPosition, _labelDuration).SetEase(Ease.OutBack));
+		s.Insert(.8f, _playButton.DOLocalMove(_initialPlayButtonPosition, _buttonDuration).SetEase(Ease.OutBack));
 	}
 }

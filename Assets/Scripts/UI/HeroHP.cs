@@ -33,11 +33,11 @@ public class HeroHP : MonoBehaviour
     private void InitHearts()
     {
         m_Hearts = new List<Image>();
-        for (int i = 0; i < PlayerData.HeroData.Health; i++)
+        for (int i = 0; i < PlayerData.HeroData.MaxHealth; i++)
         {
             CreateHeart();
         }
-
+        ChangeHeroHP(PlayerData.HeroData.Health);
     }
 
     private Image CreateHeart()
