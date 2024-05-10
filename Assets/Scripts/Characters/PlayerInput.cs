@@ -6,16 +6,17 @@ using UnityEngine.Events;
 public class PlayerInput : MonoBehaviour
 {
     public static UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
-    public static bool IsCanChangeGravity = true;
-    public static bool IsCanActiveShovel = true;
-
+    
+    public static bool IsCanChangeGravity;
+    public static bool IsCanActiveShovel;
+    private static bool m_IsLocked;
     private static Vector2 m_MoveDir;
 
     private void Update()
     {
         m_MoveDir = Vector2.zero;
 
-        if (!Hero.IsShovel)
+        if (!m_IsLocked)
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -75,10 +76,29 @@ public class PlayerInput : MonoBehaviour
                 {
                     IsCanActiveShovel = false;
                     Hero.OnActiveShovel.Invoke();
+                    Lock();
                 }
             }
         }
 
         OnMove?.Invoke(m_MoveDir);
+    }
+
+    public static void Init()
+    {
+        IsCanChangeGravity = true;
+        IsCanActiveShovel = true;
+
+        Unlock();
+    }
+
+    public static void Lock()
+    {
+        m_IsLocked = true;
+    }
+
+    public static void Unlock()
+    {
+        m_IsLocked = false;
     }
 }

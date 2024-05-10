@@ -8,6 +8,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 {
     public static UnityEvent<int> OnChangeHP = new UnityEvent<int>();
     public static UnityEvent OnActiveShovel = new UnityEvent();
+    public static UnityEvent OnDie = new UnityEvent();
 
     public static bool IsShovel;
 
@@ -139,7 +140,10 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void Die()
     {
+        gameObject.SetActive(false);
+        PlayerInput.Lock();
 
+        OnDie?.Invoke();
     }
 
     private IEnumerator InvincibilityFrames()
@@ -179,6 +183,7 @@ public class Hero : MonoBehaviour, ITakenDamage
     private void DisactiveShovel()
     {
         IsShovel = false;
+        PlayerInput.Unlock();
 
         m_ShovelTimer = null;
 
