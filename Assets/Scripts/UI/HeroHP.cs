@@ -26,24 +26,25 @@ public class HeroHP : MonoBehaviour
         for (int i = hearts.Count - 1; i >= 0; i--)
         {
             Destroy(hearts[i].gameObject);
-            hearts.Remove(hearts[i]);
         }
+        m_Hearts = new List<Image>();
     }
 
     private void InitHearts()
     {
+        m_Hearts = new List<Image>();
         for (int i = 0; i < PlayerData.HeroData.Health; i++)
         {
             CreateHeart();
         }
 
-        m_Hearts = new List<Image>();
-        m_Hearts.AddRange(GetComponentsInChildren<Image>());
     }
 
     private Image CreateHeart()
     {
         Image heart = Instantiate(m_HeartPrefab, transform).GetComponent<Image>();
+
+        m_Hearts.Add(heart);
 
         return heart;
     }
@@ -52,11 +53,9 @@ public class HeroHP : MonoBehaviour
     {
         if (PlayerData.HeroData.MaxHealth < m_Hearts.Count)
         {
-            Image heart;
             for (int i = 0; i < PlayerData.HeroData.MaxHealth - m_Hearts.Count; i++)
             {
-                heart = CreateHeart();
-                m_Hearts.Add(heart);
+                CreateHeart();
             }
         }
 

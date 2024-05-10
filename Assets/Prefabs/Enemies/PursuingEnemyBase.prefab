@@ -147,7 +147,7 @@ MonoBehaviour:
   _hP: 1
   _rigidbody2D: {fileID: 8387674581960368174}
   _spriteRenderer: {fileID: 1988663496624550070}
-  _speed: 8
+  _speed: 5
 --- !u!50 &8387674581960368174 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 8131497910037295928, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}

@@ -27,7 +27,7 @@ public class LevelSceneLoader : SceneLoader
 	public void LoadNextLevel()
 	{
 
-		LoadLevel(( _currentLevel + 1 ) * _sceneVariants + Random.Range(0, _sceneVariants));
+		LoadLevel(1);// ( _currentLevel + 1 ) * _sceneVariants + Random.Range(0, _sceneVariants));
 	}
 
 	public void FinishLevel()
