@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041A\u0430\u043A\u0430\u044F-\u0442\u043E \u0445\u0443\u0435\u0442\u0430"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e122976fa0bb38844bdb6223ae2aa109, type: 2}
+  m_sharedMaterial: {fileID: 6410664473007329013, guid: e122976fa0bb38844bdb6223ae2aa109, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 132.5
+  m_fontSize: 129.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -252,7 +252,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameLabel: {fileID: 2040995405705325694}
+  _labelDuration: 1
   _playButton: {fileID: 7796445656625062476}
+  _buttonDuration: 1
 --- !u!1 &7822587390668141540
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6153410646218652062}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: TextBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -391,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6456531303883500083, guid: 4d7cf2ed105ee6246895d1bacd7573d5, type: 3}
       propertyPath: m_fontSize
-      value: 49.3
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d7cf2ed105ee6246895d1bacd7573d5, type: 3}
