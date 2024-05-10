@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace VampireLike
-{
     public class ComplexParticleSystem : MonoBehaviour
     {
         private List<ParticleSystem> m_Particles;
@@ -57,4 +55,3 @@ namespace VampireLike
             if (m_IsPlaying && transform.parent == null) CheckParticlePlaying();
         }
     }
-}

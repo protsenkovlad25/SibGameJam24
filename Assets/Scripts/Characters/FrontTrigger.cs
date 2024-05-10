@@ -8,6 +8,7 @@ public class FrontTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GetComponentInChildren<FrontTrigger>().gameObject.SetActive(false);
         Debug.Log("Front Triggerred Col " + collision.gameObject.name);
 
         OnFrontTriggered?.Invoke();

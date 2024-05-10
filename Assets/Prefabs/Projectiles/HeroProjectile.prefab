@@ -225,8 +225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 2197514219384629990}
   _view: {fileID: 7814913685343449100}
-  _speed: 7
+  _speed: 10
   _damage: 1
+  m_CollisionParticles: {fileID: 0}
 --- !u!212 &7814913685343449100 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5157152559842159334, guid: f8e380ce1a266e840846c9d9710db529, type: 3}

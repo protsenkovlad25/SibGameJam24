@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Char: {fileID: 160619071375676862}
   m_Muzzle: {fileID: 6115662162305505858}
   m_ArtParent: {fileID: 4174218131740892838}
-  m_Range: 10
-  m_Delay: 0.5
+  m_Range: 15
+  m_Delay: 0.3
   m_Spread: 0
   m_BulletsCount: 1
 --- !u!1 &1992889756623436548
