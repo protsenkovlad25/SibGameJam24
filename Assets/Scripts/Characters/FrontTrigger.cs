@@ -7,6 +7,15 @@ public class FrontTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Front Triggerred " + other.name);
+
+        OnFrontTriggered?.Invoke();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Front Triggerred Col " + collision.gameObject.name);
+
         OnFrontTriggered?.Invoke();
     }
 }

@@ -11,9 +11,17 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1001366593, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+    - target: {fileID: 6137088594330651998, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7024504514246272859, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024504514246272859, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9041467268346007969, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
       propertyPath: m_RootOrder

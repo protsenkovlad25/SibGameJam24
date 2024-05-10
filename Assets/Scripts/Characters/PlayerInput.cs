@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
 {
     public static UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
     public static bool IsCanChangeGravity = true;
+    public static bool IsCanActiveShovel = true;
 
     private static Vector2 m_MoveDir;
 
@@ -14,55 +15,67 @@ public class PlayerInput : MonoBehaviour
     {
         m_MoveDir = Vector2.zero;
 
-        if (Input.GetKey(KeyCode.A))
+        if (!Hero.IsShovel)
         {
-            if (Gravity.GravityDir == GravityDirection.Up || Gravity.GravityDir == GravityDirection.Down)
+            if (Input.GetKey(KeyCode.A))
             {
-                m_MoveDir = new Vector2(-1, 0);
+                if (Gravity.GravityDir == GravityDirection.Up || Gravity.GravityDir == GravityDirection.Down)
+                {
+                    m_MoveDir = new Vector2(-1, 0);
+                }
             }
-        }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            if (Gravity.GravityDir == GravityDirection.Up || Gravity.GravityDir == GravityDirection.Down)
+            if (Input.GetKey(KeyCode.D))
             {
-                m_MoveDir = new Vector2(1, 0);
+                if (Gravity.GravityDir == GravityDirection.Up || Gravity.GravityDir == GravityDirection.Down)
+                {
+                    m_MoveDir = new Vector2(1, 0);
+                }
             }
-        }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            if (Gravity.GravityDir == GravityDirection.Left || Gravity.GravityDir == GravityDirection.Right)
+            if (Input.GetKey(KeyCode.W))
             {
-                m_MoveDir = new Vector2(0, 1);
+                if (Gravity.GravityDir == GravityDirection.Left || Gravity.GravityDir == GravityDirection.Right)
+                {
+                    m_MoveDir = new Vector2(0, 1);
+                }
             }
-        }
 
-        if (Input.GetKey(KeyCode.S))
-        {
-            if (Gravity.GravityDir == GravityDirection.Left || Gravity.GravityDir == GravityDirection.Right)
+            if (Input.GetKey(KeyCode.S))
             {
-                m_MoveDir = new Vector2(0, -1);
+                if (Gravity.GravityDir == GravityDirection.Left || Gravity.GravityDir == GravityDirection.Right)
+                {
+                    m_MoveDir = new Vector2(0, -1);
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            if (IsCanChangeGravity)
+            if (Input.GetKeyDown(KeyCode.Q))
             {
-                Debug.Log("Change Gravity");
-                Gravity.TurnLeft();
-                IsCanChangeGravity = false;
+                if (IsCanChangeGravity)
+                {
+                    Debug.Log("Change Gravity");
+                    Gravity.TurnLeft();
+                    IsCanChangeGravity = false;
+                }
             }
-        }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (IsCanChangeGravity)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Change Gravity");
-                Gravity.TurnRight();
-                IsCanChangeGravity = false;
+                if (IsCanChangeGravity)
+                {
+                    Debug.Log("Change Gravity");
+                    Gravity.TurnRight();
+                    IsCanChangeGravity = false;
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                if (IsCanActiveShovel)
+                {
+                    IsCanActiveShovel = false;
+                    Hero.OnActiveShovel.Invoke();
+                }
             }
         }
 

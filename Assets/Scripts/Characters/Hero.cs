@@ -7,30 +7,42 @@ using UnityEngine.Events;
 public class Hero : MonoBehaviour, ITakenDamage
 {
     public static UnityEvent<int> OnChangeHP = new UnityEvent<int>();
+    public static UnityEvent OnActiveShovel = new UnityEvent();
+
+    public static bool IsShovel;
 
     [SerializeField] private float m_MaxFallSpeed;
     [SerializeField] private float m_SpeedIncreaseTime;
     [SerializeField] private float m_MoveSpeed;
     [SerializeField] private float m_GravityChangeCD;
     [SerializeField] private float m_InvFramesTime;
+    [SerializeField] private float m_ShovelTime;
+    [SerializeField] private float m_ShovelCooldown;
     [SerializeField] private int m_Health;
 
     private float m_FallSpeed;
     private float m_Time;
-    private bool m_IsTakeDamage = true;
+
+    private bool m_IsTakeDamage;
 
     private Timer m_GCDTimer;
+    private Timer m_ShovelTimer;
+    private Timer m_ShovelCDTimer;
 
     private void Start()
     {
         PlayerInput.OnMove.AddListener(Move);
         Gravity.OnGravityChanged.AddListener(GravityChanged);
         Gravity.OnGravityChangeEnd.AddListener(GravityChangeEnd);
+        OnActiveShovel.AddListener(ActiveShovel);
 
         GetComponentInChildren<FrontTrigger>().OnFrontTriggered = FrontTriggered;
 
         m_FallSpeed = 0;
         m_Time = 0;
+
+        m_IsTakeDamage = true;
+        IsShovel = false;
     }
 
     private void LoadHeroData()
@@ -51,10 +63,11 @@ public class Hero : MonoBehaviour, ITakenDamage
     private void GravityChanged(Vector2 dir)
     {
         m_FallSpeed = m_MaxFallSpeed / 2;
+        
         LookAt(dir, 1f / Gravity.TurnSpeed);
 
         m_GCDTimer = new Timer(m_GravityChangeCD);
-        m_GCDTimer.OnTimesUp.AddListener(CoolDownEnd);
+        m_GCDTimer.OnTimesUp.AddListener(GravityCooldownEnd);
     }
 
     private void LookAt(Vector2 dir, float time)
@@ -83,7 +96,7 @@ public class Hero : MonoBehaviour, ITakenDamage
         m_Time = m_SpeedIncreaseTime / 2;
     }
 
-    private void CoolDownEnd()
+    private void GravityCooldownEnd()
     {
         m_GCDTimer = null;
         PlayerInput.IsCanChangeGravity = true;
@@ -101,6 +114,8 @@ public class Hero : MonoBehaviour, ITakenDamage
     private void FrontTriggered()
     {
         TakeDamage();
+
+        m_FallSpeed = 0;
     }
 
     public void TakeDamage()
@@ -151,6 +166,34 @@ public class Hero : MonoBehaviour, ITakenDamage
         s.SetLoops(3);
     }
 
+    private void ActiveShovel()
+    {
+        IsShovel = true;
+        
+        m_FallSpeed = 0;
+
+        m_ShovelTimer = new Timer(m_ShovelTime);
+        m_ShovelTimer.OnTimesUp.AddListener(DisactiveShovel);
+    }
+
+    private void DisactiveShovel()
+    {
+        IsShovel = false;
+
+        m_ShovelTimer = null;
+
+        m_ShovelCDTimer = new Timer(m_ShovelCooldown);
+        m_ShovelCDTimer.OnTimesUp.AddListener(ShovelCooldownEnd);
+
+        m_Time = 0;
+    }
+
+    private void ShovelCooldownEnd()
+    {
+        m_ShovelCDTimer = null;
+        PlayerInput.IsCanActiveShovel = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
@@ -159,9 +202,11 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void Update()
     {
-        IncreaseSpeed();
+        if (!IsShovel) IncreaseSpeed();
         Fall();
 
         m_GCDTimer?.Update();
+        m_ShovelTimer?.Update();
+        m_ShovelCDTimer?.Update();
     }
 }
