@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class FinishTrigger : MonoBehaviour
 {
-	private LevelSceneLoader _levelSceneLoader;
+	private UIPanel _nextLevelUIPanel;
 
-	public void Initialize(LevelSceneLoader levelSceneLoader)
+	public void Initialize(UIPanel nextLevelUIPanel)
 	{
-		_levelSceneLoader = levelSceneLoader;
+		_nextLevelUIPanel = nextLevelUIPanel;
 	}
 
 	public void OnFinishTrigger()
 	{
-		_levelSceneLoader.LoadNextLevel();
+		_nextLevelUIPanel.Show();
 	}
 }
