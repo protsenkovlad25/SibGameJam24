@@ -34,9 +34,11 @@ public class GameEntryPoint : MonoBehaviour
         _defeatUIPanel.Initialize(_levelCanvas, _levelSceneLoader);
         _victoryUIPanel.Initialize(_levelCanvas, _levelSceneLoader);
 
+
 		Gravity.Start();
         PlayerInput.Init();
 
+        _playerTransform.GetComponent<Hero>().Init();
         Hero.OnDie.AddListener(OpenDefeatPanel);
     }
 

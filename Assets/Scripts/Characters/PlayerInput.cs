@@ -56,7 +56,6 @@ public class PlayerInput : MonoBehaviour
             {
                 if (IsCanChangeGravity)
                 {
-                    Debug.Log("Change Gravity");
                     Gravity.TurnLeft();
                     IsCanChangeGravity = false;
                     UnlockMove();
@@ -67,7 +66,6 @@ public class PlayerInput : MonoBehaviour
             {
                 if (IsCanChangeGravity)
                 {
-                    Debug.Log("Change Gravity");
                     Gravity.TurnRight();
                     IsCanChangeGravity = false;
                     UnlockMove();

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public abstract class SceneLoader : MonoBehaviour
 {
-	protected readonly int _sceneVariants		= 5;
+	protected readonly int _sceneVariants		= 1;
 	protected readonly int _lastLevelIndex		= 4;
 	protected readonly int _menuSceneIndex		= 0;
 	protected readonly int _creditsSceneIndex	= 26;
