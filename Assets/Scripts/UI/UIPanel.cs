@@ -37,6 +37,15 @@ public abstract class UIPanel : MonoBehaviour
 
 	public virtual void Hide()
 	{
-		_view.transform.DOScale(Vector3.zero, _duration).SetEase(Ease.InBack).OnComplete(() => _view.gameObject.SetActive(false));
+		_view.transform.DOScale(Vector3.zero, _duration).SetEase(Ease.InBack).OnComplete(() =>
+		{
+			_view.gameObject.SetActive(false);
+			OnHideComplete();
+		});
+	}
+
+	protected virtual void OnHideComplete()
+	{
+		
 	}
 }

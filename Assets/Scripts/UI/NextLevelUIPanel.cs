@@ -11,9 +11,8 @@ public class NextLevelUIPanel : UIPanel
 		_levelSceneLoader = levelSceneLoader;
 	}
 
-	public override void Hide()
+	protected override void OnHideComplete()
 	{
-		base.Hide();
 		_levelSceneLoader.LoadNextLevel();
 	}
 }

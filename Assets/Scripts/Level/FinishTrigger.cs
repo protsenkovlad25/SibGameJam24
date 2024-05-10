@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinishTrigger : MonoBehaviour
+public class FinishTrigger : MonoBehaviour, ITriggerable
 {
 	private UIPanel _nextLevelUIPanel;
 
@@ -11,7 +11,7 @@ public class FinishTrigger : MonoBehaviour
 		_nextLevelUIPanel = nextLevelUIPanel;
 	}
 
-	public void OnFinishTrigger()
+	public void ActivateTrigger()
 	{
 		_nextLevelUIPanel.Show();
 	}
