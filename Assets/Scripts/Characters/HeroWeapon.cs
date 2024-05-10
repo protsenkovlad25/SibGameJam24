@@ -6,7 +6,6 @@ using UnityEngine;
 public class HeroWeapon : MonoBehaviour
 {
     [SerializeField] private Projectile m_Projectile;
-    [SerializeField] private GameObject m_Gun;
     [SerializeField] private GameObject m_Char;
     [SerializeField] private Transform m_Muzzle;
 
@@ -22,7 +21,7 @@ public class HeroWeapon : MonoBehaviour
 
     private void Awake()
     {
-        m_Camera= Camera.main;
+        m_Camera = Camera.main;
 
         CalcRotation();
     }
@@ -36,17 +35,17 @@ public class HeroWeapon : MonoBehaviour
         Vector3 mousePos = GetMousePosition();
 
         float angle = Vector3.SignedAngle(new Vector3(1,0),
-            mousePos - m_Gun.transform.position,
+            mousePos - transform.position,
             new Vector3(0, 0, 1));
 
-        m_Gun.transform.eulerAngles = new Vector3(0, 0, angle);
-        if (m_Gun.transform.localEulerAngles.z > 90 && m_Gun.transform.localEulerAngles.z < 270)
+        transform.eulerAngles = new Vector3(0, 0, angle);
+        if (transform.localEulerAngles.z > 90 && transform.localEulerAngles.z < 270)
         {
-            m_Gun.GetComponentInChildren<SpriteRenderer>().flipY = m_Char.GetComponentInChildren<SpriteRenderer>().flipX = true;
+            GetComponentInChildren<SpriteRenderer>().flipY = m_Char.GetComponentInChildren<SpriteRenderer>().flipX = true;
         }
         else
         {
-            m_Gun.GetComponentInChildren<SpriteRenderer>().flipY = m_Char.GetComponentInChildren<SpriteRenderer>().flipX = false;
+            GetComponentInChildren<SpriteRenderer>().flipY = m_Char.GetComponentInChildren<SpriteRenderer>().flipX = false;
         }
     }
     private void Shoot()
@@ -60,9 +59,9 @@ public class HeroWeapon : MonoBehaviour
             proj.transform.position = m_Muzzle.transform.position;
 
             proj.GetComponent<HeroProjectile>().SetRange(m_Range);
-            proj.transform.parent = transform;
+            proj.transform.parent = GetComponentInParent<Hero>().transform;
 
-            proj.transform.eulerAngles = new Vector3(0, 0, m_Gun.transform.eulerAngles.z + Random.Range(-m_Spread, m_Spread));
+            proj.transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z + Random.Range(-m_Spread, m_Spread));
         }
     }
     private void Update()

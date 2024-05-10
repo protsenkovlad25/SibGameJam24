@@ -65,7 +65,7 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 	private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<ITakenDamage>() is ITakenDamage gamagable)
+		if (collision.gameObject.GetComponent<ITakenDamage>() is ITakenDamage gamagable)
         {
             gamagable.TakeDamage();
         }

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1846149815717076625, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2331104338961515256, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -58,6 +62,10 @@ PrefabInstance:
     - target: {fileID: 8426870912410735740, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
       propertyPath: m_Name
       value: StaticEnemyBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140214597800553341, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
