@@ -277,16 +277,16 @@ public class Hero : MonoBehaviour, ITakenDamage
             m_FallSpeed = 0;
             m_Time = 0;
         }
-        if(collision.gameObject.TryGetComponent<FinishTrigger>(out var f))
-        {
-            f.ActivateTrigger();
-        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
         if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
             takenDamage.TakeDamage();
+        if (collision.gameObject.TryGetComponent<FinishTrigger>(out var f))
+        {
+            f.ActivateTrigger();
+        }
     }
 
     private void Update()
