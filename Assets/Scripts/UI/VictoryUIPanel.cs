@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FinishTrigger : MonoBehaviour, ITriggerable
+public class VictoryUIPanel : UIPanel
 {
-	protected LevelSceneLoader _levelSceneLoader;
+	private LevelSceneLoader _levelSceneLoader;
 
 	public void Initialize(LevelSceneLoader levelSceneLoader)
 	{
 		_levelSceneLoader = levelSceneLoader;
 	}
 
-	public void ActivateTrigger()
+	protected override void OnHideComplete()
 	{
-		_levelSceneLoader.FinishLevel();
+		_levelSceneLoader.LoadCredits();
 	}
 }

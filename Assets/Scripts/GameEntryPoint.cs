@@ -13,7 +13,11 @@ public class GameEntryPoint : MonoBehaviour
     [SerializeField]
     private FinishTrigger       _finishTrigger;
     [SerializeField]
-    private NextLevelUIPanel    _nextLevelPanel;
+    private NextLevelUIPanel    _nextLevelUIPanel;
+    [SerializeField]
+    private DefeatUIPanel       _defeatUIPanel;
+    [SerializeField]
+    private VictoryUIPanel      _victoryUIPanel;
 
     [SerializeField]
     private Transform           _playerTransform;
@@ -22,8 +26,10 @@ public class GameEntryPoint : MonoBehaviour
     {
         _enemyContainer.GetBaseEnemies();
         _levelConfigLoader.UpdateEnemies(_enemyContainer, _playerTransform);
-        _finishTrigger.Initialize(_nextLevelPanel);
-        _nextLevelPanel.Initialize(_levelSceneLoader);
+        _levelSceneLoader.Initialize(_nextLevelUIPanel, _victoryUIPanel);
+		_finishTrigger.Initialize(_levelSceneLoader);
+        _nextLevelUIPanel.Initialize(_levelSceneLoader);
+        _defeatUIPanel.Initialize(_levelSceneLoader);
 
 		Gravity.Start();
     }

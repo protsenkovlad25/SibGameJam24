@@ -5,20 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class LevelSceneLoader : SceneLoader
 {
-	[ContextMenu("Load next level")]
+	[SerializeField]
+	private NextLevelUIPanel    _nextLevelUIPanel;
+	[SerializeField]
+	private VictoryUIPanel      _victoryUIPanel;
+
+	private int                 _currentLevel;
+
+	public void Initialize(NextLevelUIPanel nextLevelUIPanel, VictoryUIPanel victoryUIPanel)
+	{
+		_nextLevelUIPanel = nextLevelUIPanel;
+		_victoryUIPanel = victoryUIPanel;
+	}
+
 	public void LoadNextLevel()
+	{
+
+		LoadLevel(( _currentLevel + 1 ) * _sceneVariants + Random.Range(0, _sceneVariants));
+	}
+
+	public void FinishLevel()
 	{
 		Scene currentScene = SceneManager.GetActiveScene();
 		int currentSceneIndex = currentScene.buildIndex;
+		_currentLevel = currentSceneIndex / _sceneVariants;
 
-		int currentLevel = currentSceneIndex / _sceneVariants;
-		if(currentLevel == _lastLevelIndex)
+		if (_currentLevel == _lastLevelIndex)
 		{
-			LoadLevel(0);
+			_victoryUIPanel.Show();
 		}
 		else
 		{
-			LoadLevel(( currentLevel + 1 ) * _sceneVariants + Random.Range(0, _sceneVariants));
+			_nextLevelUIPanel.Show();
 		}
 	}
 }

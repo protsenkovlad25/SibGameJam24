@@ -418,6 +418,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6782104681146179142, guid: 485fed94d012ab64f9b06d38fc10d0d3, type: 3}
   m_PrefabInstance: {fileID: 52490250744677740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7353428021400633996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7401354042316933088, guid: 485fed94d012ab64f9b06d38fc10d0d3, type: 3}
+  m_PrefabInstance: {fileID: 52490250744677740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70c440e1e162b649b555c3a00dc3063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &52490251021450922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -425,6 +436,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 331826750739346780}
     m_Modifications:
+    - target: {fileID: 5012710775715820332, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
+      propertyPath: _defeatUIPanel
+      value: 
+      objectReference: {fileID: 7353428021400633996}
     - target: {fileID: 5012710775715820332, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
       propertyPath: _finishTrigger
       value: 
@@ -445,6 +460,10 @@ PrefabInstance:
       propertyPath: _levelSceneLoader
       value: 
       objectReference: {fileID: 52490251137319488}
+    - target: {fileID: 5012710775715820332, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
+      propertyPath: _nextLevelUIPanel
+      value: 
+      objectReference: {fileID: 3658376685273097317}
     - target: {fileID: 5012710775715820332, guid: 2c3dc8dd949c9a849ad1e01e244e1352, type: 3}
       propertyPath: _levelConfigLoader
       value: 
