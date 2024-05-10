@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using VampireLike;
 
 public class HeroWeapon : MonoBehaviour
 {
@@ -52,6 +53,8 @@ public class HeroWeapon : MonoBehaviour
     private void Shoot()
     {
         m_CurrentDelay = m_Delay;
+
+        m_Muzzle.GetComponent<ComplexParticleSystem>().PlayParticle();
 
         for (int i = 0; i < m_BulletsCount; i++)
         {
