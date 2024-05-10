@@ -32,6 +32,8 @@ public class Hero : MonoBehaviour, ITakenDamage
     private Timer m_ShovelTimer;
     private Timer m_ShovelCDTimer;
 
+    private GameObject m_FrontTrigger;
+
     private void Start()
     {
         PlayerInput.OnMove.AddListener(Move);
@@ -40,6 +42,8 @@ public class Hero : MonoBehaviour, ITakenDamage
         OnActiveShovel.AddListener(ActiveShovel);
 
         GetComponentInChildren<FrontTrigger>().OnFrontTriggered = FrontTriggered;
+
+        m_FrontTrigger = GetComponentInChildren<FrontTrigger>().gameObject;
 
         m_FallSpeed = 0;
         m_Time = 0;
@@ -97,6 +101,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void GravityChanged(Vector2 dir)
     {
+        m_FrontTrigger.SetActive(false);
         m_FallSpeed = m_MaxFallSpeed / 2;
         
         LookAt(dir, 1f / Gravity.TurnSpeed);
@@ -128,6 +133,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void GravityChangeEnd()
     {
+        m_FrontTrigger.SetActive(true);
         m_Time = m_SpeedIncreaseTime / 2;
     }
 
@@ -148,6 +154,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void FrontTriggered()
     {
+
         TakeDamage();
 
         PlayerInput.LockMove();
@@ -234,9 +241,19 @@ public class Hero : MonoBehaviour, ITakenDamage
         m_ShovelCDTimer = null;
         PlayerInput.IsCanActiveShovel = true;
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<Obstacle>(out var obstacle))
+        {
+            TakeDamage();
+            obstacle.TakeDamage();
+            m_FallSpeed = 0;
+            m_Time = 0;
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
             takenDamage.TakeDamage();
     }

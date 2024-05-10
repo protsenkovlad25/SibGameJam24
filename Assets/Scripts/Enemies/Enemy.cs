@@ -8,12 +8,15 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 	private SpriteRenderer  _view;
 	[SerializeField]
 	private ParticleSystem  _particleSystem;
+    [SerializeField]
+    private ComplexParticleSystem _complexParticleSystem;
 
-	[SerializeField]
+    [SerializeField]
 	private int             _hP         = 1;
 
 	private Camera          _mainCamera;
 	protected bool          _isActive;
+
 
 	private void Awake()
 	{
@@ -22,28 +25,32 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 	public virtual void Update()
 	{
-		if (_mainCamera != null)
-		{
-			if (_view != null && _view.isVisible)
-			{
-				Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
+		if (_hP > 0)
+        {
+            if (_mainCamera != null)
+            {
+                if (_view != null && _view.isVisible)
+                {
+                    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
 
-				Bounds bounds = _view.bounds;
+                    Bounds bounds = _view.bounds;
 
-				_isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
-			}
-		}
+                    _isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+                }
+            }
+        }
 	}
 
-	public virtual SpriteRenderer GetView()
+	public virtual GameObject GetView()
 	{
-		return _view;
+		return _view.gameObject;
 	}
 
-	public virtual void SetView(Sprite sprite, Color color)
+	public virtual void SetView(GameObject newView)
 	{
-		_view.sprite = sprite;
-		_view.color = color;
+		_view.color = new Color(0,0,0,0);
+		Instantiate(newView,_view.transform).transform.localPosition = Vector3.zero;
+		
 	}
 
 	public void TakeDamage()
@@ -56,8 +63,14 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 		_hP -= value;
 		if (_hP <= 0)
 		{
+			_isActive= false;
 			_view.gameObject.SetActive(false);
-			_particleSystem.Play();
+			GetComponent<Collider2D>().enabled = false;
+
+			if (_complexParticleSystem != null)
+				_complexParticleSystem.PlayParticle();
+			else
+				_particleSystem?.Play();
 
 			StartCoroutine(DestroyAfterParticleEffect());
 		}

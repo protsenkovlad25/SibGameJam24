@@ -22,13 +22,13 @@ public class EnemyContainer : MonoBehaviour
 		foreach (StaticEnemy enemy in _staticEnemies)
 		{
 			StaticEnemy prefab = levelConfigData.StaticEnemyPrefab;
-			enemy.SetView(prefab.GetView().sprite, prefab.GetView().color);
+			enemy.SetView(prefab.GetView());
 		}
 
 		foreach (PursuingEnemy enemy in _pursuingEnemies)
 		{
 			PursuingEnemy prefab = levelConfigData.PursuingEnemyPrefab;
-			enemy.SetView(prefab.GetView().sprite, prefab.GetView().color);
+			enemy.SetView(prefab.GetView());
 			enemy.Target = playerTransform;
 			enemy.Speed = prefab.Speed;
 		}
@@ -36,14 +36,14 @@ public class EnemyContainer : MonoBehaviour
 		foreach (SinusoidEnemy enemy in _sinusoidEnemies)
 		{
 			SinusoidEnemy prefab = levelConfigData.SinusoidEnemyPrefab;
-			enemy.SetView(prefab.GetView().sprite, prefab.GetView().color);
+			enemy.SetView(prefab.GetView());
 			enemy.Parameters = prefab.Parameters;
 		}
 
 		foreach (ShootingEnemy enemy in _shootingEnemies)
 		{
 			ShootingEnemy prefab = levelConfigData.ShootingEnemyPrefab;
-			enemy.SetView(prefab.GetView().sprite, prefab.GetView().color);
+			enemy.SetView(prefab.GetView());
 			enemy.Target = playerTransform;
 		}
 	}

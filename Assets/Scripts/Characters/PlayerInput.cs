@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +17,8 @@ public class PlayerInput : MonoBehaviour
     private void Update()
     {
         m_MoveDir = Vector2.zero;
+
+        Debug.Log(PlayerInput.m_IsLocked + "  " + PlayerInput.m_IsMoveLocked);
 
         if (!m_IsLocked)
         {
@@ -58,7 +61,7 @@ public class PlayerInput : MonoBehaviour
                     Debug.Log("Change Gravity");
                     Gravity.TurnLeft();
                     IsCanChangeGravity = false;
-                    m_IsMoveLocked = false;
+                    UnlockMove();
                 }
             }
 
@@ -69,11 +72,11 @@ public class PlayerInput : MonoBehaviour
                     Debug.Log("Change Gravity");
                     Gravity.TurnRight();
                     IsCanChangeGravity = false;
-                    m_IsMoveLocked = false;
+                    UnlockMove();
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (IsCanActiveShovel)
                 {
