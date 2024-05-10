@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerInput : MonoBehaviour
 {
     public static UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
+    public static bool IsCanChangeGravity = true;
 
     private static Vector2 m_MoveDir;
 
@@ -47,14 +48,22 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("Change Gravity");
-            Gravity.TurnLeft();
+            if (IsCanChangeGravity)
+            {
+                Debug.Log("Change Gravity");
+                Gravity.TurnLeft();
+                IsCanChangeGravity = false;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Change Gravity");
-            Gravity.TurnRight();
+            if (IsCanChangeGravity)
+            {
+                Debug.Log("Change Gravity");
+                Gravity.TurnRight();
+                IsCanChangeGravity = false;
+            }
         }
 
         OnMove?.Invoke(m_MoveDir);
