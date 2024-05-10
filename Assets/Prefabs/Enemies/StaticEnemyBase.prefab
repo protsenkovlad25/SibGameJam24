@@ -89,5 +89,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 2275071144966487151}
-  _particles: {fileID: 4818206908841361471}
+  _particleSystem: {fileID: 4818206908841361471}
   _hP: 1

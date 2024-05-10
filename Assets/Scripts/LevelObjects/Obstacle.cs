@@ -2,13 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour, ITakenDamage
+public class Obstacle : LevelObject
 {
-	[SerializeField]
-	private ParticleSystem _particleSystem;
 
-	public void TakeDamage()
-	{
-		
-	}
 }

@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1526455727612194721}
-  _particles: {fileID: 5215194642085712881}
+  _particleSystem: {fileID: 5215194642085712881}
   _hP: 1
   _spriteRenderer: {fileID: 1526455727612194721}
   _projectilePrefab: {fileID: 7814913683509906822, guid: b0f4f8668cbde7041acc7bacfa232a6d, type: 3}

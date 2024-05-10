@@ -7,7 +7,7 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 	[SerializeField]
 	private SpriteRenderer  _view;
 	[SerializeField]
-	private ParticleSystem  _particles;
+	private ParticleSystem  _particleSystem;
 
 	[SerializeField]
 	private int             _hP         = 1;
@@ -56,7 +56,10 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 		_hP -= value;
 		if (_hP <= 0)
 		{
-			Destroy(gameObject);
+			_view.gameObject.SetActive(false);
+			_particleSystem.Play();
+
+			StartCoroutine(DestroyAfterParticleEffect());
 		}
 	}
 
@@ -67,4 +70,14 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
             gamagable.TakeDamage();
         }
     }
+
+	private IEnumerator DestroyAfterParticleEffect()
+	{
+		while (_particleSystem.isPlaying)
+		{
+			yield return null;
+		}
+
+		Destroy(gameObject);
+	}
 }

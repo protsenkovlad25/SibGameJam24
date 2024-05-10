@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1988663496624550070}
-  _particles: {fileID: 5104335849230879974}
+  _particleSystem: {fileID: 5104335849230879974}
   _hP: 1
   _rigidbody2D: {fileID: 8387674581960368174}
   _spriteRenderer: {fileID: 1988663496624550070}

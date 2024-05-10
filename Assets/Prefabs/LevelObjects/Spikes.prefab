@@ -4877,6 +4877,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
+--- !u!1 &6333436744924008135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6137088594330651998, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
+  m_PrefabInstance: {fileID: 202576935509033881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7184295859561096386 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7024504514246272859, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
@@ -4894,7 +4899,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae286a35e294dfa4a8fc47346d8bd498, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boxCollider2D: {fileID: 8078873223366622159}
+  _view: {fileID: 6333436744924008135}
   _particleSystem: {fileID: 5307233793050590660}
+--- !u!61 &8078873223366622159 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8273779656249489494, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
+  m_PrefabInstance: {fileID: 202576935509033881}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9202556314153243192 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9041467268346007969, guid: a15a4c4ef26224d4a9f6e499ec55589b, type: 3}
