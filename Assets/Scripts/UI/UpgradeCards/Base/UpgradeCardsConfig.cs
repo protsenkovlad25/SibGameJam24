@@ -15,4 +15,6 @@ public class CardData
 {
     [SerializeField] private string m_Name;
     [SerializeField] private GameObject m_CardPrefab;
+
+    public GameObject CardPrefab => m_CardPrefab;
 }

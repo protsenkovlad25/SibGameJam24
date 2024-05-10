@@ -29,7 +29,7 @@ public abstract class UIPanel : MonoBehaviour
 		_levelSceneLoader = levelSceneLoader;
 	}
 
-	private void Awake()
+	protected virtual void Awake()
 	{
 		_body.anchoredPosition = Vector2.zero;
 		_body.sizeDelta = Vector2.zero;

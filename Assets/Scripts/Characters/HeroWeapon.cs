@@ -20,18 +20,48 @@ public class HeroWeapon : MonoBehaviour
 
     private Camera m_Camera;
 
-
     private void Awake()
     {
         m_Camera = Camera.main;
 
         CalcRotation();
+
+        //LoadData();
     }
+
+    private void LoadData()
+    {
+        if (PlayerData.Level == 0)
+        {
+            SaveData();
+        }
+        else
+        {
+            m_Delay = PlayerData.WeaponData.Delay;
+            m_Range = PlayerData.WeaponData.Range;
+            m_Spread = PlayerData.WeaponData.Spread;
+            m_BulletsCount = PlayerData.WeaponData.BulletsCount;
+        }
+    }
+
+    public void SaveData()
+    {
+        WeaponData data = new WeaponData()
+        {
+            Delay = m_Delay,
+            Range = m_Range,
+            Spread = m_Spread,
+            BulletsCount = m_BulletsCount
+        };
+        PlayerData.WeaponData = data;
+    }
+
     Vector2 GetMousePosition()
     {
         Vector3 result = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         return result;
     }
+
     void CalcRotation()
     {
         Vector3 mousePos = GetMousePosition();
