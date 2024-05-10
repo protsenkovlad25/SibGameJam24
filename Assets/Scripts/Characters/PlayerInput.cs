@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     public static bool IsCanChangeGravity;
     public static bool IsCanActiveShovel;
     private static bool m_IsLocked;
+    private static bool m_IsMoveLocked;
     private static Vector2 m_MoveDir;
 
     private void Update()
@@ -57,6 +58,7 @@ public class PlayerInput : MonoBehaviour
                     Debug.Log("Change Gravity");
                     Gravity.TurnLeft();
                     IsCanChangeGravity = false;
+                    m_IsMoveLocked = false;
                 }
             }
 
@@ -67,6 +69,7 @@ public class PlayerInput : MonoBehaviour
                     Debug.Log("Change Gravity");
                     Gravity.TurnRight();
                     IsCanChangeGravity = false;
+                    m_IsMoveLocked = false;
                 }
             }
 
@@ -81,7 +84,7 @@ public class PlayerInput : MonoBehaviour
             }
         }
 
-        OnMove?.Invoke(m_MoveDir);
+        if (!m_IsMoveLocked) OnMove?.Invoke(m_MoveDir);
     }
 
     public static void Init()
@@ -90,6 +93,7 @@ public class PlayerInput : MonoBehaviour
         IsCanActiveShovel = true;
 
         Unlock();
+        UnlockMove();
     }
 
     public static void Lock()
@@ -97,8 +101,18 @@ public class PlayerInput : MonoBehaviour
         m_IsLocked = true;
     }
 
+    public static void LockMove()
+    {
+        m_IsMoveLocked = true;
+    }
+
     public static void Unlock()
     {
         m_IsLocked = false;
+    }
+
+    public static void UnlockMove()
+    {
+        m_IsMoveLocked = false;
     }
 }
