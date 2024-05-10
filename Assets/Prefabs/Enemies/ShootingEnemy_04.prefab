@@ -55,9 +55,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8448998771791157181, guid: 81a5dd6363933f849b2107ef0c0995c2, type: 3}
+      propertyPath: _complexParticleSystem
+      value: 
+      objectReference: {fileID: 8800121578087539141}
     - target: {fileID: 9150056795176179837, guid: 81a5dd6363933f849b2107ef0c0995c2, type: 3}
       propertyPath: m_Name
       value: ShootingEnemy_04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81a5dd6363933f849b2107ef0c0995c2, type: 3}
+--- !u!114 &8800121578087539141 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4238901261449608405, guid: 81a5dd6363933f849b2107ef0c0995c2, type: 3}
+  m_PrefabInstance: {fileID: 4680319519925787920}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82148a97eddbea84c9ebeab5240bf3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

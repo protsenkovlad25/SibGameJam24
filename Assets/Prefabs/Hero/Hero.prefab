@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.76, y: 1.2}
+  m_Size: {x: 1.7, y: 1.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -392,14 +392,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4d7e8e105b9b643aa8925119cfdb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxFallSpeed: 20
-  m_SpeedIncreaseTime: 5
+  m_MaxFallSpeed: 9
+  m_SpeedIncreaseTime: 2
   m_MoveSpeed: 5
   m_GravityChangeCD: 1
   m_InvFramesTime: 3
   m_ShovelTime: 6
   m_ShovelCooldown: 10
-  m_Health: 3
+  m_MaxHealth: 10
+  m_Health: 10
 --- !u!96 &6015936797492786701
 TrailRenderer:
   serializedVersion: 2
