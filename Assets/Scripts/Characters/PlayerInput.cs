@@ -47,11 +47,13 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            Debug.Log("Change Gravity");
             Gravity.TurnLeft();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Change Gravity");
             Gravity.TurnRight();
         }
 

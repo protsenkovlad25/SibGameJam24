@@ -41,7 +41,7 @@ public class CameraController : MonoBehaviour
 
     private void MoveCamera()
     {
-        Camera.main.transform.position = new Vector3(m_Target.position.x - m_MainPos.x,
+        transform.position = new Vector3(m_Target.position.x - m_MainPos.x,
                                                      m_Target.position.y - m_MainPos.y,
                                                      Camera.main.transform.position.z);
     }
@@ -67,6 +67,8 @@ public class CameraController : MonoBehaviour
         //}
 
         m_MainPos = Vector2.Lerp(m_MainPos, m_ViewPos, .05f);
+
+        Debug.Log("Change Camera Position");
 
         if ((m_ViewPos - m_MainPos).magnitude < 0.1f)
         {

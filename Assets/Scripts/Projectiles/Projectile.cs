@@ -10,7 +10,7 @@ public abstract class Projectile : MonoBehaviour
 	private SpriteRenderer	_view;
 
 	[SerializeField]
-	private float			_speed			= 1f;
+	protected float			_speed			= 1f;
 	[SerializeField]
 	private float			_damage			= 1f;
 

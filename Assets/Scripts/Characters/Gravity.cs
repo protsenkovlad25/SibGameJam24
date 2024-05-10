@@ -55,6 +55,7 @@ public static class Gravity
 
     private static void ChangeGravity()
     {
+
         m_IsGravityChange = true;
 
         m_X = VectorDir.x;

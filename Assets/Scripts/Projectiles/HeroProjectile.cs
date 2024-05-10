@@ -12,6 +12,9 @@ public class HeroProjectile : Projectile
         m_Range = range;
         m_StartPosition= transform.position;
     }
+    public void SetSpeed(float speed)
+    {
+    }
 
     protected override void Update()
     {

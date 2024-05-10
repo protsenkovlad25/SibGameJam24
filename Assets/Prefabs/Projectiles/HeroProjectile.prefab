@@ -17,11 +17,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157152558521636717, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5157152558521636717, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5157152558521636717, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,6 +63,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5157152559842159334, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157152559842159334, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8898821
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157152559842159334, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7602793824818667358, guid: f8e380ce1a266e840846c9d9710db529, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -93,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 2197514219384629990}
   _view: {fileID: 7814913685343449100}
-  _speed: 4
+  _speed: 7
   _damage: 1
 --- !u!212 &7814913685343449100 stripped
 SpriteRenderer:

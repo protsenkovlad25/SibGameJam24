@@ -23,6 +23,8 @@ public class HeroWeapon : MonoBehaviour
     private void Awake()
     {
         m_Camera= Camera.main;
+
+        CalcRotation();
     }
     Vector2 GetMousePosition()
     {
@@ -32,21 +34,19 @@ public class HeroWeapon : MonoBehaviour
     void CalcRotation()
     {
         Vector3 mousePos = GetMousePosition();
-        m_Gun.transform.eulerAngles = new Vector3(0, 0, 
-            Vector3.SignedAngle(m_Gun.transform.position, 
-            mousePos - m_Gun.transform.position, 
-            new Vector3(0, 0, 1)) - 90 + transform.eulerAngles.z);
 
+        float angle = Vector3.SignedAngle(new Vector3(1,0),
+            mousePos - m_Gun.transform.position,
+            new Vector3(0, 0, 1));
 
-        if (m_Gun.transform.localEulerAngles.z > 90 && m_Gun.transform.localEulerAngles.z < 270)// || m_Gun.transform.localEulerAngles.z >90)
+        m_Gun.transform.eulerAngles = new Vector3(0, 0, angle);
+        if (m_Gun.transform.localEulerAngles.z > 90 && m_Gun.transform.localEulerAngles.z < 270)
         {
-            m_Gun.GetComponentInChildren<SpriteRenderer>().flipY = true;
-            m_Char.GetComponentInChildren<SpriteRenderer>().flipX = true;
+            m_Gun.GetComponentInChildren<SpriteRenderer>().flipY = m_Char.GetComponentInChildren<SpriteRenderer>().flipX = true;
         }
         else
         {
-            m_Gun.GetComponentInChildren<SpriteRenderer>().flipY = false;
-            m_Char.GetComponentInChildren<SpriteRenderer>().flipX = false;
+            m_Gun.GetComponentInChildren<SpriteRenderer>().flipY = m_Char.GetComponentInChildren<SpriteRenderer>().flipX = false;
         }
     }
     private void Shoot()
@@ -60,6 +60,7 @@ public class HeroWeapon : MonoBehaviour
             proj.transform.position = m_Muzzle.transform.position;
 
             proj.GetComponent<HeroProjectile>().SetRange(m_Range);
+            proj.transform.parent = transform;
 
             proj.transform.eulerAngles = new Vector3(0, 0, m_Gun.transform.eulerAngles.z + Random.Range(-m_Spread, m_Spread));
         }
