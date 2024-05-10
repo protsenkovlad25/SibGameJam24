@@ -99,6 +99,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4313433008587325882, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
+      propertyPath: m_text
+      value: "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313433008587325882, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
+      propertyPath: m_fontSize
+      value: 39.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7441825989899659582, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
       propertyPath: m_text
       value: Credits

@@ -19,7 +19,7 @@ public class LevelSceneLoader : SceneLoader
 
 		Scene currentScene = SceneManager.GetActiveScene();
 		int currentSceneIndex = currentScene.buildIndex;
-		_currentLevel = currentSceneIndex / _sceneVariants;
+		_currentLevel = currentSceneIndex / (_sceneVariants + 1);
 
 		PlayerData.Level = _currentLevel;
 	}
