@@ -45,6 +45,10 @@ public abstract class Projectile : MonoBehaviour
 
             gameObject.SetActive(false);
         }
+		else
+        {
+            gameObject.SetActive(false);
+        }
 	}
 
 	protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +60,11 @@ public abstract class Projectile : MonoBehaviour
 			gameObject.SetActive(false);
         }
     }
+
+	protected virtual void Disactivate()
+	{
+
+	}
 
 	private void FixedUpdate()
 	{
