@@ -202,7 +202,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1089618374
+--- !u!21 &2077083095
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -307,6 +307,14 @@ PrefabInstance:
     - target: {fileID: 6691183689547211888, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109684688408377550, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: m_text
+      value: "\u0418\u0433\u0440\u0430\u0442\u044C"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109684688408377550, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
+      propertyPath: m_fontSize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8928056608247559544, guid: a34288a8f245b1747859523f1f1fbc14, type: 3}
       propertyPath: m_Pivot.x
