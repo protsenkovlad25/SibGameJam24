@@ -151,6 +151,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2331104338961515256, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
   m_PrefabInstance: {fileID: 723331726980434945}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4238901261449608405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3520214442859622612, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
+  m_PrefabInstance: {fileID: 723331726980434945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82148a97eddbea84c9ebeab5240bf3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &5215194642085712881 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4785599873707302896, guid: 80a0006562a946c4cbc532a2ae2f1cd9, type: 3}
@@ -175,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _view: {fileID: 1526455727612194721}
   _particleSystem: {fileID: 5215194642085712881}
+  _complexParticleSystem: {fileID: 4238901261449608405}
   _hP: 1
   _spriteRenderer: {fileID: 1526455727612194721}
   _projectilePrefab: {fileID: 7814913683509906822, guid: b0f4f8668cbde7041acc7bacfa232a6d, type: 3}

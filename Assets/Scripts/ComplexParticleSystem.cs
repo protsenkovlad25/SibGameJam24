@@ -8,6 +8,8 @@ using UnityEngine;
 
         private bool m_IsPlaying = false;
 
+        public bool IsPlaying => m_IsPlaying;
+        
         public void Init()
         {
             m_Particles = new List<ParticleSystem>();
@@ -47,11 +49,11 @@ using UnityEngine;
                 if (!particle.isPlaying) notPlayingCount++;
             }
 
-            if (notPlayingCount == m_Particles.Count) Destroy(gameObject);
+            if (notPlayingCount == m_Particles.Count) m_IsPlaying = false ;
         }
 
         private void FixedUpdate()
         {
-            if (m_IsPlaying && transform.parent == null) CheckParticlePlaying();
+            if (m_IsPlaying) CheckParticlePlaying();
         }
     }

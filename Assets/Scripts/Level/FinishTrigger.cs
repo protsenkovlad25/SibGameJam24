@@ -13,6 +13,7 @@ public class FinishTrigger : MonoBehaviour, ITriggerable
 
 	public void ActivateTrigger()
 	{
+		Camera.main.GetComponent<CameraController>().enabled = false;
 		_levelSceneLoader.FinishLevel();
 	}
 }

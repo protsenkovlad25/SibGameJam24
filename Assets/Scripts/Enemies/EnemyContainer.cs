@@ -23,13 +23,15 @@ public class EnemyContainer : MonoBehaviour
 		{
 			StaticEnemy prefab = levelConfigData.StaticEnemyPrefab;
 			enemy.SetView(prefab.GetView());
-		}
+            enemy.SetParticles(prefab.Particles);
+        }
 
 		foreach (PursuingEnemy enemy in _pursuingEnemies)
 		{
 			PursuingEnemy prefab = levelConfigData.PursuingEnemyPrefab;
 			enemy.SetView(prefab.GetView());
-			enemy.Target = playerTransform;
+            enemy.SetParticles(prefab.Particles);
+            enemy.Target = playerTransform;
 			enemy.Speed = prefab.Speed;
 		}
 
@@ -37,14 +39,15 @@ public class EnemyContainer : MonoBehaviour
 		{
 			SinusoidEnemy prefab = levelConfigData.SinusoidEnemyPrefab;
 			enemy.SetView(prefab.GetView());
-			enemy.Parameters = prefab.Parameters;
-		}
+            enemy.SetParticles(prefab.Particles);
+        }
 
 		foreach (ShootingEnemy enemy in _shootingEnemies)
 		{
 			ShootingEnemy prefab = levelConfigData.ShootingEnemyPrefab;
 			enemy.SetView(prefab.GetView());
-			enemy.Target = playerTransform;
+            enemy.SetParticles(prefab.Particles);
+            enemy.Target = playerTransform;
 		}
 	}
 }
