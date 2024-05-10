@@ -52,6 +52,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 
         m_IsTakeDamage = true;
         IsShovel = false;
+        IsShovelCooldown = false;
 
         LoadHeroData();
     }
@@ -234,7 +235,6 @@ public class Hero : MonoBehaviour, ITakenDamage
         }
         else
         {
-            IsShovel = false;
             m_ShovelTimer = null;
             DisactiveShovel();
         }
@@ -263,6 +263,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 
         OnShovelCharged?.Invoke();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<Obstacle>(out var obstacle))

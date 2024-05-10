@@ -18,8 +18,6 @@ public class PlayerInput : MonoBehaviour
     {
         m_MoveDir = Vector2.zero;
 
-        Debug.Log(PlayerInput.m_IsLocked + "  " + PlayerInput.m_IsMoveLocked);
-
         if (!m_IsLocked)
         {
             if (Input.GetKey(KeyCode.A))
@@ -75,13 +73,13 @@ public class PlayerInput : MonoBehaviour
                     UnlockMove();
                 }
             }
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (!Hero.IsShovelCooldown)
             {
-                if (!Hero.IsShovel && !Hero.IsShovelCooldown)
-                {
-                    Hero.OnActiveShovel.Invoke();
-                }
+                Hero.OnActiveShovel.Invoke();
             }
         }
 
