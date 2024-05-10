@@ -78,11 +78,9 @@ public class PlayerInput : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (IsCanActiveShovel)
+                if (!Hero.IsShovel && !Hero.IsShovelCooldown)
                 {
-                    IsCanActiveShovel = false;
                     Hero.OnActiveShovel.Invoke();
-                    Lock();
                 }
             }
         }
@@ -93,7 +91,6 @@ public class PlayerInput : MonoBehaviour
     public static void Init()
     {
         IsCanChangeGravity = true;
-        IsCanActiveShovel = true;
 
         Unlock();
         UnlockMove();

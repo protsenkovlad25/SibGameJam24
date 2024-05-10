@@ -13,6 +13,7 @@ public class Hero : MonoBehaviour, ITakenDamage
     public static UnityEvent OnDie = new UnityEvent();
 
     public static bool IsShovel;
+    public static bool IsShovelCooldown;
 
     [SerializeField] private float m_MaxFallSpeed;
     [SerializeField] private float m_SpeedIncreaseTime;
@@ -155,7 +156,6 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void FrontTriggered()
     {
-
         TakeDamage();
 
         PlayerInput.LockMove();
@@ -222,17 +222,28 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void ActiveShovel()
     {
-        IsShovel = true;
-        
-        m_FallSpeed = 0;
+        if (!IsShovel)
+        {
+            IsShovel = true;
+            PlayerInput.Lock();
 
-        m_ShovelTimer = new Timer(m_ShovelTime);
-        m_ShovelTimer.OnTimesUp.AddListener(DisactiveShovel);
+            m_FallSpeed = 0;
+
+            m_ShovelTimer = new Timer(m_ShovelTime);
+            m_ShovelTimer.OnTimesUp.AddListener(DisactiveShovel);
+        }
+        else
+        {
+            IsShovel = false;
+            m_ShovelTimer = null;
+            DisactiveShovel();
+        }
     }
 
     private void DisactiveShovel()
     {
         IsShovel = false;
+        IsShovelCooldown = true;
         PlayerInput.Unlock();
 
         m_ShovelTimer = null;
@@ -248,7 +259,7 @@ public class Hero : MonoBehaviour, ITakenDamage
     private void ShovelCooldownEnd()
     {
         m_ShovelCDTimer = null;
-        PlayerInput.IsCanActiveShovel = true;
+        IsShovelCooldown = false;
 
         OnShovelCharged?.Invoke();
     }
