@@ -10,7 +10,7 @@ public class LevelSceneLoader : SceneLoader
 	[SerializeField]
 	private VictoryUIPanel      _victoryUIPanel;
 
-	private static int                 _currentLevel = 0;
+	public static int                 _currentLevel = 0;
 
 	public void Initialize(NextLevelUIPanel nextLevelUIPanel, VictoryUIPanel victoryUIPanel)
 	{
