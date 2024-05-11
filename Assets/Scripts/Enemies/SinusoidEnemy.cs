@@ -11,6 +11,9 @@ public class SinusoidEnemy : Enemy
 	[SerializeField]
 	private ParametersDataModel		_parameters;
 
+	[SerializeField]
+	private AudioSource				_audioSource;
+
 	private float                   _time;
 
 	public ParametersDataModel		Parameters { get => _parameters; set => _parameters =  value ; }
@@ -19,6 +22,8 @@ public class SinusoidEnemy : Enemy
 	{
 		if (_isActive)
 		{
+			_audioSource.mute = false;
+
 			Vector2 direction = Vector2.zero;
 
 			if (_parameters.Direction == Direction.Up)
@@ -43,6 +48,8 @@ public class SinusoidEnemy : Enemy
 		}
 		else
 		{
+			_audioSource.mute = true;
+
 			_rigidbody2D.velocity = Vector2.zero;
 		}
 	}

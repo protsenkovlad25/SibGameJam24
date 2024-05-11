@@ -43,8 +43,6 @@ public abstract class Projectile : MonoBehaviour
 		if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
 		{
 			takenDamage.TakeDamage();
-			int value = Random.Range(1,6);
-			SoundManager.Instance.PlayEffect(PoolType.Weapon, "Wall_Destroy_" + ( PlayerData.Level + 1 ) + "_-00" + value, collision.transform.position);
 			gameObject.SetActive(false);
         }
 		else
@@ -61,8 +59,6 @@ public abstract class Projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
         {
             takenDamage.TakeDamage();
-			int value = Random.Range(1,6);
-			SoundManager.Instance.PlayEffect(PoolType.Enemies, "Enemy_Damage_" + (PlayerData.Level + 1) + ".rpp-00" + value, collision.transform.position);
 			gameObject.SetActive(false);
         }
     }

@@ -10,5 +10,7 @@ public class LevelConfigLoader : MonoBehaviour
 	public void UpdateEnemies(EnemyContainer enemyContainer, Transform playerTransform)
 	{
 		enemyContainer.SetEnemies(_levelConfigData, playerTransform);
+		SoundManager.Instance.PlayMusic(_levelConfigData.LevelMusic);
+		SoundManager.Instance.PlayAmbience(_levelConfigData.Ambience);
 	}
 }

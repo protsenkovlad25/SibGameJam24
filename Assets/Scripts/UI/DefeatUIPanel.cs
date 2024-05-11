@@ -8,4 +8,10 @@ public class DefeatUIPanel : UIPanel
 	{
 		_levelSceneLoader.LoadMenu();
 	}
+
+	public override void Show()
+	{
+		base.Show();
+		SoundManager.Instance.PlayEffect(PoolType.UI, "LevelFailed", transform.position);
+	}
 }

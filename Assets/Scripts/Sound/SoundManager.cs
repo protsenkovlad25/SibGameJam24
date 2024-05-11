@@ -81,6 +81,22 @@ public class SoundManager : MonoBehaviour
                     effect.name = effect.clip.name;
     }
 
+    public void PlayMusic(AudioClip audioClip)
+    {
+		AudioSource[] audioSources = Camera.main.GetComponents<AudioSource>();
+
+		audioSources[0].clip = audioClip;
+        audioSources[0].Play();
+	}
+
+    public void PlayAmbience(AudioClip audioClip)
+    {
+		AudioSource[] audioSources = Camera.main.GetComponents<AudioSource>();
+
+		audioSources[1].clip = audioClip;
+		audioSources[1].Play();
+	}
+
     /*public void InitMusic()
     {
         if(m_LightLayer!=null)

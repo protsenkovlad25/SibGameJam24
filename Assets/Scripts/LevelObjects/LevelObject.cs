@@ -16,6 +16,9 @@ public abstract class LevelObject : MonoBehaviour, ITakenDamage
 		_view.SetActive(false);
 		_boxCollider2D.enabled = false;
 
+		int value = Random.Range(1,6);
+		SoundManager.Instance.PlayEffect(PoolType.Weapon, "Wall_Destroy_" + ( PlayerData.Level + 1 ) + "_-00" + value, transform.position);
+
 		_particleSystem.Play();
 
 		StartCoroutine(DestroyAfterParticleEffect());

@@ -10,6 +10,8 @@ public class PursuingEnemy : Enemy
 	private SpriteRenderer	_spriteRenderer;
 	[SerializeField]
 	private float            _speed               = 1f;
+	[SerializeField]
+	private AudioSource		_audioSource;
 
 	private Transform		_target;
 
@@ -20,14 +22,19 @@ public class PursuingEnemy : Enemy
 	{
 		if (_isActive)
 		{
+			_audioSource.mute = false;
 
 			Vector3 targetPosition = _target != null ? _target.position : Vector3.zero;
 
-            GetComponentInChildren<Animator>().GetComponent<SpriteRenderer>().flipX = transform.position.x < targetPosition.x;
+			GetComponentInChildren<Animator>().GetComponent<SpriteRenderer>().flipX = transform.position.x < targetPosition.x;
 
-            Vector3 direction = (targetPosition - transform.position).normalized;
+			Vector3 direction = (targetPosition - transform.position).normalized;
 
 			_rigidbody2D.velocity = direction * _speed;
+		}
+		else
+		{
+			_audioSource.mute = true;
 		}
 	}
 }

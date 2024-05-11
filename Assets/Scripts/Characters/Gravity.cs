@@ -34,7 +34,6 @@ public static class Gravity
 
     public static void Start()
     {
-        Debug.LogWarning("!");
         VectorDir = new Vector2(0, -1);
         GravityDir = GravityDirection.Down;
 		m_MainCamera = Camera.main;
