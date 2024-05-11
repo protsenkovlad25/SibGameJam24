@@ -181,7 +181,8 @@ public class Hero : MonoBehaviour, ITakenDamage
     {
         if (m_IsTakeDamage)
         {
-            m_Health--;
+			SoundManager.Instance.PlayEffect(PoolType.Enemies, "Player_Damage.rpp-00" + Random.Range(1,6), transform.position);
+			m_Health--;
             OnChangeHP?.Invoke(m_Health);
 
             if (m_Health == 0)
