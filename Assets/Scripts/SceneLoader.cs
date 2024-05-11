@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public abstract class SceneLoader : MonoBehaviour
 {
 	protected readonly int _sceneVariants		= 1;
-	protected readonly int _lastLevelIndex		= 4;
+	protected readonly int _lastLevelIndex		= 3;
 	protected readonly int _menuSceneIndex		= 0;
-	protected readonly int _creditsSceneIndex	= 26;
+	protected readonly int _creditsSceneIndex	= 4;
 
 	public virtual void LoadLevel(int level)
 	{
