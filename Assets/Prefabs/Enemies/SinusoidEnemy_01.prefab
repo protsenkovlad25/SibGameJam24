@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Color.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6002082809001507025, guid: 4e180bf1cd950c44c99b04b4e1c658db, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 601996b056ecece429fa487442ec329d, type: 3}
     - target: {fileID: 8816920004873496385, guid: 4e180bf1cd950c44c99b04b4e1c658db, type: 3}
       propertyPath: m_RootOrder
       value: 0
