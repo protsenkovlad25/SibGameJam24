@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour
@@ -42,12 +43,16 @@ public abstract class Projectile : MonoBehaviour
 		if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
 		{
 			takenDamage.TakeDamage();
-
-            gameObject.SetActive(false);
+			int value = Random.Range(1,6);
+			SoundManager.Instance.PlayEffect(PoolType.Weapon, "Wall_Destroy_" + ( PlayerData.Level + 1 ) + "_-00" + value, collision.transform.position);
+			gameObject.SetActive(false);
         }
 		else
         {
-            gameObject.SetActive(false);
+			int value = (PlayerData.Level)*5 + Random.Range(1,6);
+			string result = value.ToString("D2");
+			SoundManager.Instance.PlayEffect(PoolType.Weapon, "Walls_damage.rpp-0" + result, collision.GetContact(0).point);
+			gameObject.SetActive(false);
         }
 	}
 
@@ -56,7 +61,8 @@ public abstract class Projectile : MonoBehaviour
         if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
         {
             takenDamage.TakeDamage();
-
+			int value = Random.Range(1,6);
+			SoundManager.Instance.PlayEffect(PoolType.Enemies, "Enemy_Damage_" + (PlayerData.Level + 1) + ".rpp-00" + value, collision.transform.position);
 			gameObject.SetActive(false);
         }
     }

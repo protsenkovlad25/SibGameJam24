@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public enum GravityDirection
 {
@@ -27,13 +28,18 @@ public static class Gravity
 
     private static bool m_IsGravityChange = false;
 
+    private static Camera m_MainCamera;
+
     public static float TurnSpeed => m_TurnSpeed;
 
     public static void Start()
     {
+        Debug.LogWarning("!");
         VectorDir = new Vector2(0, -1);
         GravityDir = GravityDirection.Down;
-    }
+		m_MainCamera = Camera.main;
+
+	}
 
     public static void TurnLeft()
     {
@@ -52,10 +58,10 @@ public static class Gravity
         else GravityDir = (GravityDirection)3;
         ChangeGravity();
     }
-
     private static void ChangeGravity()
     {
-        m_IsGravityChange = true;
+		SoundManager.Instance.PlayEffect(PoolType.Addictive, "gravity change.rpp-00" + Random.Range(1, 4), m_MainCamera.transform.position);
+		m_IsGravityChange = true;
 
         m_X = VectorDir.x;
         m_Y = VectorDir.y;
