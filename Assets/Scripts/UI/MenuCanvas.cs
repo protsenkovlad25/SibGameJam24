@@ -22,7 +22,7 @@ public class MenuCanvas : MonoBehaviour
 		_initialGameLabelPosition = _gameLabel.localPosition;
 		_initialPlayButtonPosition = _playButton.localPosition;
 
-		_gameLabel.localPosition = new Vector3(0, - _gameLabel.localPosition.y - _gameLabel.sizeDelta.y, 0);
+		_gameLabel.localPosition = new Vector3(0, 800, 0);
 
 		_playButton.localPosition = new Vector3(0, -800, 0);
 	}
