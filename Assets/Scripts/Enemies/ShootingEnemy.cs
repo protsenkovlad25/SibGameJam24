@@ -9,7 +9,7 @@ public class ShootingEnemy : Enemy
 	[SerializeField]
 	private GameObject      _projectilePrefab;
 	[SerializeField]
-	private float			_t					= 1f;
+	private float			_t					= .5f;
 
 	private Transform       _target;
 
@@ -22,8 +22,37 @@ public class ShootingEnemy : Enemy
 
 	public override void Update()
 	{
-		base.Update();
-		if(_isActive)
+        if (_hP > 0)
+        {
+            if (_mainCamera != null)
+            {
+                if (_view != null && _view.isVisible)
+                {
+                    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
+
+                    Bounds bounds = _view.bounds;
+
+                    _isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+                    if (_isActive)
+                    {
+                        var Hits = Physics2D.RaycastAll(transform.position, (Hero.HeroTransform.position - transform.position).normalized, (Hero.HeroTransform.position - transform.position).magnitude);
+                        bool isWall = false;
+                        foreach (var hit in Hits)
+                        {
+                            if (hit.collider.gameObject.layer == 7)
+                            {
+                                isWall = true;
+                                break;
+                            }
+                        }
+                        if (isWall) _isActive = false;
+                    }
+                }
+            }
+        }
+
+
+        if (_isActive)
 		{
 			Vector3 targetPosition = _target != null ? _target.position : Vector3.zero;
 
@@ -31,7 +60,7 @@ public class ShootingEnemy : Enemy
 		}
 	}
 
-	private IEnumerator ShootCoroutine()
+    private IEnumerator ShootCoroutine()
 	{
 		while (true)
 		{

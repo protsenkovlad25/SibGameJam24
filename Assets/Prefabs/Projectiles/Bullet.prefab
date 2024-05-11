@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody2D: {fileID: 2197514219384629990}
   _view: {fileID: 7814913685343449100}
-  _speed: 1
+  _speed: 8
   _damage: 1
 --- !u!212 &7814913685343449100 stripped
 SpriteRenderer:

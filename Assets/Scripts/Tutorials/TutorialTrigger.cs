@@ -57,6 +57,8 @@ public class TutorialTrigger : MonoBehaviour
         Time.timeScale = 1;
         PlayerInput.Unlock();
         PlayerInput.UnlockMove();
+        m_IsTextReaden = false;
+        GetComponent<Collider2D>().enabled = false;
     }
     protected virtual bool Check()
     {

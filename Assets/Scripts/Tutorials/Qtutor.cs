@@ -8,4 +8,9 @@ public class Qtutor : TutorialTrigger
     {
         return Input.GetKeyDown(KeyCode.Q);
     }
+    protected override void UnlockGame()
+    {
+        PlayerInput.TutorQPress();
+        base.UnlockGame();
+    }
 }

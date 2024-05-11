@@ -190,4 +190,4 @@ MonoBehaviour:
   _hP: 1
   _spriteRenderer: {fileID: 1526455727612194721}
   _projectilePrefab: {fileID: 7814913683509906822, guid: b0f4f8668cbde7041acc7bacfa232a6d, type: 3}
-  _t: 1
+  _t: 0.5

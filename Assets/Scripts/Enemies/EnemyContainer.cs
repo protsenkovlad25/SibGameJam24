@@ -48,6 +48,7 @@ public class EnemyContainer : MonoBehaviour
 			enemy.SetView(prefab.GetView());
             enemy.SetParticles(prefab.Particles);
             enemy.Target = playerTransform;
+			Debug.Log("SetShooting target player");
 		}
 	}
 }
