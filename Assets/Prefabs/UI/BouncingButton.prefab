@@ -7,6 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2989361528376389103, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989361528376389103, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 18ccb0ad5b73632408e78bd8c975cd37, type: 3}
+    - target: {fileID: 2989361528376389103, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989361528376389103, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989361528376389103, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.039322734
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316350172270054281, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4395660976286300433, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -94,6 +118,38 @@ PrefabInstance:
     - target: {fileID: 4627032372864971456, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
       propertyPath: m_Name
       value: BouncingButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_text
+      value: "\u041D\u0410\u0427\u0410\u0422\u042C!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_fontSize
+      value: 78.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 78.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420848331358805004, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32bb446d510ffee4596b208c0963b10f, type: 3}
