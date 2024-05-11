@@ -25,6 +25,7 @@ public class NextLevelUIPanel : UIPanel
 	public override void Show()
 	{
 		base.Show();
+		SoundManager.Instance.PlayEffect(PoolType.UI, "LevelSuccessful.rpp", transform.position);
 
 		InitCards();
 

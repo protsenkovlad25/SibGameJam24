@@ -45,6 +45,8 @@ public abstract class UIButton : MonoBehaviour
 			return;
 		}
 
+		SoundManager.Instance.PlayEffect(PoolType.UI, "UI.rpp-002", transform.position);
+
 		_body.DOScale(_body.localScale * 0.9f, _duration).SetEase(Ease.InCirc).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
 		{
 			ClickEvent?.Invoke();

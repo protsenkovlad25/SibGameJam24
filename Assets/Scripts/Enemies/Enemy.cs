@@ -85,6 +85,10 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 	private void RemoveHP(int value)
 	{
 		_hP -= value;
+
+		int number = Random.Range(1,6);
+		SoundManager.Instance.PlayEffect(PoolType.Enemies, "Enemy_Damage_" + ( PlayerData.Level + 1 ) + ".rpp-00" + number, transform.position);
+
 		if (_hP <= 0)
 		{
 			_isActive= false;
