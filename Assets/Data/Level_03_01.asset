@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level_03_01
   m_EditorClassIdentifier: 
   StaticEnemyPrefab: {fileID: 330483950547863099, guid: e76a62cacd4c5c64b9c9e633ad2d50f7, type: 3}
-  PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: e70d0875f6d57df468630fea5ca5f35b, type: 3}
-  SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: 1314179907229f74796ab8997d68cacd, type: 3}
-  ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: fcf2acd5c3d23ce4db419fb9bf87f7a9, type: 3}
+  PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: 96d4686135705cb439f43f391f3e80bf, type: 3}
+  SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: d31f78ce2cf7069469adfac37f985233, type: 3}
+  ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: 2f8a18c305bbb2e4393a4eedf7b74a59, type: 3}
