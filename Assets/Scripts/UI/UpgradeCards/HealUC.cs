@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class HealUC : UpgradeCard
 {
-    public override string Description => $"Heal {m_Value} HP";
+    private readonly int m_Value = 1;
+
+    public override string Description => $"Восстановить {m_Value} HP";
 
     public override void Activate()
     {
-        PlayerData.HeroData.Health += (int)m_Value;
+        PlayerData.HeroData.Health += m_Value;
 
         base.Activate();
     }

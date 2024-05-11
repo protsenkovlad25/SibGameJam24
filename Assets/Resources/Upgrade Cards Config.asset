@@ -15,7 +15,25 @@ MonoBehaviour:
   m_Cards:
   - m_Name: Fire Rate
     m_CardPrefab: {fileID: 5806939116042404975, guid: ab79faa0faca60743a7f4bf036293a27, type: 3}
-  - m_Name: ' Max Health'
+  - m_Name: Max Health
     m_CardPrefab: {fileID: 3461526454197859568, guid: e2ac8c166cb32f242b7b95b2acd3c700, type: 3}
   - m_Name: Heal
     m_CardPrefab: {fileID: 7980510882749854599, guid: 4967aa5ca37b91444809b2a1c9da05a1, type: 3}
+  - m_Name: Bullet and Spread
+    m_CardPrefab: {fileID: 2327187452694902134, guid: a3588fefeb8050f4ca9d076840a50f6b, type: 3}
+  - m_Name: Hp and FireRate
+    m_CardPrefab: {fileID: 8838016465626377149, guid: 38a5d9e2c6255ff4abedbcbaf82990a0, type: 3}
+  - m_Name: Inv Frames
+    m_CardPrefab: {fileID: 7192273275932390760, guid: 284d69d33f2e3d640b70c190ff64e4f2, type: 3}
+  - m_Name: Move Speed
+    m_CardPrefab: {fileID: 8549031408056283567, guid: 359bc2a8ada0d3b49837c78d5e76a7c6, type: 3}
+  - m_Name: Range
+    m_CardPrefab: {fileID: 9109679380144392653, guid: e7dce51d3086bb34caba619f4fb3e6e9, type: 3}
+  - m_Name: Shotgun
+    m_CardPrefab: {fileID: 3501126122422185588, guid: b07bbaf6d004ab84284095099ddedcf0, type: 3}
+  - m_Name: Shovel Cooldown
+    m_CardPrefab: {fileID: 1979650873899434206, guid: 942efb74fc2ef7247bf6120451ad4cdc, type: 3}
+  - m_Name: Shovel Time
+    m_CardPrefab: {fileID: 5954917375263711464, guid: cfe122a5fe4095e41b1a68401e591275, type: 3}
+  - m_Name: Speed Increase
+    m_CardPrefab: {fileID: 6803692433899071489, guid: 2d17dea040048e54695787a386f6b7b7, type: 3}

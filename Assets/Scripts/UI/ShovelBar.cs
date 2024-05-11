@@ -9,6 +9,8 @@ public class ShovelBar : MonoBehaviour
     [SerializeField] private Sprite m_ActiveIcon;
     [SerializeField] private Sprite m_UnactiveIcon;
 
+    private Sequence m_STSequense;
+
     private void Start()
     {
         Hero.OnActiveShovel.AddListener(ActivaShovel);
@@ -18,12 +20,18 @@ public class ShovelBar : MonoBehaviour
 
     private void ChargeShovel()
     {
+        //m_STSequense?.Kill();
+        m_Slider.DOKill();
+
+        m_Slider.value = 0;
         m_Slider.DOValue(1, PlayerData.HeroData.ShovelCooldown).SetEase(Ease.Linear);
     }
 
     private void ActivaShovel()
     {
-        m_Slider.value = 0;
+
+        m_Slider.DOValue(0, PlayerData.HeroData.ShovelTime);
+
         m_MainIcon.sprite = m_UnactiveIcon;
     }
 
