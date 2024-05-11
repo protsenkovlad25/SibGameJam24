@@ -227,7 +227,7 @@ MonoBehaviour:
   _view: {fileID: 7814913685343449100}
   _speed: 10
   _damage: 1
-  m_CollisionParticles: {fileID: 0}
+  m_CollisionParticles: {fileID: 8345506109539375816, guid: 2bdc77c3c80078f42b7c2a32f3d1b122, type: 3}
 --- !u!212 &7814913685343449100 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 5157152559842159334, guid: f8e380ce1a266e840846c9d9710db529, type: 3}

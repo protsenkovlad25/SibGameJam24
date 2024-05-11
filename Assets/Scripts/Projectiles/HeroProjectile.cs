@@ -8,6 +8,15 @@ public class HeroProjectile : Projectile
     float m_Range;
     Vector3 m_StartPosition;
 
+    protected override void OnCollisionEnter2D(Collision2D collision)
+    {
+        var part = Instantiate(m_CollisionParticles.gameObject);
+        part.transform.position = transform.position;
+        part.transform.eulerAngles = transform.eulerAngles;
+        part.GetComponent<ComplexParticleSystem>().PlayParticle();
+
+        base.OnCollisionEnter2D(collision);
+    }
     public void SetRange(float range)
     {
         m_Range = range;
@@ -22,7 +31,6 @@ public class HeroProjectile : Projectile
     }
     protected override void Update()
     {
-        base.Update();
         if(m_Range<(m_StartPosition - transform.localPosition).magnitude) Destroy(gameObject);
     }
 }
