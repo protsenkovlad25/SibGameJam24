@@ -93,11 +93,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4313433008587325882, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
       propertyPath: m_text
-      value: "\u041D\u0430\u0447\u0430\u0442\u044C \u0441 \u043D\u0430\u0447\u0430\u043B\u0430"
+      value: "\u041D\u0430\u0447\u0430\u0442\u044C \u0441\u043D\u0430\u0447\u0430\u043B\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 4313433008587325882, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
       propertyPath: m_fontSize
-      value: 74.75
+      value: 78.92
       objectReference: {fileID: 0}
     - target: {fileID: 5613274040991261863, guid: 0597a51bff5ba51458c79b3c29bf292a, type: 3}
       propertyPath: m_SizeDelta.x
