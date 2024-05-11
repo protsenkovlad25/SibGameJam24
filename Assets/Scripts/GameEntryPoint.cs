@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class GameEntryPoint : MonoBehaviour
@@ -42,7 +43,7 @@ public class GameEntryPoint : MonoBehaviour
         Hero.OnDie.AddListener(OpenDefeatPanel);
     }
 
-    private void OpenDefeatPanel()
+	private void OpenDefeatPanel()
     {
         _defeatUIPanel.Show();
     }

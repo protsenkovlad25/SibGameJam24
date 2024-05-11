@@ -120,6 +120,8 @@ public class HeroWeapon : MonoBehaviour
 
             proj.transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z + Random.Range(-m_Spread, m_Spread));
         }
+
+        SoundManager.Instance.PlayEffect(PoolType.Weapon, "Player_Shoot.rpp-00" + Random.Range(1,6), m_Camera.transform.position);
     }
     private void Update()
     {
