@@ -312,6 +312,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2687520698960472709, guid: de0ac123712000744ab59bab5ec76cef, type: 3}
   m_PrefabInstance: {fileID: 52490250268124809}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &2734114113749470223 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2687520698960472710, guid: de0ac123712000744ab59bab5ec76cef, type: 3}
+  m_PrefabInstance: {fileID: 52490250268124809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &52490250744677740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,6 +412,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6782104681146179141, guid: 485fed94d012ab64f9b06d38fc10d0d3, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2734114113749470223}
     - target: {fileID: 6782104681146179142, guid: 485fed94d012ab64f9b06d38fc10d0d3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
