@@ -394,10 +394,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u0413\u0435\u0440\u043E\u0438, \u0441\u0434\u0435\u043B\u0430\u0432\u0448\u0438\u0435
-    \u044D\u0442\u043E\u0442 \u043A\u0443\u0441\u043E\u043A \u0438\u0433\u0440\u044B\n\n\n\n\n\n\n\n\n\n\n\n\u0413\u0435\u0439\u043C
-    \u0434\u0438\u0437\u0430\u0439\u043D:\nellps\n\n\n\n\n\n\n\n\n\u0410\u0440\u0442
-    \u0438 \u0430\u043D\u0438\u043C\u0430\u0446\u0438\u0438:\nrainwater_art\n\n\n\n\n\n\n\n\n\n\u0421\u0430\u0443\u043D\u0434
-    \u0434\u0438\u0437\u0430\u0439\u043D \u0438 \u043C\u0443\u0437\u044B\u043A\u0430:\ndarknix3\n\n\n\n\n\n\n\n\n\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435:\nBalphagore\nellps\nbackyardboy\n\n"
+    \u044D\u0442\u043E\u0442 \u043A\u0443\u0441\u043E\u043A \u0438\u0433\u0440\u044B\n\n\n\n\n\n\n\n\u0413\u0435\u0439\u043C
+    \u0434\u0438\u0437\u0430\u0439\u043D:\nellps\n\n\n\n\n\n\n\n\u0410\u0440\u0442
+    \u0438 \u0430\u043D\u0438\u043C\u0430\u0446\u0438\u0438:\nrainwater_art\n\n\n\n\n\n\n\n\u0421\u0430\u0443\u043D\u0434
+    \u0434\u0438\u0437\u0430\u0439\u043D \u0438 \u043C\u0443\u0437\u044B\u043A\u0430:\ndarknix3\n\n\n\n\n\n\n\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435:\nBalphagore\nellps\nbackyardboy"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e122976fa0bb38844bdb6223ae2aa109, type: 2}
   m_sharedMaterial: {fileID: 6410664473007329013, guid: e122976fa0bb38844bdb6223ae2aa109, type: 2}
