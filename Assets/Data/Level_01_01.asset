@@ -17,3 +17,4 @@ MonoBehaviour:
   SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: 1314179907229f74796ab8997d68cacd, type: 3}
   ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: fcf2acd5c3d23ce4db419fb9bf87f7a9, type: 3}
   LevelMusic: {fileID: 8300000, guid: 7abc7e7ae1428e34a9156c47c54c00da, type: 3}
+  Ambience: {fileID: 8300000, guid: 5a25daeaef6f6bb4a8512b4edeb1f7d6, type: 3}
