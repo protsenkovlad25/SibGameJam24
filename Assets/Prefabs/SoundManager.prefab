@@ -68,25 +68,25 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: 11693edbd5ca730498c3e84867a6ace7, type: 3}
     - name: Walls_damage.rpp-005
       clip: {fileID: 8300000, guid: 7216a2c833bbd684cac94b4a8daeaec8, type: 3}
+    - name: Walls_damage.rpp-006
+      clip: {fileID: 8300000, guid: c4754008b4111f34aa8c98b943c05606, type: 3}
+    - name: Walls_damage.rpp-007
+      clip: {fileID: 8300000, guid: a573aeeb7ebf3294c90d780c45612a50, type: 3}
+    - name: Walls_damage.rpp-008
+      clip: {fileID: 8300000, guid: d3add65932352c248b16379222bd7617, type: 3}
+    - name: Walls_damage.rpp-009
+      clip: {fileID: 8300000, guid: f3f047aac0cc75c4f959e569d161b1a6, type: 3}
+    - name: Walls_damage.rpp-010
+      clip: {fileID: 8300000, guid: dcac153b05a71f14ea12ea7b0a9236a8, type: 3}
     - name: Walls_damage.rpp-011
-      clip: {fileID: 8300000, guid: 850567889fac06b4a935562224e315de, type: 3}
-    - name: Walls_damage.rpp-012
-      clip: {fileID: 8300000, guid: 952932e2070e24b4a853551482c4d62e, type: 3}
-    - name: Walls_damage.rpp-013
-      clip: {fileID: 8300000, guid: 1fb1e34649fe2494485d462adfafac07, type: 3}
-    - name: Walls_damage.rpp-014
-      clip: {fileID: 8300000, guid: bb34d02d7054fef469b1a2cdee6c6175, type: 3}
-    - name: Walls_damage.rpp-015
-      clip: {fileID: 8300000, guid: 703cdd1fd4873b54c95e964d48873785, type: 3}
-    - name: Walls_damage.rpp-021
       clip: {fileID: 8300000, guid: ee12def70e3ff26408ad7033ebe25f06, type: 3}
-    - name: Walls_damage.rpp-022
+    - name: Walls_damage.rpp-012
       clip: {fileID: 8300000, guid: d1dcffd55e9a0284d8a0815ff63d0e51, type: 3}
-    - name: Walls_damage.rpp-023
+    - name: Walls_damage.rpp-013
       clip: {fileID: 8300000, guid: b531d988a4f49d441bb29c6ccf65c3f2, type: 3}
-    - name: Walls_damage.rpp-024
+    - name: Walls_damage.rpp-014
       clip: {fileID: 8300000, guid: 209c3b147b785f2479597b87cd4ec00b, type: 3}
-    - name: Walls_damage.rpp-025
+    - name: Walls_damage.rpp-015
       clip: {fileID: 8300000, guid: 622f50db78e75b14ba4557334363ed59, type: 3}
     - name: Wall_Destroy_1_-001
       clip: {fileID: 8300000, guid: cb009d01b26e9a7498f9a1a5ac824202, type: 3}
@@ -98,25 +98,25 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: a712cf780729596479e2b780a9a09e93, type: 3}
     - name: Wall_Destroy_1_-005
       clip: {fileID: 8300000, guid: f7be00c8b50cdc64596c0352f838b858, type: 3}
+    - name: Wall_Destroy_2_-001
+      clip: {fileID: 8300000, guid: d506953dacb9d9248881712f2fb57965, type: 3}
+    - name: Wall_Destroy_2_-002
+      clip: {fileID: 8300000, guid: cdf9f5a1809830e4493ae774803dd9f4, type: 3}
+    - name: Wall_Destroy_2_-003
+      clip: {fileID: 8300000, guid: fd1f42204444d5948a9ee45a23342b0f, type: 3}
+    - name: Wall_Destroy_2_-004
+      clip: {fileID: 8300000, guid: 212b8701fbf75bd419f74331332cedb0, type: 3}
+    - name: Wall_Destroy_2_-005
+      clip: {fileID: 8300000, guid: 6b6d8a1a078d9b54ab8bb51960e4aed7, type: 3}
     - name: Wall_Destroy_3_-001
-      clip: {fileID: 8300000, guid: 81e13de4ecfab6444b50b43a8bc91815, type: 3}
-    - name: Wall_Destroy_3_-002
-      clip: {fileID: 8300000, guid: 5ebe72bdd667daf4ca0e0cecae2706d8, type: 3}
-    - name: Wall_Destroy_3_-003
-      clip: {fileID: 8300000, guid: ac67c3b2427ed6f4f96fdf1878801b66, type: 3}
-    - name: Wall_Destroy_3_-004
-      clip: {fileID: 8300000, guid: 512556e5c066d3240a3f5e31de117889, type: 3}
-    - name: Wall_Destroy_3_-005
-      clip: {fileID: 8300000, guid: 1ce0e59c1b5612b4186ce3b38297025f, type: 3}
-    - name: Wall_Destroy_5_-001
       clip: {fileID: 8300000, guid: 93349ba880915c24ea93adbe1eabdad1, type: 3}
-    - name: Wall_Destroy_5_-002
+    - name: Wall_Destroy_3_-002
       clip: {fileID: 8300000, guid: 5bccdaa7f2ef4a9418f85e1147727b58, type: 3}
-    - name: Wall_Destroy_5_-003
+    - name: Wall_Destroy_3_-003
       clip: {fileID: 8300000, guid: 0ba8d03b863b859488ecd50084c7fce1, type: 3}
-    - name: Wall_Destroy_5_-004
+    - name: Wall_Destroy_3_-004
       clip: {fileID: 8300000, guid: c6207c9991066a346af61a0b718f4ac9, type: 3}
-    - name: Wall_Destroy_5_-005
+    - name: Wall_Destroy_3_-005
       clip: {fileID: 8300000, guid: 6899413c5dac6fa4e8a5bc3502380559, type: 3}
   - type: 3
     effects:
@@ -130,25 +130,25 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: 61729af82d399b54dac10b3af89e51fd, type: 3}
     - name: Enemy_Damage_1.rpp-005
       clip: {fileID: 8300000, guid: b029b5631b7aa3d40ba665550bce0fda, type: 3}
+    - name: Enemy_Damage_2.rpp-001
+      clip: {fileID: 8300000, guid: 91359a0454a07004dad9f166be5edcdd, type: 3}
+    - name: Enemy_Damage_2.rpp-002
+      clip: {fileID: 8300000, guid: d0f2685a9be60e04dafde19a1b5764ab, type: 3}
+    - name: Enemy_Damage_2.rpp-003
+      clip: {fileID: 8300000, guid: 2e1d2fecf56193e429ea92f989055123, type: 3}
+    - name: Enemy_Damage_2.rpp-004
+      clip: {fileID: 8300000, guid: 23a6f2adf4351a04494168d1aa1581ee, type: 3}
+    - name: Enemy_Damage_2.rpp-005
+      clip: {fileID: 8300000, guid: b07ed9149337b824ba4a1e3772adc142, type: 3}
     - name: Enemy_Damage_3.rpp-001
-      clip: {fileID: 8300000, guid: 1e300276366318847802578385360714, type: 3}
-    - name: Enemy_Damage_3.rpp-002
-      clip: {fileID: 8300000, guid: c921f18cdd9c1ce469a9617c99a1dc64, type: 3}
-    - name: Enemy_Damage_3.rpp-003
-      clip: {fileID: 8300000, guid: d3f0d91979917d14ea498a81200b88dd, type: 3}
-    - name: Enemy_Damage_3.rpp-004
-      clip: {fileID: 8300000, guid: a264ac0c7c1f9404b990c692b1029b5c, type: 3}
-    - name: Enemy_Damage_3.rpp-005
-      clip: {fileID: 8300000, guid: e3ba934f53a64b743aef51ac350dcfa1, type: 3}
-    - name: Enemy_Damage_5.rpp-001
       clip: {fileID: 8300000, guid: 6ae634e017999c5458754ad39f7458ef, type: 3}
-    - name: Enemy_Damage_5.rpp-002
+    - name: Enemy_Damage_3.rpp-002
       clip: {fileID: 8300000, guid: 9bfc28a5f6742ee4d911f1f3765b3b03, type: 3}
-    - name: Enemy_Damage_5.rpp-003
+    - name: Enemy_Damage_3.rpp-003
       clip: {fileID: 8300000, guid: 31d0d4166ce7c6140b70193005607a48, type: 3}
-    - name: Enemy_Damage_5.rpp-004
+    - name: Enemy_Damage_3.rpp-004
       clip: {fileID: 8300000, guid: a017319d48c796747a931fd8011d157c, type: 3}
-    - name: Enemy_Damage_5.rpp-005
+    - name: Enemy_Damage_3.rpp-005
       clip: {fileID: 8300000, guid: 37304dba0175a05449a93aefadfd4aa6, type: 3}
     - name: Player_Damage.rpp-001
       clip: {fileID: 8300000, guid: aee3cbf8774047846b56d1d964471579, type: 3}
