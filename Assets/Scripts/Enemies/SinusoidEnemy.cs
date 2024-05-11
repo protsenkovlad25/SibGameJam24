@@ -54,8 +54,39 @@ public class SinusoidEnemy : Enemy
 
 		return up * upSpeed + forward * speed;
 	}
+    public override void Update()
+    {
+        if (_hP > 0)
+        {
+            if (_mainCamera != null)
+            {
+                if (_view != null && _view.isVisible)
+                {
+                    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
 
-	[Serializable]
+                    Bounds bounds = _view.bounds;
+
+                    _isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+                    if (_isActive)
+                    {
+                        var Hits = Physics2D.RaycastAll(transform.position, (Hero.HeroTransform.position - transform.position).normalized, (Hero.HeroTransform.position - transform.position).magnitude);
+                        bool isWall = false;
+                        foreach (var hit in Hits)
+                        {
+                            if (hit.collider.gameObject.layer == 7)
+                            {
+                                isWall = true;
+                                break;
+                            }
+                        }
+                        if (isWall) _isActive = false;
+                    }
+                }
+            }
+        }
+    }
+
+    [Serializable]
 	public class ParametersDataModel
 	{
 		public float		Speed		= 1f;
