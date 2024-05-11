@@ -83,11 +83,18 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusic(AudioClip audioClip)
     {
-        AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+		AudioSource[] audioSources = Camera.main.GetComponents<AudioSource>();
 
-		audioSource.clip = audioClip;
-        audioSource.Play();
+		audioSources[0].clip = audioClip;
+        audioSources[0].Play();
+	}
 
+    public void PlayAmbience(AudioClip audioClip)
+    {
+		AudioSource[] audioSources = Camera.main.GetComponents<AudioSource>();
+
+		audioSources[1].clip = audioClip;
+		audioSources[1].Play();
 	}
 
     /*public void InitMusic()

@@ -10,4 +10,5 @@ public class LevelConfigData : ScriptableObject
 	public SinusoidEnemy	SinusoidEnemyPrefab;
 	public ShootingEnemy	ShootingEnemyPrefab;
 	public AudioClip		LevelMusic;
+	public AudioClip        Ambience;
 }
