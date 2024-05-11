@@ -21,6 +21,6 @@ public class LetterController : MonoBehaviour
             distanceMod = 1 - ((transform.position - Hero.HeroTransform.position).magnitude / 15f);
         else
             distanceMod = 0;
-        m_Text.color = new Color(1, 1, 1, .5f)*distanceMod;
+        m_Text.color = new Color(1, 1, 1, .5f * distanceMod);
     }
 }

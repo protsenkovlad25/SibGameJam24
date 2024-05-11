@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerInput : MonoBehaviour
 {
     public static UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
-    
+
+
     public static bool IsCanChangeGravity;
     public static bool IsCanActiveShovel;
     private static bool m_IsLocked;
@@ -16,6 +18,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
+
         m_MoveDir = Vector2.zero;
 
         if (!m_IsLocked)
@@ -88,10 +91,16 @@ public class PlayerInput : MonoBehaviour
     {
         IsCanChangeGravity = true;
 
+
         Unlock();
         UnlockMove();
     }
-
+    public static void TutorQPress()
+    {
+        Gravity.TurnLeft();
+        IsCanChangeGravity = false;
+        UnlockMove();
+    }
     public static void Lock()
     {
         m_IsLocked = true;

@@ -11,33 +11,48 @@ public class SinusoidEnemy : Enemy
 	[SerializeField]
 	private ParametersDataModel		_parameters;
 
+	private float                   _time;
+
 	public ParametersDataModel		Parameters { get => _parameters; set => _parameters =  value ; }
 
 	private void FixedUpdate()
 	{
 		if (_isActive)
 		{
-			Vector2 moveDirection = Vector2.zero;
-			Vector2 sinOffset = Vector2.zero;
+			Vector2 direction = Vector2.zero;
 
-			if (_parameters.Direction == Direction.Up || _parameters.Direction == Direction.Down)
+			if (_parameters.Direction == Direction.Up)
 			{
-				moveDirection = Vector2.up * _parameters.Speed;
-				sinOffset = Vector2.right * Mathf.Sin(Time.time * _parameters.Frequency) * _parameters.Amplitude;
+				direction = Vector2.up;
 			}
-			else if (_parameters.Direction == Direction.Right || _parameters.Direction == Direction.Left)
+			else if (_parameters.Direction == Direction.Down)
 			{
-				moveDirection = Vector2.right * _parameters.Speed;
-				sinOffset = Vector2.up * Mathf.Sin(Time.time * _parameters.Frequency) * _parameters.Amplitude;
+				direction = Vector2.down;
+			}
+			else if (_parameters.Direction == Direction.Right)
+			{
+				direction = Vector2.right;
+			}
+			else if (_parameters.Direction == Direction.Left)
+			{
+				direction = Vector2.left;
 			}
 
-			Vector2 totalVelocity = moveDirection + sinOffset;
-			_rigidbody2D.velocity = totalVelocity;
+			_time += Time.deltaTime;
+			_rigidbody2D.velocity = GetProjectileVelocity(direction, _parameters.Speed, _time, _parameters.Frequency, _parameters.Amplitude);
 		}
 		else
 		{
 			_rigidbody2D.velocity = Vector2.zero;
 		}
+	}
+
+	private Vector2 GetProjectileVelocity(Vector2 forward, float speed, float time, float frequency, float amplitude)
+	{
+		Vector2 up = new Vector2(-forward.y, forward.x);
+		float upSpeed = Mathf.Cos(time * frequency) * amplitude * frequency;
+
+		return up * upSpeed + forward * speed;
 	}
 
 	[Serializable]

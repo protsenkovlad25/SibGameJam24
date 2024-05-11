@@ -5,16 +5,16 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour, ITakenDamage
 {
 	[SerializeField]
-	private SpriteRenderer  _view;
+	protected SpriteRenderer  _view;
 	[SerializeField]
-	private ParticleSystem  _particleSystem;
+    protected ParticleSystem  _particleSystem;
     [SerializeField]
-    private ComplexParticleSystem _complexParticleSystem;
+    protected ComplexParticleSystem _complexParticleSystem;
 
     [SerializeField]
-	private int             _hP         = 1;
+    protected int             _hP         = 1;
 
-	private Camera          _mainCamera;
+    protected Camera          _mainCamera;
 	protected bool          _isActive;
 
 	public ComplexParticleSystem Particles => _complexParticleSystem;
