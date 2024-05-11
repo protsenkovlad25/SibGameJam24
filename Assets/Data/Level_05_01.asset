@@ -16,3 +16,5 @@ MonoBehaviour:
   PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: a1d36d074cb3f0c4db9aa0182d6cb271, type: 3}
   SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: bf2b4471d37328f448febb41f765bc5d, type: 3}
   ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: 2de88febeacc75448b9328061c8dcf46, type: 3}
+  LevelMusic: {fileID: 8300000, guid: dceb9c1ad5a41e14abcff753571c43b8, type: 3}
+  Ambience: {fileID: 8300000, guid: 1d09ece8953f9d946950d7289c4dca55, type: 3}
