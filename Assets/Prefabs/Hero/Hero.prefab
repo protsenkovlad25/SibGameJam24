@@ -400,7 +400,7 @@ MonoBehaviour:
   m_InvFramesTime: 3
   m_ShovelTime: 6
   m_ShovelCooldown: 10
-  m_MaxHealth: 10
+  m_MaxHealth: 20
   m_Health: 10
   m_Particles: {fileID: 5211387444353958057}
 --- !u!96 &6015936797492786701

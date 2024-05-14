@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class FinishTrigger : MonoBehaviour, ITriggerable
 {
-	protected LevelSceneLoader _levelSceneLoader;
-
-	public void Initialize(LevelSceneLoader levelSceneLoader)
+	public void Initialize()
 	{
-		_levelSceneLoader = levelSceneLoader;
 	}
 
 	public void ActivateTrigger()
 	{
+		EventManager.LevelComplete();
 		Camera.main.GetComponent<CameraController>().enabled = false;
-		_levelSceneLoader.FinishLevel();
 	}
 }

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class DefeatUIPanel : UIPanel
 {
-	protected override void OnHideComplete()
-	{
-		_levelSceneLoader.LoadMenu();
-	}
+    private void Awake()
+    {
+        EventManager.OnGameOver.AddListener(OnHideComplete);
+    }
+    protected override void OnHideComplete()
+    {
+        LevelSceneLoader.LoadMenu();
+    }
 
 	public override void Show()
 	{

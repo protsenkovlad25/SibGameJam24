@@ -12,12 +12,14 @@ public class NextLevelUIPanel : UIPanel
 
 	protected override void OnHideComplete()
 	{
-		_levelSceneLoader.LoadNextLevel();
+		PlayerData.NextLevel();
 	}
 
 	protected override void Awake()
 	{
 		base.Awake();
+
+		EventManager.OnLevelComplete.AddListener(Show);
 
 		m_CardsContainer.GetComponent<RectTransform>().localScale = Vector3.zero;
 	}

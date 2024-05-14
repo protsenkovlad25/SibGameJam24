@@ -8,4 +8,15 @@ public static class PlayerData
 
     public static HeroData HeroData;
     public static WeaponData WeaponData;
+
+    public static void InitData(HeroConfig config)
+    {
+        HeroData = config.HeroData;
+    }
+
+    public static  void NextLevel()
+    {
+        Level++;
+        LevelSceneLoader.LoadLevel(Level);
+    }
 }

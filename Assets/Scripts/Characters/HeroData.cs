@@ -1,17 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroData
+[Serializable]
+public struct HeroData
 {
-    public float MoveSpeed { get; set; }
-    public float ShovelTime { get; set; }
-    public float MaxFallSpeed { get; set; }
-    public float InvFramesTime { get; set; }
-    public float ShovelCooldown { get; set; }
-    public float GravityChangeCD { get; set; }
-    public float SpeedIncreaseTime { get; set; }
+    public float MoveSpeed;
+    public float ShovelTime;
+    public float MaxFallSpeed;
+    public float InvFramesTime;
+    public float ShovelCooldown;
+    public float GravityChangeCD;
+    public float SpeedIncreaseTime;
 
-    public int Health { get; set; }
-    public int MaxHealth { get; set; }
+    public int Health;
+    public int MaxHealth;
 }

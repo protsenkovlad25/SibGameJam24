@@ -12,7 +12,6 @@ public class Hero : MonoBehaviour, ITakenDamage
     public static UnityEvent OnActiveShovel = new UnityEvent();
     public static UnityEvent OnShovelCharged = new UnityEvent();
     public static UnityEvent OnShovelCooldown = new UnityEvent();
-    public static UnityEvent OnDie = new UnityEvent();
 
     public static bool IsShovel;
     public static bool IsShovelCooldown;
@@ -41,6 +40,8 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     public void Init()
     {
+        LoadHeroData();
+
         HeroTransform = transform;
 
         PlayerInput.OnMove.AddListener(Move);
@@ -58,30 +59,20 @@ public class Hero : MonoBehaviour, ITakenDamage
         m_IsTakeDamage = true;
         IsShovel = false;
         IsShovelCooldown = false;
-
-        LoadHeroData();
         GetComponentInChildren<HeroWeapon>().Init();
     }
 
     private void LoadHeroData()
     {
-        if (PlayerData.Level == 0)
-        {
-            SaveData();
-        }
-        else
-        {
-            Debug.Log("Load data FRom Player");
-            m_Health = PlayerData.HeroData.Health;
-            m_MaxHealth = PlayerData.HeroData.MaxHealth;
-            m_MoveSpeed = PlayerData.HeroData.MoveSpeed;
-            m_ShovelTime = PlayerData.HeroData.ShovelTime;
-            m_MaxFallSpeed = PlayerData.HeroData.MaxFallSpeed;
-            m_InvFramesTime = PlayerData.HeroData.InvFramesTime;
-            m_ShovelCooldown = PlayerData.HeroData.ShovelCooldown;
-            m_GravityChangeCD = PlayerData.HeroData.GravityChangeCD;
-            m_SpeedIncreaseTime = PlayerData.HeroData.SpeedIncreaseTime;
-        }
+        m_Health = PlayerData.HeroData.Health;
+        m_MaxHealth = PlayerData.HeroData.MaxHealth;
+        m_MoveSpeed = PlayerData.HeroData.MoveSpeed;
+        m_ShovelTime = PlayerData.HeroData.ShovelTime;
+        m_MaxFallSpeed = PlayerData.HeroData.MaxFallSpeed;
+        m_InvFramesTime = PlayerData.HeroData.InvFramesTime;
+        m_ShovelCooldown = PlayerData.HeroData.ShovelCooldown;
+        m_GravityChangeCD = PlayerData.HeroData.GravityChangeCD;
+        m_SpeedIncreaseTime = PlayerData.HeroData.SpeedIncreaseTime;
     }
 
     private void SaveData()
@@ -202,7 +193,8 @@ public class Hero : MonoBehaviour, ITakenDamage
         gameObject.SetActive(false);
         PlayerInput.Lock();
 
-        OnDie?.Invoke();
+        EventManager.GameOver();
+
     }
 
     public void Heal()

@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class VictoryUIPanel : UIPanel
 {
-	protected override void OnHideComplete()
+    public void Awake()
+    {
+        
+    }
+    protected override void OnHideComplete()
 	{
-		_levelSceneLoader.LoadCredits();
+		LevelSceneLoader.LoadCredits();
 	}
 
 	public override void Show()

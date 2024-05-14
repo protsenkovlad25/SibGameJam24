@@ -21,12 +21,10 @@ public abstract class UIPanel : MonoBehaviour
 	private float				_buttonShowDuration		= 0.25f;
 
 	private LevelCanvas			_levelCanvas;
-	protected LevelSceneLoader  _levelSceneLoader;
 
-	public void Initialize(LevelCanvas levelCanvas, LevelSceneLoader levelSceneLoader)
+	public void Initialize(LevelCanvas levelCanvas)
 	{
 		_levelCanvas = levelCanvas;
-		_levelSceneLoader = levelSceneLoader;
 	}
 
 	protected virtual void Awake()
