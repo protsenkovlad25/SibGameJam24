@@ -28,29 +28,10 @@ public class HeroWeapon : MonoBehaviour
 
     private void LoadData()
     {
-        if (PlayerData.Level == 0)
-        {
-            SaveData();
-        }
-        else
-        {
-            m_Delay = PlayerData.WeaponData.Delay;
-            m_Range = PlayerData.WeaponData.Range;
-            m_Spread = PlayerData.WeaponData.Spread;
-            m_BulletsCount = PlayerData.WeaponData.BulletsCount;
-        }
-    }
-
-    public void SaveData()
-    {
-        WeaponData data = new WeaponData()
-        {
-            Delay = m_Delay,
-            Range = m_Range,
-            Spread = m_Spread,
-            BulletsCount = m_BulletsCount
-        };
-        PlayerData.WeaponData = data;
+        m_Delay = PlayerData.HeroData.Delay;
+        m_Range = PlayerData.HeroData.Range;
+        m_Spread = PlayerData.HeroData.Spread;
+        m_BulletsCount = PlayerData.HeroData.BulletsCount;
     }
 
     Vector2 GetMousePosition()

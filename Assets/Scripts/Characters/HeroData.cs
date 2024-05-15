@@ -16,4 +16,9 @@ public struct HeroData
 
     public int Health;
     public int MaxHealth;
+
+    public float Range;
+    public float Delay;
+    public float Spread;
+    public float BulletsCount;
 }

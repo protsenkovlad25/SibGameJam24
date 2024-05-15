@@ -6,8 +6,6 @@ using UnityEngine;
 public class GameEntryPoint : MonoBehaviour
 {
     [SerializeField]
-    private LevelConfigLoader   _levelConfigLoader;
-    [SerializeField]
     private EnemyContainer      _enemyContainer;
     [SerializeField]
     private FinishTrigger       _finishTrigger;
@@ -26,8 +24,14 @@ public class GameEntryPoint : MonoBehaviour
     private void Awake()
     {
         _enemyContainer.GetBaseEnemies();
-        _levelConfigLoader.UpdateEnemies(_enemyContainer, _playerTransform);
-		_finishTrigger.Initialize();
+
+        _enemyContainer.SetEnemies(PlayerData.LevelConfig, _playerTransform);
+
+        SoundManager.Instance.PlayMusic(PlayerData.LevelConfig.LevelMusic);
+        SoundManager.Instance.PlayAmbience(PlayerData.LevelConfig.Ambience);
+
+
+        _finishTrigger.Initialize();
         _nextLevelUIPanel.Initialize(_levelCanvas);
         _defeatUIPanel.Initialize(_levelCanvas);
         _victoryUIPanel.Initialize(_levelCanvas);

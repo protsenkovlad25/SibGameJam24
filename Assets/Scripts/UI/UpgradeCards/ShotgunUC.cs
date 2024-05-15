@@ -12,9 +12,9 @@ public class ShotgunUC : UpgradeCard
 
     public override void Activate()
     {
-        PlayerData.WeaponData.BulletsCount += m_BulletValue;
-        PlayerData.WeaponData.Spread += m_SpreadValue;
-        PlayerData.WeaponData.Range -= PlayerData.WeaponData.Range * m_RangeValue;
+        PlayerData.HeroData.BulletsCount += m_BulletValue;
+        PlayerData.HeroData.Spread += m_SpreadValue;
+        PlayerData.HeroData.Range -= PlayerData.HeroData.Range * m_RangeValue;
 
         base.Activate();
     }

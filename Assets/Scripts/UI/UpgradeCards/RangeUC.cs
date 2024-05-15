@@ -10,7 +10,7 @@ public class RangeUC : UpgradeCard
 
     public override void Activate()
     {
-        PlayerData.WeaponData.Range += PlayerData.WeaponData.Range * m_RangeValue;
+        PlayerData.HeroData.Range += PlayerData.HeroData.Range * m_RangeValue;
 
         base.Activate();
     }

@@ -287,7 +287,6 @@ public class Hero : MonoBehaviour, ITakenDamage
             takenDamage.TakeDamage();
         if (collision.gameObject.TryGetComponent<FinishTrigger>(out var f))
         {
-            SaveData();
             f.ActivateTrigger();
         }
         if (collision.gameObject.TryGetComponent<TutorialTrigger>(out var tutor))

@@ -12,10 +12,10 @@ public class HpAndFireRateUC : UpgradeCard
     public override void Activate()
     {
         PlayerData.HeroData.MaxHealth -= m_HpValue;
-        PlayerData.WeaponData.Delay -= PlayerData.WeaponData.Delay * m_FireRateValue;
+        PlayerData.HeroData.Delay -= PlayerData.HeroData.Delay * m_FireRateValue;
 
-        if (PlayerData.WeaponData.Delay < 0)
-            PlayerData.WeaponData.Delay = 0;
+        if (PlayerData.HeroData.Delay < 0)
+            PlayerData.HeroData.Delay = 0;
 
         base.Activate();
     }
