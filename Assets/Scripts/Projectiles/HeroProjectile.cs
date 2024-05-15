@@ -10,13 +10,18 @@ public class HeroProjectile : Projectile
 
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        PlayParticles();
+        base.OnCollisionEnter2D(collision);
+    }
+
+    void PlayParticles()
+    {
         var part = Instantiate(m_CollisionParticles.gameObject);
         part.transform.position = transform.position;
         part.transform.eulerAngles = transform.eulerAngles;
         part.GetComponent<ComplexParticleSystem>().PlayParticle();
-
-        base.OnCollisionEnter2D(collision);
     }
+
     public void SetRange(float range)
     {
         m_Range = range;
@@ -27,7 +32,8 @@ public class HeroProjectile : Projectile
     }
     protected override void Disactivate()
     {
-        base.Disactivate();
+        PlayParticles();
+        Destroy(gameObject);
     }
     protected override void Update()
     {

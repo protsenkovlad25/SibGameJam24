@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Level_05_01
   m_EditorClassIdentifier: 
   LevelId: 3
-  StaticEnemyPrefab: {fileID: 330483950547863099, guid: e76a62cacd4c5c64b9c9e633ad2d50f7, type: 3}
-  PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: a1d36d074cb3f0c4db9aa0182d6cb271, type: 3}
-  SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: bf2b4471d37328f448febb41f765bc5d, type: 3}
-  ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: 2de88febeacc75448b9328061c8dcf46, type: 3}
+  StaticEnemyPrefab: {fileID: 0}
+  PursuingEnemyPrefab: {fileID: -734048136339034309, guid: 28e881b1ef045c74c9ad0d31ff85d0c6, type: 3}
+  SinusoidEnemyPrefab: {fileID: -4718786908653905469, guid: f3d827c27e5e7484c867ead07dc5a2d9, type: 3}
+  ShootingEnemyPrefab: {fileID: 8485164505312511724, guid: 86b6fcb8a50b15f43b8d63c065b4725f, type: 3}
   LevelMusic: {fileID: 8300000, guid: dceb9c1ad5a41e14abcff753571c43b8, type: 3}
   Ambience: {fileID: 8300000, guid: 1d09ece8953f9d946950d7289c4dca55, type: 3}

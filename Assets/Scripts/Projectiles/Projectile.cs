@@ -43,15 +43,16 @@ public abstract class Projectile : MonoBehaviour
 		if (collision.gameObject.TryGetComponent<ITakenDamage>(out var takenDamage))
 		{
 			takenDamage.TakeDamage();
-			gameObject.SetActive(false);
-        }
+			Disactivate();
+		}
 		else
         {
 			int value = (PlayerData.Level)*5 + Random.Range(1,6);
 			string result = value.ToString("D2");
 			SoundManager.Instance.PlayEffect(PoolType.Weapon, "Walls_damage.rpp-0" + result, collision.GetContact(0).point);
-			gameObject.SetActive(false);
-        }
+
+			Disactivate();
+		}
 	}
 
 	protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -65,6 +66,7 @@ public abstract class Projectile : MonoBehaviour
 
 	protected virtual void Disactivate()
 	{
+		gameObject.SetActive(false);
 
 	}
 
