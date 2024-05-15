@@ -21,32 +21,27 @@ public class EnemyContainer : MonoBehaviour
 	{
 		foreach (StaticEnemy enemy in _staticEnemies)
 		{
-			StaticEnemy prefab = levelConfigData.StaticEnemyPrefab;
-			enemy.SetView(prefab.GetView());
-            enemy.SetParticles(prefab.Particles);
+			GameObject prefab = levelConfigData.StaticEnemyPrefab.gameObject;
+			enemy.SetView(prefab);
         }
 
 		foreach (PursuingEnemy enemy in _pursuingEnemies)
 		{
-			PursuingEnemy prefab = levelConfigData.PursuingEnemyPrefab;
-			enemy.SetView(prefab.GetView());
-            enemy.SetParticles(prefab.Particles);
+			GameObject prefab = levelConfigData.PursuingEnemyPrefab.gameObject;
+			enemy.SetView(prefab);
             enemy.Target = playerTransform;
-			enemy.Speed = prefab.Speed;
 		}
 
 		foreach (SinusoidEnemy enemy in _sinusoidEnemies)
 		{
-			SinusoidEnemy prefab = levelConfigData.SinusoidEnemyPrefab;
-			enemy.SetView(prefab.GetView());
-            enemy.SetParticles(prefab.Particles);
+			GameObject prefab = levelConfigData.SinusoidEnemyPrefab.gameObject;
+			enemy.SetView(prefab.gameObject);
         }
 
 		foreach (ShootingEnemy enemy in _shootingEnemies)
 		{
-			ShootingEnemy prefab = levelConfigData.ShootingEnemyPrefab;
-			enemy.SetView(prefab.GetView());
-            enemy.SetParticles(prefab.Particles);
+			GameObject prefab = levelConfigData.ShootingEnemyPrefab.gameObject;
+			enemy.SetView(prefab);
             enemy.Target = playerTransform;
 			Debug.Log("SetShooting target player");
 		}

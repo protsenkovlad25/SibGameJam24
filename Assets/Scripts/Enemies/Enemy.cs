@@ -4,39 +4,32 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour, ITakenDamage
 {
-	[SerializeField]
-	protected SpriteRenderer  _view;
-	[SerializeField]
-    protected ParticleSystem  _particleSystem;
-    [SerializeField]
-    protected ComplexParticleSystem _complexParticleSystem;
+	protected EnemyView m_View;
 
-    [SerializeField]
-    protected int             _hP         = 1;
+    protected int m_Hp = 1;
 
-    protected Camera          _mainCamera;
-	protected bool          m_IsActive;
+    protected Camera m_MainCamera;
+	protected bool m_IsActive;
 
-	public ComplexParticleSystem Particles => _complexParticleSystem;
 
 	private void Awake()
 	{
-		_mainCamera = Camera.main;
+		m_MainCamera = Camera.main;
 	}
 
 	public virtual void Update()
 	{
-		if (_hP > 0)
+		if (m_Hp > 0)
         {
-            if (_mainCamera != null)
+            if (m_MainCamera != null)
             {
 				if ((transform.position - Hero.HeroTransform.position).magnitude < 15)
 				{
-					if (_view != null && _view.isVisible)
+					if (m_View != null && m_View.Sprite.isVisible)
 					{
-						Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
+						Plane[] planes = GeometryUtility.CalculateFrustumPlanes(m_MainCamera);
 
-						Bounds bounds = _view.bounds;
+						Bounds bounds = m_View.Sprite.bounds;
 
 						m_IsActive = GeometryUtility.TestPlanesAABB(planes, bounds);
 						if(m_IsActive )
@@ -61,21 +54,17 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 	public virtual GameObject GetView()
 	{
-		return _view.gameObject;
+		return m_View.gameObject;
 	}
 
 	public virtual void SetView(GameObject newView)
 	{
-		_view.color = new Color(0,0,0,0);
-		Instantiate(newView,_view.transform).transform.localPosition = Vector3.zero;
+		m_View = Instantiate(newView, transform).GetComponent<EnemyView>();
+
+		m_View.Init();
+
+		m_View.transform.localPosition = Vector3.zero;
 		
-	}
-	public virtual void SetParticles(ComplexParticleSystem newParticles)
-	{
-		var p = Instantiate(newParticles.gameObject, transform);
-		p.transform.localPosition = Vector3.zero;
-		Destroy(_complexParticleSystem.gameObject);
-		_complexParticleSystem = p.GetComponent<ComplexParticleSystem>();
 	}
 	public void TakeDamage()
 	{
@@ -84,26 +73,22 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 	private void RemoveHP(int value)
 	{
-		_hP -= value;
+		m_Hp -= value;
 
-		int number = Random.Range(1,6);
-		SoundManager.Instance.PlayEffect(PoolType.Enemies, "Enemy_Damage_" + ( PlayerData.Level + 1 ) + ".rpp-00" + number, transform.position);
-
-		if (_hP <= 0)
-		{
-			m_IsActive= false;
-			_view.gameObject.SetActive(false);
-			GetComponent<Collider2D>().enabled = false;
-
-			if (_complexParticleSystem != null)
-				_complexParticleSystem.PlayParticle();
-			else
-				_particleSystem?.Play();
-
-			StartCoroutine(DestroyAfterParticleEffect());
-		}
+		if(m_Hp<=0)
+        {
+			Dead();
+        }
 	}
+	void Dead()
+	{
+		m_IsActive = false;
+		GetComponent<Collider2D>().enabled = false;
 
+		m_View.Dead();
+
+		StartCoroutine(DestroyAfterParticleEffect());
+	}
 	private void OnTriggerEnter2D(Collider2D collision)
     {
 		if (collision.gameObject.GetComponent<ITakenDamage>() is ITakenDamage gamagable)
@@ -114,16 +99,9 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 	private IEnumerator DestroyAfterParticleEffect()
 	{
-		if(_complexParticleSystem != null)
+		if(m_View.Particles != null)
         {
-            while (_complexParticleSystem.IsPlaying)
-            {
-                yield return null;
-            }
-        }
-		else
-        {
-            while (_particleSystem.isPlaying)
+            while (m_View.Particles.IsPlaying)
             {
                 yield return null;
             }

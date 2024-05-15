@@ -6,10 +6,10 @@ using UnityEngine;
 public class LevelConfigData : ScriptableObject
 {
 	public int LevelId;
-	public StaticEnemy		StaticEnemyPrefab;
-	public PursuingEnemy	PursuingEnemyPrefab;
-	public SinusoidEnemy	SinusoidEnemyPrefab;
-	public ShootingEnemy	ShootingEnemyPrefab;
+	public EnemyView StaticEnemyPrefab;
+	public EnemyView PursuingEnemyPrefab;
+	public EnemyView SinusoidEnemyPrefab;
+	public EnemyView ShootingEnemyPrefab;
 	public AudioClip		LevelMusic;
 	public AudioClip        Ambience;
 }

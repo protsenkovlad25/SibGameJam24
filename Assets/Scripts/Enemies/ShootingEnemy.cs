@@ -22,15 +22,15 @@ public class ShootingEnemy : Enemy
 
 	public override void Update()
 	{
-        if (_hP > 0)
+        if (m_Hp > 0)
         {
-            if (_mainCamera != null)
+            if (m_MainCamera != null)
             {
-                if (_view != null && _view.isVisible)
+                if (m_View != null && m_View.Sprite.isVisible)
                 {
-                    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_mainCamera);
+                    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(m_MainCamera);
 
-                    Bounds bounds = _view.bounds;
+                    Bounds bounds = m_View.Sprite.bounds;
 
                     m_IsActive = GeometryUtility.TestPlanesAABB(planes, bounds);
                     if (m_IsActive)
