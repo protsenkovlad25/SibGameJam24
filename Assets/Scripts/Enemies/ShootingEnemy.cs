@@ -32,8 +32,8 @@ public class ShootingEnemy : Enemy
 
                     Bounds bounds = _view.bounds;
 
-                    _isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
-                    if (_isActive)
+                    m_IsActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+                    if (m_IsActive)
                     {
                         var Hits = Physics2D.RaycastAll(transform.position, (Hero.HeroTransform.position - transform.position).normalized, (Hero.HeroTransform.position - transform.position).magnitude);
                         bool isWall = false;
@@ -45,14 +45,14 @@ public class ShootingEnemy : Enemy
                                 break;
                             }
                         }
-                        if (isWall) _isActive = false;
+                        if (isWall) m_IsActive = false;
                     }
                 }
             }
         }
 
 
-        if (_isActive)
+        if (m_IsActive)
 		{
 			Vector3 targetPosition = _target != null ? _target.position : Vector3.zero;
 
@@ -66,7 +66,7 @@ public class ShootingEnemy : Enemy
 		{
 			yield return new WaitForSeconds(_t);
 
-			if (_isActive)
+			if (m_IsActive)
 			{
 				Instantiate(_projectilePrefab, transform.position, transform.rotation);
 			}

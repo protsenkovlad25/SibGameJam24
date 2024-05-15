@@ -15,7 +15,7 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
     protected int             _hP         = 1;
 
     protected Camera          _mainCamera;
-	protected bool          _isActive;
+	protected bool          m_IsActive;
 
 	public ComplexParticleSystem Particles => _complexParticleSystem;
 
@@ -38,8 +38,8 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 						Bounds bounds = _view.bounds;
 
-						_isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
-						if(_isActive )
+						m_IsActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+						if(m_IsActive )
 						{
 							var Hits =  Physics2D.RaycastAll(transform.position, (Hero.HeroTransform.position - transform.position).normalized, (Hero.HeroTransform.position - transform.position).magnitude);
 							bool isWall = false;
@@ -51,7 +51,7 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 									break;
 								}
 							}
-							if(isWall) _isActive = false;
+							if(isWall) m_IsActive = false;
 						}
 					}
 				}
@@ -91,7 +91,7 @@ public abstract class Enemy : MonoBehaviour, ITakenDamage
 
 		if (_hP <= 0)
 		{
-			_isActive= false;
+			m_IsActive= false;
 			_view.gameObject.SetActive(false);
 			GetComponent<Collider2D>().enabled = false;
 

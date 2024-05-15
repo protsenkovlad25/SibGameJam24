@@ -20,7 +20,7 @@ public class PursuingEnemy : Enemy
 
 	public void FixedUpdate()
 	{
-		if (_isActive)
+		if (m_IsActive)
 		{
 			_audioSource.mute = false;
 

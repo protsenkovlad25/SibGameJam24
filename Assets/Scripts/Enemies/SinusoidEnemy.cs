@@ -5,62 +5,99 @@ using UnityEngine;
 
 public class SinusoidEnemy : Enemy
 {
-	[SerializeField]
-	private Rigidbody2D				_rigidbody2D;
+	[SerializeField] private Rigidbody2D m_Rigidbody2D;
+	[SerializeField] private ParametersDataModel		m_Parameters;
+	[SerializeField] private AudioSource	m_AudioSource;
 
-	[SerializeField]
-	private ParametersDataModel		_parameters;
+	private float m_Time;
 
-	[SerializeField]
-	private AudioSource				_audioSource;
-
-	private float                   _time;
-
-	public ParametersDataModel		Parameters { get => _parameters; set => _parameters =  value ; }
+	public ParametersDataModel Parameters { get => m_Parameters; set => m_Parameters =  value ; }
 
 	private void FixedUpdate()
 	{
-		if (_isActive)
+		if (m_IsActive)
 		{
-			_audioSource.mute = false;
+			m_AudioSource.mute = false;
+			m_Time += Time.deltaTime;
 
-			Vector2 direction = Vector2.zero;
+			if (CheckWall())
+				Reflect();
 
-			if (_parameters.Direction == Direction.Up)
-			{
-				direction = Vector2.up;
-			}
-			else if (_parameters.Direction == Direction.Down)
-			{
-				direction = Vector2.down;
-			}
-			else if (_parameters.Direction == Direction.Right)
-			{
-				direction = Vector2.right;
-			}
-			else if (_parameters.Direction == Direction.Left)
-			{
-				direction = Vector2.left;
-			}
-
-			_time += Time.deltaTime;
-			_rigidbody2D.velocity = GetProjectileVelocity(direction, _parameters.Speed, _time, _parameters.Frequency, _parameters.Amplitude);
+			m_Rigidbody2D.velocity = GetDirection()*m_Parameters.Speed;
 		}
 		else
 		{
-			_audioSource.mute = true;
+			m_AudioSource.mute = true;
 
-			_rigidbody2D.velocity = Vector2.zero;
+			m_Rigidbody2D.velocity = Vector2.zero;
 		}
 	}
-
-	private Vector2 GetProjectileVelocity(Vector2 forward, float speed, float time, float frequency, float amplitude)
+	void Reflect()
 	{
-		Vector2 up = new Vector2(-forward.y, forward.x);
-		float upSpeed = Mathf.Cos(time * frequency) * amplitude * frequency;
-
-		return up * upSpeed + forward * speed;
+		if (m_Parameters.Direction == Direction.Up)
+		{
+			m_Parameters.Direction = Direction.Down;
+		}
+		else if (m_Parameters.Direction == Direction.Down)
+		{
+			m_Parameters.Direction = Direction.Up;
+		}
+		else if (m_Parameters.Direction == Direction.Right)
+		{
+			m_Parameters.Direction = Direction.Left;
+		}
+		else if (m_Parameters.Direction == Direction.Left)
+		{
+			m_Parameters.Direction = Direction.Right;
+		}
 	}
+	Vector2 GetDirection()
+	{
+
+		Vector2 direction = Vector2.zero;
+
+		if (m_Parameters.Direction == Direction.Up)
+		{
+			direction = Vector2.up;
+		}
+		else if (m_Parameters.Direction == Direction.Down)
+		{
+			direction = Vector2.down;
+		}
+		else if (m_Parameters.Direction == Direction.Right)
+		{
+			direction = Vector2.right;
+		}
+		else if (m_Parameters.Direction == Direction.Left)
+		{
+			direction = Vector2.left;
+		}
+		return direction;
+
+	}
+	bool CheckWall()
+    {
+		List<RaycastHit2D> hits = new List<RaycastHit2D>();
+		hits.AddRange(Physics2D.RaycastAll(transform.position, GetDirection(), .5f));
+
+		return hits.Exists(x => x.collider.gameObject.TryGetComponent<Obstacle>(out _)) || hits.Exists(x => x.collider.gameObject.layer == 7);
+	}
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+		switch(m_Parameters.Direction)
+        {
+			case Direction.Up:
+				break;
+			case Direction.Down:
+				break;
+			case Direction.Right:
+				break;
+			case Direction.Left:
+				break;
+		}
+    }
+
     public override void Update()
     {
         if (_hP > 0)
@@ -73,8 +110,8 @@ public class SinusoidEnemy : Enemy
 
                     Bounds bounds = _view.bounds;
 
-                    _isActive = GeometryUtility.TestPlanesAABB(planes, bounds);
-                    if (_isActive)
+                    m_IsActive = GeometryUtility.TestPlanesAABB(planes, bounds);
+                    if (m_IsActive)
                     {
                         var Hits = Physics2D.RaycastAll(transform.position, (Hero.HeroTransform.position - transform.position).normalized, (Hero.HeroTransform.position - transform.position).magnitude);
                         bool isWall = false;
@@ -86,7 +123,7 @@ public class SinusoidEnemy : Enemy
                                 break;
                             }
                         }
-                        if (isWall) _isActive = false;
+                        if (isWall) m_IsActive = false;
                     }
                 }
             }
@@ -97,8 +134,6 @@ public class SinusoidEnemy : Enemy
 	public class ParametersDataModel
 	{
 		public float		Speed		= 1f;
-		public float		Amplitude	= 1f;
-		public float		Frequency	= 1f;
 		public Direction	Direction;
 	}
 

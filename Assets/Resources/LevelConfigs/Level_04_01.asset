@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533183b92f3f8a4419ddd8f6e73296d9, type: 3}
   m_Name: Level_04_01
   m_EditorClassIdentifier: 
+  LevelId: -1
   StaticEnemyPrefab: {fileID: 330483950547863099, guid: e76a62cacd4c5c64b9c9e633ad2d50f7, type: 3}
   PursuingEnemyPrefab: {fileID: 7760225138006752788, guid: 96d4686135705cb439f43f391f3e80bf, type: 3}
   SinusoidEnemyPrefab: {fileID: 4888069306686199014, guid: d31f78ce2cf7069469adfac37f985233, type: 3}
   ShootingEnemyPrefab: {fileID: 3869447843837250221, guid: 2f8a18c305bbb2e4393a4eedf7b74a59, type: 3}
+  LevelMusic: {fileID: 0}
+  Ambience: {fileID: 0}

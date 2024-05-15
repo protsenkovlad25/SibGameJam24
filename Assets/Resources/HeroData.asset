@@ -22,3 +22,7 @@ MonoBehaviour:
     SpeedIncreaseTime: 2
     Health: 10
     MaxHealth: 10
+    Range: 15
+    Delay: 0.3
+    Spread: 0
+    BulletsCount: 1
