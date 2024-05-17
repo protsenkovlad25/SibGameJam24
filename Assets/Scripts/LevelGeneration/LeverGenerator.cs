@@ -10,7 +10,7 @@ public class LeverGenerator : MonoBehaviour
 
     List<Chunk> m_Chunks;
 
-    int m_ChunksCount = 5;
+    int m_ChunksCount = 15;
 
     void Start()
     {
@@ -25,16 +25,21 @@ public class LeverGenerator : MonoBehaviour
 
         for(int i = 0; i< m_ChunksCount-1; i++)
         {
-            var c = CreateNewChunk();
-
-            ConnectChunks(m_Chunks.Last(),c);
-
-            m_Chunks.Add(c);
+            CreateAndConnect();
         }
+    }
+    void CreateAndConnect()
+    {
+        var c = CreateNewChunk();
+
+        ConnectChunks(m_Chunks.Last(), c);
+
+        m_Chunks.Add(c);
     }
     void ConnectChunks(Chunk oldChunk, Chunk newChunk)
     {
-        newChunk.transform.position += newChunk.Start -  oldChunk.End;
+        newChunk.transform.eulerAngles = new Vector3(0, 0, oldChunk.End.eulerAngles.z);
+        newChunk.transform.position += oldChunk.End.position - newChunk.Start.position;
     }
     Chunk CreateNewChunk()
     {
@@ -43,8 +48,13 @@ public class LeverGenerator : MonoBehaviour
         return chunk;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (m_Chunks[0].IsEnded)
+        {
+            Destroy(m_Chunks[0].gameObject);
+            m_Chunks.RemoveAt(0);
+            CreateAndConnect();
+        }
     }
 }

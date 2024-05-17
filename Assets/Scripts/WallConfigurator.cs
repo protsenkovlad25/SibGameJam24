@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallConfigurator : MonoBehaviour
+public class WallConfigurator : UnRotatableObject
 {
     [SerializeField] bool m_IsHorizontal;
     [SerializeField] List<Sprite> m_Sprites;
@@ -12,8 +12,10 @@ public class WallConfigurator : MonoBehaviour
 
     [SerializeField] bool m_IsAngle = false;
 
-    private void OnValidate()
+    protected override void Start()
     {
+        base.Start();
+        transform.eulerAngles = Vector3.zero;
         if(m_Sprites!=null)
         {
             if(m_Sprites.Count>0)

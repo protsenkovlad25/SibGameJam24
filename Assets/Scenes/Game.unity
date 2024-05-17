@@ -242,6 +242,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8763241601063193172, guid: 8568f07b0f4aec5419c0956f4e6f10ba, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8568f07b0f4aec5419c0956f4e6f10ba, type: 3}
 --- !u!114 &657034186 stripped
@@ -286,6 +290,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StartChunk: {fileID: 657034186}
   m_ChunkPrefabs:
+  - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
+  - {fileID: 2231302145880679822, guid: bd1853bce238a3943899fb75640b4cd9, type: 3}
+  - {fileID: 7746818261781609507, guid: 2209bf6062ee18746b16e295db6b2f2e, type: 3}
+  - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
+  - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
+  - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
   - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
 --- !u!4 &742168374
 Transform:
