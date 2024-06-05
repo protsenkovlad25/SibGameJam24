@@ -14,7 +14,7 @@ public class Chunk : MonoBehaviour
 
     float m_TimeFromEnd = 0;
 
-    public bool IsEnded => m_TimeFromEnd > 5;
+    public bool IsEnded => m_TimeFromEnd > 3;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

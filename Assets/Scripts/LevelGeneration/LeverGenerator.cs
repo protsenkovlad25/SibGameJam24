@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class LeverGenerator : MonoBehaviour
 {
+
+    [SerializeField] float m_GameLength;
+
+
     [SerializeField] Chunk m_StartChunk;
     [SerializeField] List<Chunk> m_ChunkPrefabs;
 
     List<Chunk> m_Chunks;
 
-    int m_ChunksCount = 15;
+    int m_ChunksCount = 6;
 
     void Start()
     {

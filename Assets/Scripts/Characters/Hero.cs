@@ -95,6 +95,7 @@ public class Hero : MonoBehaviour, ITakenDamage
 
     private void Fall()
     {
+        PlayerData.FallingDistance += new Vector3(Gravity.VectorDir.x, Gravity.VectorDir.y, 0).magnitude * m_FallSpeed * Time.deltaTime;
         transform.position += new Vector3(Gravity.VectorDir.x, Gravity.VectorDir.y, 0) * m_FallSpeed * Time.deltaTime;
     }
 

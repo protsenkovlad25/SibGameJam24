@@ -9,10 +9,14 @@ public static class PlayerData
     public static HeroData HeroData;
     public static WeaponData WeaponData;
     public static LevelConfigData LevelConfig;
+
+    public static float FallingDistance;
+
     public static void InitData(HeroConfig config)
     {
         HeroData = config.HeroData;
         Level = 1;
+        FallingDistance = 0;
     }
 
     public static  void NextLevel()
