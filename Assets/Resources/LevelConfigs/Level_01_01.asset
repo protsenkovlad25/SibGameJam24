@@ -19,3 +19,30 @@ MonoBehaviour:
   ShootingEnemyPrefab: {fileID: -1871457756134678909, guid: 8fad6e2f287ec0f4386c24776443a937, type: 3}
   LevelMusic: {fileID: 8300000, guid: 7abc7e7ae1428e34a9156c47c54c00da, type: 3}
   Ambience: {fileID: 8300000, guid: 5a25daeaef6f6bb4a8512b4edeb1f7d6, type: 3}
+  WallsSprites:
+  - {fileID: -1001366593, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: -1001366593, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: -1001366593, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: -568326650, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: -568326650, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: -568326650, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: 984731907, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: -943860654, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: 1621334977, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: 1621334977, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: 1621334977, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: 793525967, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: 1408315235, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: 16961341, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  - {fileID: -1493784265, guid: fdbf20f4470a6f94f893ade9231b8579, type: 3}
+  BackWallsSprites:
+  - {fileID: 308322309, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 308322309, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 308322309, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 1959851305, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 1959851305, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 1959851305, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 1959851305, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 1959851305, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 1959851305, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}
+  - {fileID: 1959851305, guid: 2f45adaeff0560f4980c7ceb88b3d7e5, type: 3}

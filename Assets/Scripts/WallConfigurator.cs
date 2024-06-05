@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class WallConfigurator : UnRotatableObject
 {
-    [SerializeField] bool m_IsHorizontal;
     [SerializeField] List<Sprite> m_Sprites;
-
     [SerializeField] Sprite m_AngleSprite;
 
     [SerializeField] bool m_IsAngle = false;
+    [SerializeField] bool m_IsHorizontal;
+
+    public List<Sprite> Sprites { get => m_Sprites; set => m_Sprites = value; }
 
     protected override void Start()
     {

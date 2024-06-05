@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce85a172864deee4eae734f597857940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameLength: 3000
   m_StartChunk: {fileID: 962045086561582783}
   m_ChunkPrefabs:
   - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
@@ -55,6 +54,7 @@ MonoBehaviour:
   - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
   - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
   - {fileID: 270909230649637498, guid: e26f36f494d6f87478b0ff5d90618c2a, type: 3}
+  m_ChunksCount: 6
 --- !u!1001 &1052620111968945349
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +5,15 @@ using UnityEngine;
 public class LevelConfigData : ScriptableObject
 {
 	public int LevelId;
+
 	public EnemyView StaticEnemyPrefab;
 	public EnemyView PursuingEnemyPrefab;
 	public EnemyView SinusoidEnemyPrefab;
 	public EnemyView ShootingEnemyPrefab;
-	public AudioClip		LevelMusic;
-	public AudioClip        Ambience;
+
+	public AudioClip LevelMusic;
+	public AudioClip Ambience;
+
+	public List<Sprite> WallsSprites;
+	public List<Sprite> BackWallsSprites;
 }

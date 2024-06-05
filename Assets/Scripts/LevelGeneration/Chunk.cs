@@ -7,14 +7,33 @@ public class Chunk : MonoBehaviour
     [SerializeField] private Transform m_Start;
     [SerializeField] private Transform m_End;
 
-    bool m_IsEnded = false;
+    private bool m_IsEnded = false;
+    private float m_TimeFromEnd = 0;
+    private List<WallConfigurator> m_Walls;
+    private List<WallConfigurator> m_BackWalls;
 
     public Transform Start => m_Start;
     public Transform End => m_End;
-
-    float m_TimeFromEnd = 0;
-
     public bool IsEnded => m_TimeFromEnd > 3;
+    public List<WallConfigurator> Walls => m_Walls;
+    public List<WallConfigurator> BackWalls => m_BackWalls;
+
+    public void Init()
+    {
+        m_Walls = new List<WallConfigurator>();
+        m_BackWalls = new List<WallConfigurator>();
+
+        foreach (Transform child in transform)
+        {
+            if (child.TryGetComponent<WallConfigurator>(out var wall))
+            {
+                if (wall.gameObject.layer == 7)
+                    m_Walls.Add(wall);
+                else
+                    m_BackWalls.Add(wall);
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
